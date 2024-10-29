@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interpolation</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Interpolation</h1>
+        <nav>
+            <a href="../index.html">Back to Home</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Lesson Content</h2>
+        <p>This is the content for Interpolation</p>
+        <p>Curve:
+            <select id="curveFamily">
+                <option value="linear">Linear</option>
+                <option value="power">Power</option>
+                <option value="-power">Reverse Power</option>
+                <option value="ease">Binomial Ease</option>
+            </select>
+        </p>
+        <p>Power: 
+           <input type="range" min="1" max="10" value="3" id="exponent" /> 
+        </p>
+
+        <canvas id="graph" width="256" height="256" style="border:1px solid #000000;"></canvas>
+
+        <script src="./interp.js"></script>
+    </main>
+
+    <footer>
+    </footer>
+</body>
+
+</html>
