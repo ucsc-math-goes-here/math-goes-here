@@ -1,3 +1,11 @@
+const curves = 
+{
+    linear: { name: "Linear", evaluator:  function(t,n) { return t; }, format:  "t", defaultPower: 1  }, 
+    power: { name: "Power", evaluator:  function(t,n) { return t**n;}, format:  "t<sup>_N_</sup>", defaultPower: 2   },
+    minus_power: { name: "Reverse Power", evaluator: function(t,n) { return 1 -(1- t)**n;}, format: "1 - (1-t)<sup>_N_</sup>", defaultPower: 2  },
+    binom_ease: { name: "Binomial Ease", evaluator: function(t,n) { return n * t ** (n-1) - (n -1)*t**n;}, format: "_N_t<sup>_N-1_</sup> - _N-1_t<sup>_N_</sup>", defaultPower: 3  },
+   
+}
 
 
 var c = document.getElementById("graph");
@@ -24,16 +32,25 @@ powerSelector.addEventListener("change", onCurveChanged);
 
 var expression = document.getElementById('expression'); 
 
+var lastCurve = null; 
+
 function onCurveChanged()
 {
     context.fillStyle = '#ffffff'; 
     context.fillRect(0,0,256,256); 
 
-    let power = powerSelector.value; 
     let curve = curves[curveSelector.value]; 
 
+    // If the curve changed, reset to default power. 
+    if (curve !== lastCurve) { 
+        powerSelector.value = curve.defaultPower; 
+    }
+    lastCurve = curve; 
 
-    expression.innerHTML = curve.format.replace('_N_', power);
+    let power = powerSelector.value; 
+   
+
+    expression.innerHTML = curve.format.replaceAll('_N_', power).replaceAll('_N-1_', power -1);
 
     context.beginPath(); 
     context.moveTo(0,0); 
