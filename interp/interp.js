@@ -4,6 +4,7 @@ const curves =
     power: { name: "Power", evaluator:  function(t,n) { return t**n;}, format:  "t<sup>_N_</sup>", defaultPower: 2   },
     minus_power: { name: "Reverse Power", evaluator: function(t,n) { return 1 -(1- t)**n;}, format: "1 - (1-t)<sup>_N_</sup>", defaultPower: 2  },
     binom_ease: { name: "Binomial Ease", evaluator: function(t,n) { return n * t ** (n-1) - (n -1)*t**n;}, format: "_N_t<sup>_N-1_</sup> - _N-1_t<sup>_N_</sup>", defaultPower: 3  },
+    sine: { name: "Sine Wave", evaluator: function(t,n) { return (0.5 - 0.5 * Math.cos(Math.PI * t));   }, format: "\\{\\frac{1-cos(\\pi t)}{2}\\}", defaultPower: 1}
    
 }
 
@@ -51,6 +52,10 @@ function onCurveChanged()
    
 
     expression.innerHTML = curve.format.replaceAll('_N_', power).replaceAll('_N-1_', power -1);
+
+    if (typeof MathJax.typeset !== "undefined") {
+        MathJax.typeset(); 
+    }
 
     context.beginPath(); 
     context.moveTo(0,0); 
