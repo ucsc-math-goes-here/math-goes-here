@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3D Dot Products</title>
     <link rel="stylesheet" href="../css/style.css">
+    <script src="exploratory/dot_product.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script 
+        type="text/javascript"
+        id="MathJax-script"
+        async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
 </head>
 <body>
     <header>
@@ -15,12 +29,65 @@
     </header>
     
     <main>
-        <h2>Lesson Content</h2>
-        <p>This is the content for 3D Dot Products</p>
-        <!-- Add lesson-specific content here -->
+        <section>
+            <h2>What is Dot Product?</h2>
+            <p>This is the content for 3D Dot Products</p>
+        </section>
+        <section>
+            <h2>Exploration Content</h2>
+            <canvas id="canvas" width="800px" height="450"></canvas>
+            <p>Try playing around with this app!</p>
+        </section>
+        <section>
+            <div>
+                <h2>Dot Product in 3D Graphics</h2>
+                <p>There's a lot of fun shader code you can write using dot product!</p>
+            </div>
+            <div>
+                <h3>Fresnel Shader</h3>
+                <img src="../asset/dotprod3d/fresnel.png" alt="">
+                <img src="../asset/dotprod3d/fresnel2.png" alt="">
+            </div>
+            
+            <div>
+                <h3>Channel Masking</h3>
+                <img src="../asset/dotprod3d/channel-masking.png" alt="">
+            </div>
+            
+            <div>
+                <h3>Grayscale</h3>
+                <img src="../asset/dotprod3d/grayscale.png" alt="">
+            </div>
+
+        </section>
     </main>
 
     <footer>
     </footer>
 </body>
+
+<script>
+    const myWasm = 'exploratory/dot_product'
+    const myPck = 'exploratory/dot_product.pck';
+    const engine = new Engine({
+        "args":[],
+        "canvasResizePolicy": 0,
+        "ensureCrossOriginIsolationHeaders":true,
+        "executable": "index","experimentalVK":false,
+        "focusCanvas": true,
+        "gdextensionLibs": []
+    });
+    Promise.all([
+        // Load and init the engine
+        engine.init(myWasm),
+        // And the pck concurrently
+        engine.preloadFile(myPck),
+    ]).then(() => {
+        // Now start the engine.
+        return engine.start({ args: ['--main-pack', myPck] });
+    }).then(() => {
+        console.log('Engine has started!');
+    });
+
+</script>
 </html>
