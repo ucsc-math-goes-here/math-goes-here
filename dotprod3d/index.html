@@ -30,8 +30,23 @@
     
     <main>
         <section>
-            <h2>What is Dot Product? </h2>
-            <p>This is the content for 3D Dot Products</p>
+            <div>
+                <h2>What is a Dot Product? </h2>
+                <p>A dot product can be used to learn about the relationship between two vectors</p>
+            </div>
+            <div>
+                <h3>Calculating the Dot Product</h3>
+                <div class="equation-box">
+                    $\vec{A} \cdot \vec{B} = |A||B|\cos \theta$
+                </div>
+                <p>You can break this equation down to two parts</p>
+
+                <h3>First part: $|A||B|$</h3>
+                <p>The first part of the equation tells you about the magnitude of the vectors.</p>
+
+                <h3>Second part: $\cos \theta$</h3>
+                <p>The second part has $\cos\theta$ which results in values between -1 and 1.</p>
+            </div>
         </section>
         <section>
             <h2>Exploration Content</h2>
@@ -88,6 +103,13 @@
     }).then(() => {
         console.log('Engine has started!');
     });
+
+    
+    if (typeof MathJax.typeset !== "undefined") {
+        MathJax.typeset(); 
+    } else {
+        console.log("MathJax not found");
+    }
 
 </script>
 </html>
