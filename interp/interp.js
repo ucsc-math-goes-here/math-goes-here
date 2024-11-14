@@ -1,10 +1,10 @@
 const curves = 
 {
-    linear: { name: "Linear", evaluator:  function(t,n) { return t; }, format:  "t", defaultPower: 1  }, 
-    power: { name: "Power", evaluator:  function(t,n) { return t**n;}, format:  "t<sup>_N_</sup>", defaultPower: 2   },
-    minus_power: { name: "Reverse Power", evaluator: function(t,n) { return 1 -(1- t)**n;}, format: "1 - (1-t)<sup>_N_</sup>", defaultPower: 2  },
-    binom_ease: { name: "Binomial Ease", evaluator: function(t,n) { return n * t ** (n-1) - (n -1)*t**n;}, format: "_N_t<sup>_N-1_</sup> - _N-1_t<sup>_N_</sup>", defaultPower: 3  },
-    sine: { name: "Sine Wave", evaluator: function(t,n) { return (0.5 - 0.5 * Math.cos(Math.PI * t));   }, format: "\\{\\frac{1-cos(\\pi t)}{2}\\}", defaultPower: 1}
+    linear: { name: "Linear", evaluator:  function(t,n) { return t; }, format:  "{{ F(t) = t }}", defaultPower: 1  }, 
+    power: { name: "Power", evaluator:  function(t,n) { return t**n;}, format:  "{{ F(t) = t^{_N_} }}", defaultPower: 2   },
+    minus_power: { name: "Reverse Power", evaluator: function(t,n) { return 1 -(1- t)**n;}, format: "{{ F(t) = 1 - (1-t)^{_N_} }}", defaultPower: 2  },
+    binom_ease: { name: "Binomial Ease", evaluator: function(t,n) { return n * t ** (n-1) - (n -1)*t**n;}, format: "{{ F(t) = _N_t^{_N-1_} - _N-1_t^{_N_} }}", defaultPower: 3  },
+    sine: { name: "Sine Wave", evaluator: function(t,n) { return (0.5 - 0.5 * Math.cos(Math.PI * t));   }, format: "{{F(t) = \\frac{1-cos(\\pi t)}{2} }}", defaultPower: 1}
    
 }
 

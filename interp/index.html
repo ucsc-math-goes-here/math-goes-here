@@ -22,7 +22,7 @@
             <select id="curveFamily">
             </select>
 
-            <br /> Formula: F(t) = <span id="expression" >?</span>
+            <br /> Formula: <span id="expression" >?</span>
         </p>
         <p>Power: 
            <input type="range" min="1" max="10" value="3" id="exponent" /> 
@@ -33,7 +33,7 @@
         <script>
             MathJax = {
               tex: {
-                inlineMath: [ ["\\{", "\\}" ] ]
+                inlineMath: [ ["{{", "}}" ] ]
               },
               svg: {
                 fontCache: 'global'
