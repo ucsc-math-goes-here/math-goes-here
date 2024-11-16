@@ -7,11 +7,11 @@ Math curriculum for video game developers
 
 ## Prerequisites
 
-### Install Node.js and npm
+### Install Node.js and npm (npm is included in Node.js)
 
 
 1. **Download Node.js**:
-   - Go to the [Node.js official website](https://nodejs.org/).
+   - Go to the [Node.js official website]([https://nodejs.org/](https://nodejs.org/en/download/prebuilt-installer)).
    - Download the **LTS** version for stability.
 
 2. **Install Node.js**:
@@ -29,7 +29,7 @@ Math curriculum for video game developers
    ```
    This will display the installed versions of Node.js and npm.
 
-4. **Set Environment Variables** (if needed):
+4. **Set Environment Variables** (Usually, the Node.js installer handles this automatically. If issues arise):
    - **Windows**:
      - Open "System Properties" (Start Menu → Search → Advanced System Settings → Environment Variables).
      - Ensure the path to Node.js is in the `PATH` variable under "System Variables."
