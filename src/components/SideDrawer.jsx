@@ -14,8 +14,7 @@ import ListItemText from '@mui/material/ListItemText';
 import { AppThemeContext } from '../contexts/AppThemeContext';
 
 
-function SideDrawer({ toggleSideDrawer, sidedrawerOpen, allOptions }) {
-  const [selectedIndex, setSelectedIndex] = useState(0);
+function SideDrawer({ toggleSideDrawer, sidedrawerOpen, allOptions, selectedIndex = 0, setSelectedIndex }) {
   const appTheme = useContext(AppThemeContext);
 
   const drawerWidth = 280;
@@ -58,18 +57,23 @@ function SideDrawer({ toggleSideDrawer, sidedrawerOpen, allOptions }) {
             </Box>
           ))}
         </List>
+        <div style={{ height: "60px" }} />
+        <Divider />
         <Box
           sx={{
-            position: 'absolute',
-            bottom: 0,
+            // position: 'absolute',
+            // bottom: 0,
             width: '100%',
             padding: 1,
-            marginBottom: 2,
+            marginTop: 1.5,
           }}
         >
-          <Button variant="contained" fullWidth sx={{ height: '55px', backgroundColor: appTheme.primaryColor, fontSize: 22,}}>
+          <Button variant="contained" fullWidth sx={{ height: '55px', backgroundColor: appTheme.primaryColor, fontSize: 22, marginBottom: 0.5}}>
             Start Lesson
           </Button>
+          <Typography sx={{fontSize: 14, color: '#909090'}}>
+            {allOptions[selectedIndex].name}
+          </Typography>
         </Box>
       </Box>
     </Drawer>

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useRef } from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 
 import Box from '@mui/material/Box';
@@ -19,19 +19,22 @@ import MailIcon from '@mui/icons-material/Mail';
 import { AppThemeContext } from '../contexts/AppThemeContext';
 import MainLayout from './MainLayout';
 import SideDrawer from '../components/SideDrawer';
+import LessonPreviewDotProducts from '../lessons/dotProducts/LessonPreviewDotProducts';
+import LessonPreviewInterpolationCurves from '../lessons/interpolationCurves/LessonPreviewInterpolationCurves';
 
-
-const allLessons = [
-  {name: "Interpolation Curves", unlocked: true, page: "InterpolationCurves"},
-  {name: "Dot Products", unlocked: true, page: "DotProducts"},
-  {name: "Add and Subtract", unlocked: false, page: "AddAndSubtract"},
-  {name: "Count to 10", unlocked: false, page: "CountTo10"},
-  {name: "Pronounce 'Math'", unlocked: false, page: "PronounceMath"},
-];
 
 function MainPage() {
   const [sidedrawerOpen, setSideDrawerOpen] = useState(true);
+  const [selectedLessonIndex, setSelectedLessonIndex] = useState(0);
   const appTheme = useContext(AppThemeContext);
+
+  const allLessons = useRef([
+    { name: "Interpolation Curves", unlocked: true, page: "InterpolationCurves", preview: (<LessonPreviewInterpolationCurves />) },
+    { name: "Dot Products", unlocked: true, page: "DotProducts", preview: (<LessonPreviewDotProducts />) },
+    { name: "Add and Subtract", unlocked: false, page: "AddAndSubtract" },
+    { name: "Count to 10", unlocked: false, page: "CountTo10" },
+    { name: "Pronounce 'Math'", unlocked: false, page: "PronounceMath" },
+  ]);
 
   const toggleSideDrawer = () => {
     setSideDrawerOpen(!sidedrawerOpen);
@@ -51,12 +54,10 @@ function MainPage() {
 
   return (
     <MainLayout headbarElement={headbarElement} toggleSideDrawer={toggleSideDrawer}>
-      <SideDrawer sidedrawerOpen={sidedrawerOpen} allOptions = {allLessons}/>
+      <SideDrawer sidedrawerOpen={sidedrawerOpen} allOptions={allLessons.current} selectedIndex={selectedLessonIndex} setSelectedIndex={setSelectedLessonIndex} />
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <Toolbar />
-        <Typography>
-          Let's enjoy the fun of learning math!
-        </Typography>
+        <Toolbar sx={{ height: appTheme.appBarHeight }} />
+        {allLessons.current[selectedLessonIndex].preview}
       </Box>
     </MainLayout>
   );
