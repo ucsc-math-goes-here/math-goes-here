@@ -17,10 +17,11 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 
 import { AppThemeContext } from '../contexts/AppThemeContext';
-import MainLayout from './MainLayout';
+import MainLayout from '../components/MainLayout';
 import SideDrawer from '../components/SideDrawer';
 import LessonPreviewDotProducts from '../lessons/dotProducts/LessonPreviewDotProducts';
 import LessonPreviewInterpolationCurves from '../lessons/interpolationCurves/LessonPreviewInterpolationCurves';
+import HeaderBarContent from '../components/HeaderBarContent';
 
 
 function MainPage() {
@@ -29,11 +30,11 @@ function MainPage() {
   const appTheme = useContext(AppThemeContext);
 
   const allLessons = useRef([
-    { name: "Interpolation Curves", unlocked: true, page: "InterpolationCurves", preview: (<LessonPreviewInterpolationCurves />) },
-    { name: "Dot Products", unlocked: true, page: "DotProducts", preview: (<LessonPreviewDotProducts />) },
-    { name: "Add and Subtract", unlocked: false, page: "AddAndSubtract" },
-    { name: "Count to 10", unlocked: false, page: "CountTo10" },
-    { name: "Pronounce 'Math'", unlocked: false, page: "PronounceMath" },
+    { name: "Interpolation Curves", unlocked: true, page: "interpolationcurves", preview: (<LessonPreviewInterpolationCurves />) },
+    { name: "Dot Products", unlocked: true, page: "dotproducts", preview: (<LessonPreviewDotProducts />) },
+    { name: "Add and Subtract", unlocked: false, page: "addandsubtract" },
+    { name: "Count to 10", unlocked: false, page: "countto10" },
+    { name: "Pronounce 'Math'", unlocked: false, page: "pronouncemath" },
   ]);
 
   const toggleSideDrawer = () => {
@@ -41,7 +42,7 @@ function MainPage() {
   };
 
   const headbarElement = (
-    <div>
+    <HeaderBarContent>
       <Typography variant="h3" component="div">
         Math Goes Here
       </Typography>
@@ -49,14 +50,13 @@ function MainPage() {
       <Typography variant="h7" component="div">
         Welcome to Math Goes Here! Browse through the lessons below.
       </Typography>
-    </div>
+    </HeaderBarContent>
   );
 
   return (
     <MainLayout headbarElement={headbarElement} toggleSideDrawer={toggleSideDrawer}>
       <SideDrawer sidedrawerOpen={sidedrawerOpen} allOptions={allLessons.current} selectedIndex={selectedLessonIndex} setSelectedIndex={setSelectedLessonIndex} />
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <Toolbar sx={{ height: appTheme.appBarHeight }} />
+      <Box component="main" sx={{ flexGrow: 1}}>
         {allLessons.current[selectedLessonIndex].preview}
       </Box>
     </MainLayout>

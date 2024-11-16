@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -16,9 +17,12 @@ import { AppThemeContext } from '../contexts/AppThemeContext';
 
 function SideDrawer({ toggleSideDrawer, sidedrawerOpen, allOptions, selectedIndex = 0, setSelectedIndex }) {
   const appTheme = useContext(AppThemeContext);
+  const navigate = useNavigate();
 
   const drawerWidth = 280;
-
+  const navigateToLessonPage = (page) => {
+    navigate('/' + page + '_learn');
+  }
 
   return (
     <Drawer
@@ -68,10 +72,13 @@ function SideDrawer({ toggleSideDrawer, sidedrawerOpen, allOptions, selectedInde
             marginTop: 1.5,
           }}
         >
-          <Button variant="contained" fullWidth sx={{ height: '55px', backgroundColor: appTheme.primaryColor, fontSize: 22, marginBottom: 0.5}}>
+          <Button variant="contained" fullWidth
+            onClick={() => navigateToLessonPage(allOptions[selectedIndex].page)}
+            sx={{ height: '55px', backgroundColor: appTheme.primaryColor, fontSize: 22, marginBottom: 0.5 }}
+          >
             Start Lesson
           </Button>
-          <Typography sx={{fontSize: 14, color: '#909090'}}>
+          <Typography sx={{ fontSize: 14, color: '#909090' }}>
             {allOptions[selectedIndex].name}
           </Typography>
         </Box>

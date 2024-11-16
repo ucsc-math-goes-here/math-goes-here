@@ -6,7 +6,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
 
 import { AppThemeContext } from '../contexts/AppThemeContext';
-import HeaderBar from '../components/HeaderBar';
+import HeaderBar from './HeaderBar';
 
 const MainLayout = ({ headbarElement, children }) => {
   const appTheme = useContext(AppThemeContext);
@@ -17,7 +17,11 @@ const MainLayout = ({ headbarElement, children }) => {
       <HeaderBar>
           {headbarElement}
       </HeaderBar>
-      {children}
+      <Toolbar sx={{ height: appTheme.appBarHeight }} />
+      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+        <Toolbar sx={{ height: appTheme.appBarHeight }} />
+        {children}
+      </Box>
     </Box>
   );
 };
