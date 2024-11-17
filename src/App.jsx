@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { createTheme, ThemeProvider, CssBaseline, Typography } from "@mui/material";
 import './App.css'
 
 import MainPage from './pages/MainPage'
@@ -10,16 +11,25 @@ import { AppThemeProvider } from './contexts/AppThemeContext'
 
 
 function App() {
+  const darkTheme = createTheme({
+    palette: {
+      mode: "light",
+    },
+  });
+
   return (
-    <AppThemeProvider>
-      <Router>
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/interpolationcurves_learn" element={<LessonLearnInterpolationCurve />} />
-          <Route path="/dotproducts_learn" element={<LessonLearnDotProduct />} />
-        </Routes>
-      </Router>
-    </AppThemeProvider>
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <AppThemeProvider>
+        <Router>
+          <Routes>
+            <Route path="/" element={<MainPage />} />
+            <Route path="/interpolationcurves_learn" element={<LessonLearnInterpolationCurve />} />
+            <Route path="/dotproducts_learn" element={<LessonLearnDotProduct />} />
+          </Routes>
+        </Router>
+      </AppThemeProvider>
+    </ThemeProvider>
   )
 }
 
