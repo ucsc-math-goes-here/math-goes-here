@@ -11,7 +11,7 @@ function LessonPreviewDotProducts() {
       </Typography>
       <div style={{ height: '20px' }} />
       <Typography>
-        Interpolation curves connect data points smoothly, widely used in animations and graphics. Learn key types like linear and spline interpolation with practical examples.
+        The dot product links vectors, revealing angles and projections. Discover its calculation, meaning, and applications in geometry and physics.
       </Typography>
     </div>
   );
