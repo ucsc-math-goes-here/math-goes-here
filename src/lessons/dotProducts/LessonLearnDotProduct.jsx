@@ -1,10 +1,26 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Box, Typography, AppBar, Toolbar, Container, Link, Divider } from '@mui/material';
 import { MathJax, MathJaxContext } from 'better-react-mathjax';
 
 import LessonLearnLayout from '../../lessons/LessonLearnLayout';
+import {createGameScene} from '../../threejs/dot_product/dotProductEntry';
 
 function LessonLearnDotProduct() {
+  const displayPortRef = useRef(null);
+
+  useEffect(() => {
+    console.log('Creating game scene...');
+    if (displayPortRef.current) {
+      const { scene, camera, renderer } = createGameScene(displayPortRef.current);
+
+      return () => {
+        renderer.dispose();
+        if (displayPortRef.current) {
+          displayPortRef.current.removeChild(renderer.domElement);
+        }
+      };
+    }
+  }, []);
 
   return (
     <LessonLearnLayout pageTitle="Dot Products">
@@ -61,16 +77,15 @@ function LessonLearnDotProduct() {
               <Typography variant="h4" gutterBottom align="left" sx={{ fontWeight: 'bold' }} >
                 Exploration Content
               </Typography>
-              <Box
-                component="canvas"
-                id="canvas"
-                sx={{
+              <div
+                ref={displayPortRef}
+                style={{
                   width: '100%',
                   height: 450,
                   backgroundColor: '#e0e0e0',
                   display: 'block',
                 }}
-              ></Box>
+              ></div>
               <Typography variant="body1" align="left" sx={{ mt: 2 }}>
                 Try playing around with this app!
               </Typography>
