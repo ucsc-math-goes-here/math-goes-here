@@ -6,6 +6,13 @@ import LessonLearnLayout from '../../lessons/LessonLearnLayout';
 import {createGameScene} from '../../threejs/dot_product/dotProductEntry';
 import QuizItem from '../../components/quizItem';
 
+import dot1 from'../../assets/dotprod3d/dot1.png';
+import fresnel from'../../assets/dotprod3d/fresnel.png';
+import fresnel2 from'../../assets/dotprod3d/fresnel2.png';
+import channelMasking from'../../assets/dotprod3d/channel-masking.png';
+import grayscale from'../../assets/dotprod3d/grayscale.png';
+
+
 function LessonLearnDotProduct() {
   const displayPortRef = useRef(null);
 
@@ -122,7 +129,7 @@ function LessonLearnDotProduct() {
               </Typography>
               <QuizItem 
                 questionString={"Q1: Vectors A and B are pointing in the same direction. Which of the following equations are true? Check all that apply."}
-                imageUrl={"../asset/dotprod3d/dot1.png"}
+                imageUrl={dot1}
                 choices={[
                   {
                     label: "A • B = |A||B|",
@@ -160,12 +167,12 @@ function LessonLearnDotProduct() {
                 </Typography>
                 <Box sx={{ display: 'flex', gap: 2, "flex-flow": 'column' }}>
                   <img
-                    src="../asset/dotprod3d/fresnel.png"
+                    src={fresnel}
                     alt="Fresnel Shader"
                     style={{ width: '50%', height: 'auto' }}
                   />
                   <img
-                    src="../asset/dotprod3d/fresnel2.png"
+                    src={fresnel2}
                     alt="Fresnel Shader Example"
                     style={{ width: '50%', height: 'auto' }}
                   />
@@ -177,7 +184,7 @@ function LessonLearnDotProduct() {
                   Channel Masking
                 </Typography>
                 <img
-                  src="../asset/dotprod3d/channel-masking.png"
+                  src={channelMasking}
                   alt="Channel Masking"
                   style={{ width: '100%', height: 'auto' }}
                 />
@@ -188,7 +195,7 @@ function LessonLearnDotProduct() {
                   Grayscale
                 </Typography>
                 <img
-                  src="../asset/dotprod3d/grayscale.png"
+                  src={grayscale}
                   alt="Grayscale Example"
                   style={{ width: '100%', height: 'auto' }}
                 />
