@@ -5,4 +5,8 @@ import react from '@vitejs/plugin-react-swc'
 export default defineConfig({
   base: '/math-goes-here/',
   plugins: [react()],
+  build: {
+    outDir: './docs',
+    emptyOutDir: true
+  }
 })
