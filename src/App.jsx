@@ -21,7 +21,7 @@ function App() {
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
       <AppThemeProvider>
-        <Router>
+        <Router basename="/math-goes-here">
           <Routes>
             <Route path="/" element={<MainPage />} />
             <Route path="/interpolationcurves_learn" element={<LessonLearnInterpolationCurve />} />
