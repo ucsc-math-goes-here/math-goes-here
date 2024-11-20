@@ -16,7 +16,7 @@ function App() {
       mode: "light",
     },
   });
-  print(" deploying to github pages #1 ");
+  console.log(" deploying to github pages #1 ");
 
   return (
     <ThemeProvider theme={darkTheme}>
