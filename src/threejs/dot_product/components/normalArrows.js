@@ -13,9 +13,9 @@ export async function createNormalArrows(scene, options = {}, lightSource) {
     loader.load('./models/lightPointer.fbx', resolve, undefined, reject);
   });
 
-  planeNormalPointer.scale.set(scale * 1.1, scale * 1.1, scale);
+  planeNormalPointer.scale.set(scale, scale, scale);
   planeNormalPointer.position.set(position.x, position.y, position.z);
-  const groundNormalMaterial = new THREE.MeshStandardMaterial({ color: 0xff0000 });
+  const groundNormalMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000, depthTest: false });
   planeNormalPointer.traverse((child) => {
     if (child.isMesh) {
       child.material = groundNormalMaterial;
@@ -23,6 +23,7 @@ export async function createNormalArrows(scene, options = {}, lightSource) {
   });
   const pointerUpPosition1 = new THREE.Vector3(planeNormalPointer.position.x, planeNormalPointer.position.y + 1, planeNormalPointer.position.z);
   planeNormalPointer.lookAt(pointerUpPosition1);
+  planeNormalPointer.renderOrder = 1;
   scene.add(planeNormalPointer);
 
   const lightSourcePointer = await new Promise((resolve, reject) => {
@@ -31,12 +32,13 @@ export async function createNormalArrows(scene, options = {}, lightSource) {
 
   lightSourcePointer.scale.set(scale, scale, scale);
   lightSourcePointer.position.set(position.x, position.y, position.z);
-  const lightSourceMaterial = new THREE.MeshStandardMaterial({ color: 0x0000ff });
+  const lightSourceMaterial = new THREE.MeshBasicMaterial({ color: 0x0000ff, depthTest: false });
   lightSourcePointer.traverse((child) => {
     if (child.isMesh) {
       child.material = lightSourceMaterial;
     }
   });
+  lightSourcePointer.renderOrder = 2;
   scene.add(lightSourcePointer);
 
 
@@ -44,9 +46,9 @@ export async function createNormalArrows(scene, options = {}, lightSource) {
     loader.load('./models/lightPointer.fbx', resolve, undefined, reject);
   });
 
-  dotLengthPointer.scale.set(scale * 0.8, scale * 0.8, scale);
-  dotLengthPointer.position.set(position.x, position.y, position.z + 0.6);
-  const dotLengthPointerMaterial = new THREE.MeshStandardMaterial({ color: 0xffff00 });
+  dotLengthPointer.scale.set(scale, scale, scale);
+  dotLengthPointer.position.set(position.x, position.y, position.z);
+  const dotLengthPointerMaterial = new THREE.MeshBasicMaterial({ color: 0xffff00, depthTest: false });
   dotLengthPointer.traverse((child) => {
     if (child.isMesh) {
       child.material = dotLengthPointerMaterial;
@@ -55,6 +57,7 @@ export async function createNormalArrows(scene, options = {}, lightSource) {
 
   const pointerUpPosition2 = new THREE.Vector3(dotLengthPointer.position.x, dotLengthPointer.position.y + 1, dotLengthPointer.position.z);
   dotLengthPointer.lookAt(pointerUpPosition2);
+  dotLengthPointer.renderOrder = 3;
   scene.add(dotLengthPointer);
 
 
