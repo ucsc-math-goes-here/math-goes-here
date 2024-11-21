@@ -69,9 +69,22 @@ npm run dev
 
 This will launch the app in your default browser at `http://localhost:xxxx/`.
 
-## Deploy The Build
-```bash
-# Using npm, in the root directory of this project, where this file is located
-# This has not yet set up.
-npm run deploy
-```
+## Deployment
+1. **Make Changes to the Repository**  
+   Modify this repository as needed. Once you are satisfied with the changes, stage and commit them.
+
+2. **Run the Build Command**  
+   Before pushing your commit, you need to build the project first. The build process will ensure that your updates are compiled and prepared for deployment.
+   Run the following command:
+   ```bash
+   npm run build
+   ```
+   This will generate the updated static files in the `docs` folder.
+
+3. **Push the Changes to the Repository**  
+   Push your updates to the `main` branch. Once the push is complete, the redeployment process on GitHub Pages will be triggered.
+
+### Notes
+- The deployed content on GitHub Pages is served from the `/docs` folder in this repository.
+- Ensure to run `npm run build` before pushing changes to `main`. Skipping this step will result in outdated content being displayed on the web page.
+
