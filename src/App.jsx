@@ -17,7 +17,7 @@ function App() {
     },
   });
 
-  console.log("testing run 1");
+  console.log("testing run 2");
 
   return (
     <ThemeProvider theme={darkTheme}>
