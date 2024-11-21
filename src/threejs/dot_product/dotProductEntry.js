@@ -31,13 +31,12 @@ export function createGameScene(container, options = {}) {
   const {
     planeEuler,
     planePosition,
-    lightSourcePosition,
-    showPlaneNormal = true,
-    showLightDirection = true,
-    showDotProduct = true,
+    lightSourceAngle = 0,
+    lightSourceOrbit = 0,
     planeColor = 0xff3333,
     lightPointerColor = 0x3333ff,
     dotProductPointerColor = 0xffff33,
+    controls = {},
     onDotProductChange = (value) => { },
   } = options;
 
@@ -45,7 +44,7 @@ export function createGameScene(container, options = {}) {
   scene.background = new THREE.Color(0x333333);
 
   const camera = new THREE.PerspectiveCamera(40, container.clientWidth / container.clientHeight, 0.1, 1000);
-  camera.position.set(0, 0.5, 5);
+  camera.position.set(0, 0, 8.5);
   const renderer = new THREE.WebGLRenderer({ antialias: true });
   renderer.setSize(container.clientWidth, container.clientHeight);
   container.appendChild(renderer.domElement);
@@ -65,7 +64,7 @@ export function createGameScene(container, options = {}) {
   ground.scale.set(4, 0.2, 4);
   scene.add(ground);
 
-  const movableSun = createMovableObjectSun(ground);
+  const movableSun = createMovableObjectSun(ground, 5, { controls });
   scene.add(movableSun.sun);
   scene.add(movableSun.directionalLight);
 
@@ -75,6 +74,8 @@ export function createGameScene(container, options = {}) {
   createNormalArrows(scene, {
     scale: 0.001,
     position: { x: 0, y: -1.8, z: -5 },
+    onDotProductChange,
+    controls,
   }, movableSun.sun).then((results) => {
     normalArrows = results;
   }).catch((error) => {
@@ -82,9 +83,9 @@ export function createGameScene(container, options = {}) {
   });
   // =======================================================================================================
 
-  setupMouseDrag(document, (dragDistance) => {
-    movableSun.sun.rotateAroundCenter(dragDistance);
-  });
+  // setupMouseDrag(document, (dragDistance) => {
+  //   movableSun.sun.rotateAroundCenter(dragDistance);
+  // });
 
   function animate() {
     requestAnimationFrame(animate);
