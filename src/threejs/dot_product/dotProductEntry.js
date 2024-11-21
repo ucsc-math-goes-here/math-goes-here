@@ -27,8 +27,20 @@ Juicy stuff:
  * @description
  * A dot product visualizer.
  */
-export function createGameScene(container) {
-  console.log('Creating game scene... in threejs');
+export function createGameScene(container, options = {}) {
+  const {
+    planeEuler,
+    planePosition,
+    lightSourcePosition,
+    showPlaneNormal = true,
+    showLightDirection = true,
+    showDotProduct = true,
+    planeColor = 0xff3333,
+    lightPointerColor = 0x3333ff,
+    dotProductPointerColor = 0xffff33,
+    onDotProductChange = (value) => { },
+  } = options;
+
   const scene = new THREE.Scene();
   scene.background = new THREE.Color(0x333333);
 
