@@ -7,6 +7,12 @@ export default defineConfig({
   plugins: [react()],
   build: {
     outDir: './docs',
-    emptyOutDir: true
+    emptyOutDir: true,
+    rollupOptions: {
+      input: {
+        main: 'index.html',
+        notFound: './404.html',
+      },
+    },
   }
 })
