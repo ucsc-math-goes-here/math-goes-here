@@ -17,6 +17,8 @@ function App() {
     },
   });
 
+  console.log("testing run 1");
+
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
