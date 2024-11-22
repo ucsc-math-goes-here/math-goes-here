@@ -3,13 +3,14 @@ import { setupMouseDrag } from './utils/mouseDrag.js';
 import { createMovableObjectSun } from './components/movableObjectSun.js';
 import { createNormalArrows } from './components/normalArrows.js';
 
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
 /*
 TODOs:
-1: Add a global z value for standard object depth.
-2: Add a shader that will show the dot product of the two vectors.
-3: Make the sun movement a rotation instead of a translation.
-4: Skybox. Something suitable. Maybe a solar system.
-5: Add texts.
+1: Orbit Camera.
+2: Orbit Rotation of light source
+3: ground plane Roation and normal display.
+4: beautify
 
 Juicy stuff:
 1: Add a post processing effect for light.
@@ -44,25 +45,33 @@ export function createGameScene(container, options = {}) {
   scene.background = new THREE.Color(0x333333);
 
   const camera = new THREE.PerspectiveCamera(40, container.clientWidth / container.clientHeight, 0.1, 1000);
-  camera.position.set(0, 0, 8.5);
+
   const renderer = new THREE.WebGLRenderer({ antialias: true });
   renderer.setSize(container.clientWidth, container.clientHeight);
   container.appendChild(renderer.domElement);
 
-  // ADDIING ALL LIGHTS
-  // =======================================================================================================
-  const ambientLight = new THREE.AmbientLight(0x777777, 1);
-  scene.add(ambientLight);
-  // =======================================================================================================
-
-  // ADDING OBJECTS
-  // =======================================================================================================
   const geometry = new THREE.BoxGeometry();
   const material = new THREE.MeshStandardMaterial({ color: 0xff3333 });
   const ground = new THREE.Mesh(geometry, material);
   ground.position.set(0, -2, -5);
   ground.scale.set(4, 0.2, 4);
   scene.add(ground);
+
+  const orbitControls = new OrbitControls( camera, renderer.domElement );
+  camera.position.set(0, 0, 8.5);
+  orbitControls.target.set(ground.position.x, ground.position.y + 2, ground.position.z);
+  orbitControls.update();
+
+  function updateCameraPosition(time) {
+    orbitControls.update();
+  }
+
+
+  // ADDIING ALL LIGHTS
+  // =======================================================================================================
+  const ambientLight = new THREE.AmbientLight(0x777777, 1);
+  scene.add(ambientLight);
+  // =======================================================================================================
 
   const movableSun = createMovableObjectSun(ground, 5, { controls });
   scene.add(movableSun.sun);
@@ -87,15 +96,16 @@ export function createGameScene(container, options = {}) {
   //   movableSun.sun.rotateAroundCenter(dragDistance);
   // });
 
-  function animate() {
+  function animate(time) {
     requestAnimationFrame(animate);
     if (normalArrows) {
       // this might not be ready immediately
       normalArrows.lightSourcePointer.update();
     }
+    updateCameraPosition(time);
     renderer.render(scene, camera);
   }
-  animate();
+  animate(0);
 
   window.addEventListener('resize', () => {
     renderer.setSize(container.clientWidth, container.clientHeight);
