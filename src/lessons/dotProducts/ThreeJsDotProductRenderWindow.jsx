@@ -15,9 +15,10 @@ function ThreeJsDotProductRenderWindow() {
   const [showPlaneNormal, setShowPlaneNormal] = useState(true);
   const [showDirectionToLight, setShowDirectionToLight] = useState(true);
   const [showDotProduct, setShowDotProduct] = useState(true);
-  const [lightSourceRotation, setLightSourceRotation] = useState(90);
+  const [lightSourceRotation, setLightSourceRotation] = useState(0);
   const [lightSourceOrbit, setLightSourceOrbit] = useState(0);
-  
+
+  const rendererRef = useRef(null);
   const displayPortRef = useRef(null);
   const sceneControls = useRef({}); // For later: a defined class would be better
 
@@ -33,11 +34,13 @@ function ThreeJsDotProductRenderWindow() {
         controls: sceneControls.current,
       };
       const { scene, camera, renderer } = createGameScene(displayPortRef.current, options);
-
+      rendererRef.current = renderer;
       return () => {
-        renderer.dispose();
-        if (displayPortRef.current) {
-          displayPortRef.current.removeChild(renderer.domElement);
+        if (rendererRef.current) {
+          rendererRef.current.dispose();
+          if (displayPortRef.current) {
+            displayPortRef.current.removeChild(rendererRef.current.domElement);
+          }
         }
       };
     }
@@ -75,7 +78,32 @@ function ThreeJsDotProductRenderWindow() {
     console.log(sceneControls.current);
     sceneControls.current.updateLightSourceRotation?.(event.target.value);
   }
-  
+
+  const reset = () => {
+    setLightSourceOrbit(0);
+    sceneControls.current.updateLightSourceOrbit?.(0);
+    setLightSourceRotation(0);
+    sceneControls.current.updateLightSourceRotation?.(0);
+    setDotProduct(1.0);
+    setShowDirectionToLight(true);
+    sceneControls.current.updateShowLightPointer?.(true);
+    setShowDotProduct(true);
+    sceneControls.current.updateShowDotLengthPointer?.(true);
+    setShowPlaneNormal(true);
+    sceneControls.current.updateShowPlaneNormal?.(true);
+
+    rendererRef.current.dispose();
+    if (displayPortRef.current) {
+      displayPortRef.current.removeChild(rendererRef.current.domElement);
+    }
+    const options = {
+      onDotProductChange: onDotProductChange,
+      controls: sceneControls.current,
+    };
+    const { scene, camera, renderer } = createGameScene(displayPortRef.current, options);
+    rendererRef.current = renderer;
+  }
+
 
   return (
     <div ref={displayPortRef}
@@ -100,7 +128,7 @@ function ThreeJsDotProductRenderWindow() {
           control={<Switch checked={showDotProduct} onChange={handleShowDotProductChange} name="showDotProduct" />}
           label="Show Dot Product"
         />
-        <Button variant="contained" color="primary">
+        <Button variant="contained" color="primary" onClick={reset}>
           Reset
         </Button>
       </div>
@@ -127,7 +155,7 @@ function ThreeJsDotProductRenderWindow() {
         <Slider
           value={lightSourceRotation}
           onChange={handleRotationChange}
-          min={0} max={180}
+          min={-90} max={90}
           aria-label="Rotation"
           valueLabelDisplay="auto"
           style={{ marginTop: 0 }}
