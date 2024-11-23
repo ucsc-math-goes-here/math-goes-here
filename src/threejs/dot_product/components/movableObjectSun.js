@@ -1,5 +1,4 @@
 import * as THREE from 'three';
-import { or } from 'three/webgpu';
 
 /**
  * Creates a movable object (sun) that can be moved circularly around the lightTarget, basing on drag distance.
@@ -46,19 +45,6 @@ export function createMovableObjectSun(lightTarget, radius = 5, options = {}) {
     sun.rotation.set(0, THREE.MathUtils.degToRad(orbit), THREE.MathUtils.degToRad(angle));
     sun.translateOnAxis(new THREE.Vector3(0, 1, 0), radius);
   };
-  // sun.rotateAroundCenter = function (dragDistance) {
-  //   angle += dragDistance * -0.3;
-  //   angle = THREE.MathUtils.clamp(angle, 0, 180);
-
-  //   sun.position.set(
-  //     center.x + radius * Math.cos(THREE.MathUtils.degToRad(angle)),
-  //     center.y + radius * Math.sin(THREE.MathUtils.degToRad(angle)),
-  //     center.z
-  //   );
-
-  //   directionalLight.position.copy(sun.position);
-  //   directionalLight.target.updateMatrixWorld();
-  // };
 
   return { sun, directionalLight };
 }

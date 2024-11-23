@@ -4,11 +4,11 @@ import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js';
 import * as THREE from 'three';
 
 
-export async function createNormalArrows(scene, options = {}, lightSource) {
+export async function createNormalArrows(scene, lightSource, ground, options = {},) {
   const pointersLength = 2;
   const loader = new FBXLoader();
-  const { scale = 0.1, position = { x: 0, y: 0, z: -5 }, onDotProductChange, controls } = options;
-
+  const { scale = 0.1, onDotProductChange, controls } = options;
+  let position = new THREE.Vector3(ground.position.x, ground.position.y + 0.2, ground.position.z);
   const planeNormalPointer = await new Promise((resolve, reject) => {
     loader.load('./models/lightPointer.fbx', resolve, undefined, reject);
   });
@@ -21,8 +21,13 @@ export async function createNormalArrows(scene, options = {}, lightSource) {
       child.material = groundNormalMaterial;
     }
   });
-  const pointerUpPosition1 = new THREE.Vector3(planeNormalPointer.position.x, planeNormalPointer.position.y + 1, planeNormalPointer.position.z);
-  planeNormalPointer.lookAt(pointerUpPosition1);
+
+  const upDirection = new THREE.Vector3(0, 1, 0);
+  const worldUpDirection = ground.localToWorld(upDirection.clone()).sub(ground.position).normalize();
+  const groundUpwardLookPosition = position.clone().add(worldUpDirection);
+
+  planeNormalPointer.lookAt(groundUpwardLookPosition);
+
   planeNormalPointer.renderOrder = 1;
   scene.add(planeNormalPointer);
 
@@ -55,8 +60,7 @@ export async function createNormalArrows(scene, options = {}, lightSource) {
     }
   });
 
-  const pointerUpPosition2 = new THREE.Vector3(dotLengthPointer.position.x, dotLengthPointer.position.y + 1, dotLengthPointer.position.z);
-  dotLengthPointer.lookAt(pointerUpPosition2);
+  dotLengthPointer.lookAt(groundUpwardLookPosition);
   dotLengthPointer.renderOrder = 3;
   scene.add(dotLengthPointer);
 
@@ -71,8 +75,15 @@ export async function createNormalArrows(scene, options = {}, lightSource) {
     directionVector.subVectors(lightSource.position, lightSourcePointer.position).normalize();
     lightSourcePointer.lookAt(lightSource.position);
 
-    let dotProduct = directionVector.dot(new THREE.Vector3(0, 1, 0));
-    dotProduct = Math.max(0, dotProduct);
+    const upDirection = new THREE.Vector3(0, 1, 0);
+    const worldUpDirection = ground.localToWorld(upDirection.clone()).sub(ground.position).normalize();
+    console.log(worldUpDirection, directionVector);
+    const groundUpwardLookPosition = position.clone().add(worldUpDirection);
+    planeNormalPointer.lookAt(groundUpwardLookPosition);
+    dotLengthPointer.lookAt(groundUpwardLookPosition);
+
+    let dotProduct = directionVector.dot(worldUpDirection);
+    // dotProduct = Math.max(0, dotProduct);
     onDotProductChange(dotProduct);
 
     dotLengthPointer.scale.set(dotLengthPointer.scale.x, dotLengthPointer.scale.y, scale * dotProduct);
@@ -99,7 +110,6 @@ export async function createNormalArrows(scene, options = {}, lightSource) {
     } else {
       dotLengthPointer.visible = false;
     }
-
   }
 
   return { groundNormalPointer: planeNormalPointer, lightSourcePointer };

@@ -79,6 +79,10 @@ function ThreeJsDotProductRenderWindow() {
     sceneControls.current.updateLightSourceRotation?.(event.target.value);
   }
 
+  const handleJoystickMove = (event) => {
+    sceneControls.current.updateGroundRotation?.(-event.y * 0.5, -event.x * 0.5);
+  }
+
   const reset = () => {
     setLightSourceOrbit(0);
     sceneControls.current.updateLightSourceOrbit?.(0);
@@ -110,7 +114,7 @@ function ThreeJsDotProductRenderWindow() {
       style={{
         position: 'relative',
         width: '100%',
-        height: 600,
+        height: 450,
         backgroundColor: '#e0e0e0',
         display: 'block',
         userSelect: 'none',
@@ -119,14 +123,17 @@ function ThreeJsDotProductRenderWindow() {
         <FormControlLabel
           control={<Switch checked={showPlaneNormal} onChange={handleShowPlaneNormalChange} name="showPlaneNormal" />}
           label="Show Plane Normal"
+          style={{ color: 'white' }}
         />
         <FormControlLabel
           control={<Switch checked={showDirectionToLight} onChange={handleShowDirectionToLightChange} name="showDirectionToLight" />}
           label="Show Direction To Light"
+          style={{ color: 'white' }}
         />
         <FormControlLabel
           control={<Switch checked={showDotProduct} onChange={handleShowDotProductChange} name="showDotProduct" />}
           label="Show Dot Product"
+          style={{ color: 'white' }}
         />
         <Button variant="contained" color="primary" onClick={reset}>
           Reset
@@ -162,7 +169,7 @@ function ThreeJsDotProductRenderWindow() {
         />
       </div>
       <div style={{ position: 'absolute', bottom: 40, right: 40 }}>
-        <Joystick size={100} sticky={true} baseColor="#00000077" stickColor="#bbbbbbff" move={(event) => { console.log(event) }} stop={(event) => { console.log("input stopped") }}></Joystick>
+        <Joystick size={100} sticky={true} baseColor="#00000077" stickColor="#bbbbbbff" move={handleJoystickMove} ></Joystick>
       </div>
     </div>
   );

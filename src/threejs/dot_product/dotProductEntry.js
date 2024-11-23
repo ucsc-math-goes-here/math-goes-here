@@ -65,7 +65,9 @@ export function createGameScene(container, options = {}) {
   function updateCameraPosition(time) {
     orbitControls.update();
   }
-
+  controls.updateGroundRotation = (xRotation, zRotation) => {
+    ground.rotation.set(xRotation, 0, zRotation);
+  };
 
   // ADDIING ALL LIGHTS
   // =======================================================================================================
@@ -80,12 +82,11 @@ export function createGameScene(container, options = {}) {
 
 
   let normalArrows = null;
-  createNormalArrows(scene, {
+  createNormalArrows(scene, movableSun.sun, ground, {
     scale: 0.001,
-    position: { x: 0, y: -1.8, z: -5 },
     onDotProductChange,
     controls,
-  }, movableSun.sun).then((results) => {
+  }).then((results) => {
     normalArrows = results;
   }).catch((error) => {
     console.error('Error loading normal arrows:', error);
