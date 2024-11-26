@@ -137,7 +137,7 @@ function LessonLearnDotProduct() {
                   },
                   { label: "A • B = 0", isTrue: false },
                   { label: "A • B > 0", isTrue: true },
-                  { label: "A • B < 0", isTrue: true }
+                  { label: "A • B < 0", isTrue: false }
                 ]}
               />
               <QuizItem 
