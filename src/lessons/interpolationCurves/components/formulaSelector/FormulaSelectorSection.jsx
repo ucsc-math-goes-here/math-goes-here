@@ -7,6 +7,9 @@ import FormulaTypeSelector from './components/FormulaTypeSelector';
 import FormulaDisplayer from './components/FormulaDisplayer';
 import InterpolationCurveDisplay from './components/InterpolationCurveDisplay';
 
+import ButtonRow from '../interacts/ButtonRow';
+import PlayController from '../interacts/PlayController';
+
 import './style.css';
 
 
@@ -25,7 +28,7 @@ const FormulaSelectorSection = () => {
       </h2>
       <FormulaDisplayer />
       <InterpolationCurveDisplay />
-      <div style={{height: '30px'}} />
+      <div style={{ height: '30px' }} />
       <FormulaTypeSelector />
     </div>
   );

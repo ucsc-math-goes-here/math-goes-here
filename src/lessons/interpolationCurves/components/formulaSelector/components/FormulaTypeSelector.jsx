@@ -1,11 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { FormulaContext } from '../../../contexts/FormulaContext';
 import { AppThemeContext } from '../../../../../contexts/AppThemeContext';
 
 const FormulaTypeSelector = () => {
   const { selectedCurve, setSelectedCurve, power, setPower, curves } = useContext(FormulaContext);
   const appTheme = useContext(AppThemeContext);
-
+  const [integerOnly, setIntegerOnly] = useState(false);
 
   const handleCurveChange = (event) => {
     const curveKey = event.target.value;
@@ -16,6 +16,10 @@ const FormulaTypeSelector = () => {
 
   const handlePowerChange = (event) => {
     setPower(parseFloat(event.target.value));
+  };
+
+  const handleToggleChange = () => {
+    setIntegerOnly(!integerOnly);
   };
 
   return (
@@ -36,10 +40,19 @@ const FormulaTypeSelector = () => {
           type="range"
           min="0"
           max="10"
-          step="0.1"
+          step={integerOnly ? "1" : "0.1"}
           value={power}
           onChange={handlePowerChange}
           style={{ width: '50%' }}
+        />
+      </div>
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+        <h5>Integer Only:</h5>
+        <input
+          type="checkbox"
+          checked={integerOnly}
+          onChange={handleToggleChange}
+          style={{ marginLeft: '5px' }}
         />
       </div>
     </div>
