@@ -36,7 +36,7 @@ function MainPageLayout() {
       <FormulaSelectorSection />
 
       <div style={{ width: "100%" }}>
-        <div style={{ marginBottom: '20px', width: "100%" }}>
+        <div style={{ marginBottom: '100px', width: "100%" }}>
           <MainPlayController />
         </div>
         <div style={{ marginBottom: '20px', width: "100%" }}>

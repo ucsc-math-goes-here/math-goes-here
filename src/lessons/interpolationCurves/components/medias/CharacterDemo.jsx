@@ -23,7 +23,7 @@ const CharacterDemo = () => {
         </div>
       </DisplayBox>
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        <PlayController width="250px" />
+        <PlayController width="220px" />
       </div>
     </div>
   );
