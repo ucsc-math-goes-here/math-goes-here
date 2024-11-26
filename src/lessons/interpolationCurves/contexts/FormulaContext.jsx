@@ -20,7 +20,11 @@ export const FormulaProvider = ({ children }) => {
   const directionRef = useRef(1);
 
   const play = () => {
-    setIsPlaying(true);
+    if (isPlaying) {
+      setIsPlaying(false);
+    } else {
+      setIsPlaying(true);
+    }
   };
 
   const pause = () => {
@@ -44,7 +48,6 @@ export const FormulaProvider = ({ children }) => {
     let lastTimestamp = null;
 
     const step = (timestamp) => {
-      console.log("step");
       if (!lastTimestamp) {
         lastTimestamp = timestamp;
       }

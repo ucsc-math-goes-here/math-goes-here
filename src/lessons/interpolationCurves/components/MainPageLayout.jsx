@@ -33,7 +33,7 @@ function MainPageLayout() {
       }}>
         <FormulaSelectorSection />
       </div> */}
-      {/* <FormulaSelectorSection /> */}
+      <FormulaSelectorSection />
 
       <div style={{ width: "100%" }}>
         <div style={{ marginBottom: '100px', width: "100%" }}>
