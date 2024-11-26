@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { Box, Typography, AppBar, Toolbar, Container, Link, Divider } from '@mui/material';
 import { MathJax, MathJaxContext } from 'better-react-mathjax';
 
+import ThreeJsDotProductRenderWindow from './ThreeJsDotProductRenderWindow';
 import LessonLearnLayout from '../../lessons/LessonLearnLayout';
 import {createGameScene} from '../../threejs/dot_product/dotProductEntry';
 import QuizItem from '../../components/quizItem';
@@ -108,15 +109,7 @@ function LessonLearnDotProduct() {
               <Typography variant="h4" gutterBottom align="left" sx={{ fontWeight: 'bold' }} >
                 Exploration Content
               </Typography>
-              <div
-                ref={displayPortRef}
-                style={{
-                  width: '100%',
-                  height: 450,
-                  backgroundColor: '#e0e0e0',
-                  display: 'block',
-                }}
-              ></div>
+              <ThreeJsDotProductRenderWindow />
               <Typography variant="body1" align="left" sx={{ mt: 2 }}>
                 Try playing around with this app!
               </Typography>
