@@ -9,6 +9,7 @@ import FaceInterpolation from './areas/FaceInterpolation';
 import CarDemo from './medias/CarDemo';
 import RocketDemo from './medias/RocketDemo';
 import CharacterDemo from './medias/CharacterDemo';
+import MainPlayController from './MainPlayController';
 
 function MainPageLayout() {
   const listComponents = [
@@ -35,6 +36,9 @@ function MainPageLayout() {
       <FormulaSelectorSection />
 
       <div style={{ width: "100%" }}>
+        <div style={{ marginBottom: '20px', width: "100%" }}>
+          <MainPlayController />
+        </div>
         <div style={{ marginBottom: '20px', width: "100%" }}>
           <CarDemo />
         </div>
