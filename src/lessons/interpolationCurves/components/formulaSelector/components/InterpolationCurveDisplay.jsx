@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useContext, useState } from 'react';
 import { FormulaContext } from '../../../contexts/FormulaContext';
+import { GlobalInterpolationTimeContext } from '../../../contexts/GlobalInterpolationTimeContext';
 
 const InterpolationCurveDisplay = () => {
   const canvasRef = useRef(null);
-  const { selectedCurve, power, globalTime } = useContext(FormulaContext);
+  const { selectedCurve, power } = useContext(FormulaContext);
+  const { globalTime } = useContext(GlobalInterpolationTimeContext);
   const [value, setValue] = useState(0);
 
   useEffect(() => {
@@ -18,14 +20,16 @@ const InterpolationCurveDisplay = () => {
     const canvas = canvasRef.current;
     const context = canvas.getContext('2d');
     context.fillStyle = '#ffffff';
-    context.fillRect(0, 0, 256, 256);
+    context.fillRect(0, 0, canvasSize, canvasSize);
 
     context.beginPath();
     context.moveTo(0, 0);
 
-    for (let i = 1; i <= 256; ++i) {
-      let progress = curve.evaluator(i / canvasSize, powerValue);
-      context.lineTo(i, (1 - progress) * canvasSize);
+    const iterations = 50;
+    for (let i = 0; i <= iterations; ++i) {
+      const progress = i / iterations;
+      let progressValue = curve.evaluator(progress, powerValue);
+      context.lineTo(progress * canvasSize, canvasSize - (progressValue * canvasSize));
     }
     context.strokeStyle = 'black';
     context.stroke();
@@ -44,9 +48,6 @@ const InterpolationCurveDisplay = () => {
       <div className="formula-selector">
         <canvas ref={canvasRef} id="graph" width={canvasSize} height={canvasSize} style={{ border: '1px solid black' }}></canvas>
       </div>
-      {/* <div style={{ marginLeft: '10px' }}>
-        Time = {globalTime.toFixed(2)}, Value = {value.toFixed(2)}
-      </div> */}
     </div>
   );
 };

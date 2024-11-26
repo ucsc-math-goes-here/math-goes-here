@@ -1,10 +1,10 @@
 import React, { useEffect, useContext } from 'react';
 
 import PlayController from './interacts/PlayController';
-import { FormulaContext } from '../contexts/FormulaContext';
+import { GlobalInterpolationTimeContext } from '../contexts/GlobalInterpolationTimeContext';
 
 function MainPlayController({ }) {
-  const { globalTime, setGlobalTime, play, pause, replay, } = useContext(FormulaContext);
+  const { globalTime, setGlobalTime, play, pause, replay, } = useContext(GlobalInterpolationTimeContext);
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>

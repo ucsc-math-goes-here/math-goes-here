@@ -4,9 +4,11 @@ import PlayController from '../../interacts/PlayController';
 import RocketDemoContent from './RocketDemoContent';
 import { FormulaContext } from '../../../contexts/FormulaContext';
 import InterpolationAnimation from '../../utils/InterpolationAnimation';
+import { GlobalInterpolationTimeContext } from '../../../contexts/GlobalInterpolationTimeContext';
 
 const RocketDemo = () => {
-  const { globalTime, selectedCurve, power } = useContext(FormulaContext);
+  const { selectedCurve, power } = useContext(FormulaContext);
+  const { globalTime } = useContext(GlobalInterpolationTimeContext);
   const [timeOverride, setTimeOverride] = useState(globalTime);
   const [interpolateValue, setInterpolateValue] = useState(0);
   const animationRef = useRef(null);

@@ -6,13 +6,12 @@ import { AppThemeContext } from '../../../../../contexts/AppThemeContext';
 
 const FormulaDisplayer = () => {
   const [expression, setExpression] = useState('');
-  const { selectedCurve, setSelectedCurve, power, setPower, curves } = useContext(FormulaContext);
+  const { selectedCurve, power } = useContext(FormulaContext);
   const appTheme = useContext(AppThemeContext);
 
   useEffect(() => {
     setExpression(selectedCurve.format.replaceAll('_N_', power).replaceAll('_N-1_', power - 1));
   }, [selectedCurve, power]);
-
 
   return (
     <MathJaxContext>

@@ -6,11 +6,13 @@ import { AppThemeContext } from '../../../../../contexts/AppThemeContext';
 import PlayController from '../../interacts/PlayController';
 import { FormulaContext } from '../../../contexts/FormulaContext';
 import InterpolationAnimation from '../../utils/InterpolationAnimation';
+import { GlobalInterpolationTimeContext } from '../../../contexts/GlobalInterpolationTimeContext';
 
 const CurveValueDemo = () => {
   const appTheme = useContext(AppThemeContext);
 
-  const { globalTime, selectedCurve, power } = useContext(FormulaContext);
+  const { selectedCurve, power } = useContext(FormulaContext);
+  const { globalTime } = useContext(GlobalInterpolationTimeContext);
   const [timeOverride, setTimeOverride] = useState(globalTime);
   const [interpolateValue, setInterpolateValue] = useState(0);
   const animationRef = useRef(null);
