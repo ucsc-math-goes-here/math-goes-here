@@ -10,7 +10,6 @@ import { Joystick } from 'react-joystick-component';
 
 
 function ThreeJsDotProductRenderWindow() {
-  const [displayWidth, setDisplayWidth] = useState(0);
   const [dotProduct, setDotProduct] = useState(1.0);
   const [showPlaneNormal, setShowPlaneNormal] = useState(true);
   const [showDirectionToLight, setShowDirectionToLight] = useState(true);
@@ -18,17 +17,14 @@ function ThreeJsDotProductRenderWindow() {
   const [lightSourceRotation, setLightSourceRotation] = useState(0);
   const [lightSourceOrbit, setLightSourceOrbit] = useState(0);
 
+
   const rendererRef = useRef(null);
   const displayPortRef = useRef(null);
   const sceneControls = useRef({}); // For later: a defined class would be better
 
 
   useEffect(() => {
-    // this can run twice, once for the initial render and once for the potential resize.
-    // after a stable frame, the displayPortRef.current.clientWidth will be the correct value.
-    // and this won't be triggered again.
-    if (displayPortRef.current) { //  && displayPortRef.current.clientWidth != displayWidth
-      setDisplayWidth(displayPortRef.current.clientWidth);
+    if (displayPortRef.current) {
       const options = {
         onDotProductChange: onDotProductChange,
         controls: sceneControls.current,
@@ -44,7 +40,8 @@ function ThreeJsDotProductRenderWindow() {
         }
       };
     }
-  }, [displayWidth]);
+  }, []);
+
 
   const handleShowPlaneNormalChange = (event) => {
     setShowPlaneNormal(event.target.checked);
@@ -113,7 +110,7 @@ function ThreeJsDotProductRenderWindow() {
     <div ref={displayPortRef}
       style={{
         position: 'relative',
-        width: '100%',
+        width: 900,
         height: 450,
         backgroundColor: '#e0e0e0',
         display: 'block',

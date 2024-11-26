@@ -15,22 +15,6 @@ import grayscale from'../../assets/dotprod3d/grayscale.png';
 
 
 function LessonLearnDotProduct() {
-  const displayPortRef = useRef(null);
-
-  useEffect(() => {
-    console.log('Creating game scene...');
-    if (displayPortRef.current) {
-      const { scene, camera, renderer } = createGameScene(displayPortRef.current);
-
-      return () => {
-        renderer.dispose();
-        if (displayPortRef.current) {
-          displayPortRef.current.removeChild(renderer.domElement);
-        }
-      };
-    }
-  }, []);
-
   return (
     <LessonLearnLayout pageTitle="Dot Products">
       <MathJaxContext>

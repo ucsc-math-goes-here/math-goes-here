@@ -77,7 +77,6 @@ export async function createNormalArrows(scene, lightSource, ground, options = {
 
     const upDirection = new THREE.Vector3(0, 1, 0);
     const worldUpDirection = ground.localToWorld(upDirection.clone()).sub(ground.position).normalize();
-    console.log(worldUpDirection, directionVector);
     const groundUpwardLookPosition = position.clone().add(worldUpDirection);
     planeNormalPointer.lookAt(groundUpwardLookPosition);
     dotLengthPointer.lookAt(groundUpwardLookPosition);
