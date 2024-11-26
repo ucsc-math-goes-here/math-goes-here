@@ -1,22 +1,30 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { LinearProgress, Box, Typography } from '@mui/material';
-import { interpolateColor, getLighter, getDarker } from '../../../../utils/colorUtils';
-import DisplayBox from '../DisplayBox';
-import { AppThemeContext } from '../../../../contexts/AppThemeContext';
-import PlayController from '../interacts/PlayController';
+import { getLighter, getDarker } from '../../../../../utils/colorUtils';
+import DisplayBox from '../../DisplayBox';
+import { AppThemeContext } from '../../../../../contexts/AppThemeContext';
+import PlayController from '../../interacts/PlayController';
+import { FormulaContext } from '../../../contexts/FormulaContext';
 
-const NumberInterpolationDemo = () => {
-  const [factor, setFactor] = useState(0);
-  const [interpolateValue, setInterpolateValue] = useState(0);
+const CurveValueDemo = () => {
   const appTheme = useContext(AppThemeContext);
 
-  const updateInterpolationFactor = (value) => {
-    setFactor(parseFloat(value));
-  };
+  const { globalTime, selectedCurve, power } = useContext(FormulaContext);
+  const [timeOverride, setTimeOverride] = useState(globalTime);
+  const [interpolateValue, setInterpolateValue] = useState(0);
 
-  const updateInterpolationValue = (value) => {
-    setInterpolateValue(value);
-  };
+  useEffect(() => {
+    setTimeOverride(globalTime);
+    return () => { };
+  }, [globalTime]);
+
+  useEffect(() => {
+    setInterpolateValue(selectedCurve.evaluator(timeOverride, power));
+  }, [timeOverride, selectedCurve, power]);
+
+  const updateTime = (value) => {
+    setTimeOverride(parseFloat(value));
+  }
 
   const backgroundColor = getDarker(appTheme.cardColor, 0.3);
 
@@ -37,6 +45,7 @@ const NumberInterpolationDemo = () => {
           variant="determinate"
           value={value * 100}
           sx={{
+            height: 40,
             backgroundColor: getLighter(backgroundColor, 0.2),
             '& .MuiLinearProgress-bar': {
               backgroundColor: color,
@@ -49,11 +58,7 @@ const NumberInterpolationDemo = () => {
 
   return (
     <div style={{ width: "100%" }}>
-      <DisplayBox
-        factor={factor}
-        updateInterpolationFactor={updateInterpolationFactor}
-        updateInterpolationValue={updateInterpolationValue}
-      >
+      <DisplayBox>
         <div style={{ height: "300px", padding: "10px", display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <h2>Value on the Curve</h2>
           <Box sx={{
@@ -62,16 +67,16 @@ const NumberInterpolationDemo = () => {
             width: '100%',
             gap: 1,
           }}>
-            <ProgressBar value={factor} label="Interpolation Factor" color="#00ff00" />
+            <ProgressBar value={timeOverride} label="Time" color="#00ff00" />
             <ProgressBar value={interpolateValue} label="Value On Curve" color="#0000ff" />
           </Box>
         </div>
       </DisplayBox>
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        <PlayController width="220px" />
+        <PlayController width="220px" value={timeOverride} setValue={updateTime} />
       </div>
     </div>
   );
 };
 
-export default NumberInterpolationDemo;
+export default CurveValueDemo;

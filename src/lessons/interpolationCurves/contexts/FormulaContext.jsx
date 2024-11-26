@@ -58,7 +58,6 @@ export const FormulaProvider = ({ children }) => {
         if (nextTime >= 1) {
           nextTime = 0;
         }
-
         return nextTime;
       });
       if (isPlaying) {

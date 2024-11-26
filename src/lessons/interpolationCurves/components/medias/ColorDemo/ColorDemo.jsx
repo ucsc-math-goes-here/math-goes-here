@@ -1,34 +1,39 @@
-import React, { useState, useContext } from 'react';
-import ColorPicker from '../areas/pieces/ColorPicker';
-import { interpolateColor, getLighter, getDarker } from '../../../../utils/colorUtils';
-import DisplayBox from '../DisplayBox';
+import React, { useState, useContext, useEffect } from 'react';
+import ColorPicker from '../../areas/pieces/ColorPicker';
+import { interpolateColor, getLighter, getDarker } from '../../../../../utils/colorUtils';
+import DisplayBox from '../../DisplayBox';
 
-import { AppThemeContext } from '../../../../contexts/AppThemeContext';
-import PlayController from '../interacts/PlayController';
+import { AppThemeContext } from '../../../../../contexts/AppThemeContext';
+import PlayController from '../../interacts/PlayController';
+import { FormulaContext } from '../../../contexts/FormulaContext';
 
 const ColorInterpolation = () => {
   const [color1, setColor1] = useState('#ff0000');
   const [color2, setColor2] = useState('#0000ff');
-  const [factor, setFactor] = useState(0);
-  const [interpolateValue, setInterpolateValue] = useState(0);
-
   const appTheme = useContext(AppThemeContext);
 
+  const { globalTime, selectedCurve, power } = useContext(FormulaContext);
+  const [timeOverride, setTimeOverride] = useState(globalTime);
+  const [interpolateValue, setInterpolateValue] = useState(0);
 
+  useEffect(() => {
+    setTimeOverride(globalTime);
+    return () => { };
+  }, [globalTime]);
 
-  const updateInterpolationFactor = (value) => {
-    setFactor(parseFloat(value));
-  }
+  useEffect(() => {
+    setInterpolateValue(selectedCurve.evaluator(timeOverride, power));
+  }, [timeOverride, selectedCurve, power]);
 
-  const updateInterpolationValue = (value) => {
-    setInterpolateValue(value);
+  const updateTime = (value) => {
+    setTimeOverride(parseFloat(value));
   }
 
   const interpolatedColor = interpolateColor(color1, color2, interpolateValue);
 
   return (
     <div style={{ width: "100%" }}>
-      <DisplayBox factor={factor} updateInterpolationFactor={updateInterpolationFactor} updateInterpolationValue={updateInterpolationValue}>
+      <DisplayBox>
         <div style={{ height: "300px", padding: "10px", display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <h2>Color Interpolation</h2>
           <div
@@ -49,7 +54,7 @@ const ColorInterpolation = () => {
         </div>
       </DisplayBox>
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        <PlayController width="220px" />
+        <PlayController width="220px" value={timeOverride} setValue={updateTime} />
       </div>
     </div>
   );

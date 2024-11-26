@@ -2,12 +2,12 @@ import React from 'react';
 
 import FormulaSelectorSection from './formulaSelector/FormulaSelectorSection';
 import MotionInterpolation from './areas/MotionInterpolation';
-import ColorInterpolationDemo from './medias/ColorInterpolationDemo';
-import NumberInterpolationDemo from './medias/NumberInterpolationDemo';
+import ColorInterpolationDemo from './medias/ColorDemo/ColorDemo';
+import CurveValueDemo from './medias/CurveValueDemo/CurveValueDemo';
 import FaceInterpolation from './areas/FaceInterpolation';
 
-import CarDemo from './medias/CarDemo';
-import RocketDemo from './medias/RocketDemo';
+import CarDemo from './medias/CarDemo/CarDemo';
+import RocketDemo from './medias/RocketDemo/RocketDemo';
 import CharacterDemo from './medias/CharacterDemo';
 import MainPlayController from './MainPlayController';
 
@@ -15,7 +15,7 @@ function MainPageLayout() {
   const listComponents = [
     <RocketDemo />,
     <CharacterDemo />,
-    <NumberInterpolationDemo />,
+    <CurveValueDemo />,
     <ColorInterpolationDemo />,
     <FaceInterpolation />,
   ];
