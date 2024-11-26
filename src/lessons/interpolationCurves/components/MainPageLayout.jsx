@@ -1,17 +1,13 @@
 import React from 'react';
-import FormulaTypeSelector from './FormulaTypeSelector';
-import FormulaDisplayer from './FormulaDisplayer';
-import InterpolationCurveWrapper from './areas/InterpolationCurveWrapper';
+
+import FormulaSelectorSection from './formulaSelector/FormulaSelectorSection';
 import MotionInterpolation from './areas/MotionInterpolation';
 import ColorInterpolation from './areas/ColorInterpolation';
 import NumberInterpolation from './areas/NumberInterpolation';
 import FaceInterpolation from './areas/FaceInterpolation';
 
 function MainPageLayout() {
-  const components = [
-    <FormulaTypeSelector />,
-    <FormulaDisplayer />,
-    <InterpolationCurveWrapper />,
+  const listComponents = [
     <NumberInterpolation />,
     <ColorInterpolation />,
     <MotionInterpolation />,
@@ -21,27 +17,40 @@ function MainPageLayout() {
   return (
     <div style={{
       display: 'grid',
-      gridTemplateColumns: '1fr 1fr',
-      gap: '70px',
-      padding: '30px',
+      gridTemplateColumns: '500px 1fr',
+      gap: '20px',
+      padding: '20px',
     }}>
-      {components.map((component, index) => {
-        // Check if it's the last item, if so then centering it.
-        const isLastItem = index === components.length - 1;
-        const isOdd = components.length % 2 !== 0;
+      <div style={{
+        borderRight: '1px solid #ccc',
+        paddingRight: '20px',
+      }}>
+        <FormulaSelectorSection />
+      </div>
 
-        return (
-          <div
-            key={index}
-            style={{
-              gridColumn: isLastItem && isOdd ? '1 / -1' : undefined,
-              justifySelf: isLastItem && isOdd ? 'center' : undefined,
-            }}
-          >
-            {component}
-          </div>
-        );
-      })}
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: '1fr 1fr',
+        gap: '20px',
+      }}>
+        {listComponents.map((component, index) => {
+          // Check if it's the last item, if so then centering it.
+          const isLastItem = index === listComponents.length - 1;
+          const isOdd = listComponents.length % 2 !== 0;
+
+          return (
+            <div
+              key={index}
+              style={{
+                gridColumn: isLastItem && isOdd ? '1 / -1' : undefined,
+                justifySelf: isLastItem && isOdd ? 'center' : undefined,
+              }}
+            >
+              {component}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

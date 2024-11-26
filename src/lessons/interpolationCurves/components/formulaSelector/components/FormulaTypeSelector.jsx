@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { FormulaContext } from '../contexts/FormulaContext';
-import { AppThemeContext } from '../../../contexts/AppThemeContext';
+import { FormulaContext } from '../../../contexts/FormulaContext';
+import { AppThemeContext } from '../../../../../contexts/AppThemeContext';
 
 const FormulaTypeSelector = () => {
   const { selectedCurve, setSelectedCurve, power, setPower, curves } = useContext(FormulaContext);
@@ -19,21 +19,9 @@ const FormulaTypeSelector = () => {
   };
 
   return (
-    <div style={{
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'space-around',
-      height: '100px',
-      width: '500px',
-      padding: `${appTheme.displayAreaPadding}px`,
-      paddingLeft: `${appTheme.displayAreaPadding * 2}px`,
-      paddingRight: `${appTheme.displayAreaPadding * 2}px`,
-      borderRadius: `${appTheme.displayContentBorderRadius}px`,
-      backgroundColor: appTheme.cardColor,
-      boxShadow: appTheme.bigDropShadow,
-    }}>
-      <label>
-        Curve Type:
+    <div style={{ textAlign: 'left' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <h4>Curve Type:</h4>
         <select value={selectedCurve.name} onChange={handleCurveChange} style={{ color: appTheme.textColor, backgroundColor: 'white' }}>
           {Object.keys(curves).map((key) => (
             <option key={key} value={key}>
@@ -41,10 +29,9 @@ const FormulaTypeSelector = () => {
             </option>
           ))}
         </select>
-      </label>
-
-      <label>
-        Exponent: {power}
+      </div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <h4>Exponent:</h4>
         <input
           type="range"
           min="0"
@@ -52,9 +39,9 @@ const FormulaTypeSelector = () => {
           step="0.1"
           value={power}
           onChange={handlePowerChange}
-          style={{ width: '100%' }}
+          style={{ width: '50%' }}
         />
-      </label>
+      </div>
     </div>
   );
 };

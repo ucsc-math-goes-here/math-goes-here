@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import DisplayBox from '../DisplayBox';
-import InterpolationCurveDisplay from './pieces/InterpolationCurveDisplay';
+import InterpolationCurveDisplay from '../formulaSelector/components/InterpolationCurveDisplay';
 
 const InterpolationCurveWrapper = () => {
   const [factor, setFactor] = useState(0);

@@ -13,12 +13,15 @@ export const FormulaContext = createContext();
 export const FormulaProvider = ({ children }) => {
   const [selectedCurve, setSelectedCurve] = useState(curves.linear);
   const [power, setPower] = useState(curves.linear.defaultPower);
+  const [globalTime, setGlobalTime] = useState(0);
 
   const value = {
     selectedCurve,
     setSelectedCurve,
     power,
     setPower,
+    globalTime,
+    setGlobalTime,
     curves
   };
 

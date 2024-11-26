@@ -1,16 +1,16 @@
 import React, { useEffect, useRef, useContext, useState } from 'react';
 import { FormulaContext } from '../../../contexts/FormulaContext';
 
-const InterpolationCurveDisplay = ({ time }) => {
+const InterpolationCurveDisplay = () => {
   const canvasRef = useRef(null);
-  const { selectedCurve, power } = useContext(FormulaContext);
+  const { selectedCurve, power, globalTime } = useContext(FormulaContext);
   const [value, setValue] = useState(0);
 
   useEffect(() => {
-    const calculatedValue = selectedCurve.evaluator(time, power);
+    const calculatedValue = selectedCurve.evaluator(globalTime, power);
     setValue(calculatedValue);
     drawCurve(selectedCurve, power);
-  }, [selectedCurve, power, time]);
+  }, [selectedCurve, power, globalTime]);
 
   const canvasSize = 200.0;
 
@@ -30,8 +30,7 @@ const InterpolationCurveDisplay = ({ time }) => {
     context.strokeStyle = 'black';
     context.stroke();
 
-    // Draw vertical line at `time`
-    const timePosition = time * canvasSize;
+    const timePosition = globalTime * canvasSize;
     context.beginPath();
     context.moveTo(timePosition, 0);
     context.lineTo(timePosition, canvasSize);
@@ -41,11 +40,13 @@ const InterpolationCurveDisplay = ({ time }) => {
   };
 
   return (
-    <div >
-      <canvas ref={canvasRef} id="graph" width={canvasSize} height={canvasSize} style={{ border: '1px solid black' }}></canvas>
-      <div style={{ marginLeft: '10px' }}>
-        Time = {time.toFixed(2)}, Value = {value.toFixed(2)}
+    <div>
+      <div className="formula-selector">
+        <canvas ref={canvasRef} id="graph" width={canvasSize} height={canvasSize} style={{ border: '1px solid black' }}></canvas>
       </div>
+      {/* <div style={{ marginLeft: '10px' }}>
+        Time = {globalTime.toFixed(2)}, Value = {value.toFixed(2)}
+      </div> */}
     </div>
   );
 };
