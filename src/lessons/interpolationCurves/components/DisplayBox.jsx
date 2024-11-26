@@ -1,5 +1,4 @@
 import React, { useEffect, useContext } from 'react';
-import { FormulaContext } from '../contexts/FormulaContext';
 import { AppThemeContext } from '../../../contexts/AppThemeContext';
 
 

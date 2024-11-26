@@ -5,8 +5,7 @@ function ProgressBarSlider({ value = 0, setValue = () => { } }) {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  console.log(value);
-
+  
   return (
     <Box
       sx={{

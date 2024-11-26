@@ -44,6 +44,7 @@ export const FormulaProvider = ({ children }) => {
     let lastTimestamp = null;
 
     const step = (timestamp) => {
+      console.log("step");
       if (!lastTimestamp) {
         lastTimestamp = timestamp;
       }

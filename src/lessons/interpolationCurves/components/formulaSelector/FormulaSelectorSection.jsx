@@ -14,9 +14,6 @@ import './style.css';
 
 
 const FormulaSelectorSection = () => {
-  const { selectedCurve, setSelectedCurve, power, setPower, curves } = useContext(FormulaContext);
-  const appTheme = useContext(AppThemeContext);
-
   return (
     <div style={{
       display: 'flex',

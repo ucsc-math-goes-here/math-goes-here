@@ -8,13 +8,13 @@ import FaceInterpolation from './areas/FaceInterpolation';
 
 import CarDemo from './medias/CarDemo/CarDemo';
 import RocketDemo from './medias/RocketDemo/RocketDemo';
-import CharacterDemo from './medias/CharacterDemo';
 import MainPlayController from './MainPlayController';
+import CharacterJumpDemo from './medias/CharacterJumpDemo/CharacterJumpDemo';
 
 function MainPageLayout() {
   const listComponents = [
     <RocketDemo />,
-    <CharacterDemo />,
+    <CharacterJumpDemo />,
     <CurveValueDemo />,
     <ColorInterpolationDemo />,
     <FaceInterpolation />,
@@ -33,7 +33,7 @@ function MainPageLayout() {
       }}>
         <FormulaSelectorSection />
       </div> */}
-      <FormulaSelectorSection />
+      {/* <FormulaSelectorSection /> */}
 
       <div style={{ width: "100%" }}>
         <div style={{ marginBottom: '100px', width: "100%" }}>
