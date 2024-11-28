@@ -48,8 +48,8 @@ const SmileFace = ({ interpolateValue }) => {
       <div style={{
         display: 'flex',
         justifyContent: 'center',
-        marginTop: '10px',
         fontSize: '1.5em',
+        color: "white",
       }}>
         {text}
       </div>

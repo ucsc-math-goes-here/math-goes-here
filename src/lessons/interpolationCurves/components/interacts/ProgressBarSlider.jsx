@@ -28,7 +28,7 @@ function ProgressBarSlider({ value = 0, setValue = () => { } }) {
             width: 20,
             height: 20,
             backgroundColor: '#fff',
-            border: '2px solid #1976d2',
+            border: `3px solid #404040`,
             transition: 'none',
           },
           '& .MuiSlider-rail': {
@@ -37,7 +37,7 @@ function ProgressBarSlider({ value = 0, setValue = () => { } }) {
             transition: 'none',
           },
           '& .MuiSlider-track': {
-            backgroundColor: '#1976d2',
+            backgroundColor: '#707070',
             transition: 'none',
           },
         }}

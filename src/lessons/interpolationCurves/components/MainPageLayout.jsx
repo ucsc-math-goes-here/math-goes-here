@@ -1,10 +1,9 @@
 import React from 'react';
 
 import FormulaSelectorSection from './formulaSelector/FormulaSelectorSection';
-import MotionInterpolation from './areas/MotionInterpolation';
 import ColorInterpolationDemo from './medias/ColorDemo/ColorDemo';
 import CurveValueDemo from './medias/CurveValueDemo/CurveValueDemo';
-import FaceInterpolation from './areas/FaceInterpolation';
+import FaceInterpolation from './medias/RatingDemo/FaceInterpolation';
 
 import CarDemo from './medias/CarDemo/CarDemo';
 import RocketDemo from './medias/RocketDemo/RocketDemo';

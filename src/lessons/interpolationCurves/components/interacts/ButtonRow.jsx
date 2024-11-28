@@ -4,7 +4,7 @@ import PauseIcon from '@mui/icons-material/Pause';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import ReplayIcon from '@mui/icons-material/Replay';
 
-function ButtonRow({ pause = () => { }, play = () => { }, replay = () => { } }) {
+function ButtonRow({ pause = () => { }, play = () => { }, replay = () => { }, buttonColor = '#999999' }) {
   return (
     <Box
       sx={{
@@ -27,6 +27,7 @@ function ButtonRow({ pause = () => { }, play = () => { }, replay = () => { } }) 
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
+          backgroundColor: buttonColor,
         }}
       >
         <PauseIcon />
@@ -43,6 +44,7 @@ function ButtonRow({ pause = () => { }, play = () => { }, replay = () => { } }) 
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
+          backgroundColor: buttonColor,
         }}
       >
         <PlayArrowIcon />
@@ -59,6 +61,7 @@ function ButtonRow({ pause = () => { }, play = () => { }, replay = () => { } }) 
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
+          backgroundColor: buttonColor,
         }}
       >
         <ReplayIcon />

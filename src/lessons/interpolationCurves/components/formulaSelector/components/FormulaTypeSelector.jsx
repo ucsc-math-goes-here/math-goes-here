@@ -25,7 +25,7 @@ const FormulaTypeSelector = () => {
   return (
     <div style={{ textAlign: 'left' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <h4>Curve Type:</h4>
+        <span>Curve Type:</span>
         <select value={selectedCurve.name} onChange={handleCurveChange} style={{ color: appTheme.textColor, backgroundColor: 'white' }}>
           {Object.keys(curves).map((key) => (
             <option key={key} value={key}>
@@ -35,7 +35,7 @@ const FormulaTypeSelector = () => {
         </select>
       </div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <h4>Exponent:</h4>
+        <span>Exponent:</span>
         <input
           type="range"
           min="0"
@@ -47,7 +47,7 @@ const FormulaTypeSelector = () => {
         />
       </div>
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
-        <h5>Integer Only:</h5>
+        <span>Integer Only:</span>
         <input
           type="checkbox"
           checked={integerOnly}

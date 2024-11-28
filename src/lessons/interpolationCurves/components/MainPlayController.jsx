@@ -8,7 +8,7 @@ function MainPlayController({ }) {
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-      <PlayController width="400px" buttonHeight="50px" value={globalTime} setValue={setGlobalTime} pause={pause} play={play} replay={replay} />
+      <PlayController width="400px" buttonHeight="50px" value={globalTime} setValue={setGlobalTime} pause={pause} play={play} replay={replay} themeColor='#404040'/>
     </div>
   );
 }

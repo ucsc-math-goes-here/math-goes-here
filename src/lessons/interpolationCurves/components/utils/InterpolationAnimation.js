@@ -12,7 +12,11 @@ class InterpolationAnimation {
   }
 
   play() {
-    if (this.isPlaying) return;
+    if (this.isPlaying) {
+      // the button should call the pause() if its playing. But ig it's fine.
+      this.pause();
+      return;
+    };
     this.isPlaying = true;
     this.lastTimestamp = null;
     this._startAnimationLoop();
