@@ -63,7 +63,7 @@ const ColorInterpolation = () => {
     <div style={{ width: "100%" }}>
       <DisplayBox>
         <div style={{ height: "300px", padding: "10px", display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <h2>Color Interpolation</h2>
+          <h2 style={{ color: "white" }}>Color Interpolation</h2>
           <div
             style={{
               width: 'calc(100% - 20px)',

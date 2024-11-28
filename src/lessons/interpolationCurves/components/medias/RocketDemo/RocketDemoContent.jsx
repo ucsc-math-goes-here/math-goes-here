@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
+import rocket from "../../../assets/rocket.png";
 
 const RocketDemoContent = ({ value }) => {
   const containerRef = useRef(null);
@@ -19,7 +20,7 @@ const RocketDemoContent = ({ value }) => {
     };
   }, []);
 
-  const position =  containerHeight * (1 - value);
+  const position = (containerHeight * value) - 28;
 
   return (
     <div
@@ -30,16 +31,16 @@ const RocketDemoContent = ({ value }) => {
         height: "100%",
       }}
     >
-      <div
+      <img
+        src={rocket}
+        alt="Rocket"
         style={{
           position: "absolute",
           left: "50%",
-          top: `${position}px`,
+          bottom: `${position}px`,
           transform: "translate(-50%, -50%)",
-          width: "20px",
-          height: "20px",
-          backgroundColor: "red",
-          borderRadius: "50%",
+          width: "20%",
+          height: "auto",
         }}
       />
     </div>

@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
+import mario from "../../../assets/mario.png";
 
 const VerticalJumper = ({ value }) => {
   const containerRef = useRef(null);
@@ -30,7 +31,6 @@ const VerticalJumper = ({ value }) => {
       ? start * containerHeight + (peak - start) * containerHeight * (flippedValue / 0.5)
       : peak * containerHeight - (peak - start) * containerHeight * ((flippedValue - 0.5) / 0.5);
 
-
   return (
     <div
       ref={containerRef}
@@ -40,16 +40,16 @@ const VerticalJumper = ({ value }) => {
         height: "100%",
       }}
     >
-      <div
+      <img
+        src={mario}
+        alt="Mario"
         style={{
           position: "absolute",
           left: "50%",
           top: `${position}px`,
           transform: "translate(-50%, -50%)",
-          width: "20px",
-          height: "20px",
-          backgroundColor: "red",
-          borderRadius: "50%",
+          width: "20%",
+          height: "auto",
         }}
       />
     </div>

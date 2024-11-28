@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
+import car from "../../../assets/car.png";
 
 const CarDemoContent = ({ value }) => {
   const containerRef = useRef(null);
@@ -19,7 +20,7 @@ const CarDemoContent = ({ value }) => {
     };
   }, []);
 
-  const position = containerWidth * value;
+  const position = (containerWidth * value) + 60;
 
   return (
     <div
@@ -30,16 +31,16 @@ const CarDemoContent = ({ value }) => {
         height: "100%",
       }}
     >
-      <div
+      <img
+        src={car}
+        alt="Car"
         style={{
           position: "absolute",
-          top: "50%",
+          top: "80%",
           left: `${position}px`,
           transform: "translate(-50%, -50%)",
-          width: "20px",
-          height: "20px",
-          backgroundColor: "red",
-          borderRadius: "50%",
+          width: "20%",
+          height: "auto",
         }}
       />
     </div>

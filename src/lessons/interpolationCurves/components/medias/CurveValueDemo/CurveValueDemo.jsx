@@ -58,7 +58,7 @@ const CurveValueDemo = () => {
 
   const ProgressBar = ({ value, label, color }) => (
     <Box sx={{ width: '100%', textAlign: 'center', mb: 3 }}>
-      <Typography variant="caption" sx={{ mb: 1 }}>
+      <Typography variant="caption" sx={{ mb: 1, color: "white" }}>
         {label}: {value.toFixed(2)}
       </Typography>
       <Box sx={{
@@ -88,7 +88,7 @@ const CurveValueDemo = () => {
     <div style={{ width: "100%" }}>
       <DisplayBox>
         <div style={{ height: "300px", padding: "10px", display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <h2>Value on the Curve</h2>
+          <h2 style={{color: "white"}}>Value on the Curve</h2>
           <Box sx={{
             display: 'flex',
             flexDirection: 'column',
