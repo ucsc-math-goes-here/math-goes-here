@@ -3,7 +3,7 @@ class GlobalTheme {
       this.primaryColor = '#303030';
       this.secondaryColor = '#606060';
       this.disabledColor = '#e0e0e0';
-      this.cardColor = '#dddddd';
+      this.cardColor = '#404040';
       this.textColor = '#303030';
       this.displayAreaBorderRadius = 30;
       this.displayAreaPadding = 15;

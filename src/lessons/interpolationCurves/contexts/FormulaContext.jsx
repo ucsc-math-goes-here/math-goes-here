@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useRef, useEffect } from 'react';
 
 const curves = {
   linear: { name: "Linear", evaluator: function (t, n) { return t; }, format: "t", defaultPower: 1 },
@@ -19,7 +19,7 @@ export const FormulaProvider = ({ children }) => {
     setSelectedCurve,
     power,
     setPower,
-    curves
+    curves,
   };
 
   return (
