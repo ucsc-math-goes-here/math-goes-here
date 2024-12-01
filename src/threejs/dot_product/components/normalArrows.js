@@ -5,6 +5,11 @@ import * as THREE from 'three';
 
 
 export async function createNormalArrows(scene, lightSource, ground, options = {},) {
+  const groundNormalColor = 0x0000ff;
+  const lightSourcePointerColor = 0xffff00;
+  const positiveDotLengthPointerColor = 0x00ff00;
+  const negativeDotLengthPointerColor = 0xff0000;
+
   const pointersLength = 2;
   const loader = new FBXLoader();
   const { scale = 0.1, onDotProductChange, controls } = options;
@@ -15,7 +20,7 @@ export async function createNormalArrows(scene, lightSource, ground, options = {
 
   planeNormalPointer.scale.set(scale, scale, scale);
   planeNormalPointer.position.set(position.x, position.y, position.z);
-  const groundNormalMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000, depthTest: false });
+  const groundNormalMaterial = new THREE.MeshBasicMaterial({ color: groundNormalColor, depthTest: false });
   planeNormalPointer.traverse((child) => {
     if (child.isMesh) {
       child.material = groundNormalMaterial;
@@ -37,7 +42,7 @@ export async function createNormalArrows(scene, lightSource, ground, options = {
 
   lightSourcePointer.scale.set(scale, scale, scale);
   lightSourcePointer.position.set(position.x, position.y, position.z);
-  const lightSourceMaterial = new THREE.MeshBasicMaterial({ color: 0x0000ff, depthTest: false });
+  const lightSourceMaterial = new THREE.MeshBasicMaterial({ color: lightSourcePointerColor, depthTest: false });
   lightSourcePointer.traverse((child) => {
     if (child.isMesh) {
       child.material = lightSourceMaterial;
@@ -53,7 +58,7 @@ export async function createNormalArrows(scene, lightSource, ground, options = {
 
   dotLengthPointer.scale.set(scale, scale, scale);
   dotLengthPointer.position.set(position.x, position.y, position.z);
-  const dotLengthPointerMaterial = new THREE.MeshBasicMaterial({ color: 0xffff00, depthTest: false });
+  const dotLengthPointerMaterial = new THREE.MeshBasicMaterial({ color: positiveDotLengthPointerColor, depthTest: false });
   dotLengthPointer.traverse((child) => {
     if (child.isMesh) {
       child.material = dotLengthPointerMaterial;
@@ -65,51 +70,74 @@ export async function createNormalArrows(scene, lightSource, ground, options = {
   scene.add(dotLengthPointer);
 
 
-  const fontLoader = new FontLoader();
-  const font = await new Promise((resolve, reject) => {
-    fontLoader.load('./fonts/helvetiker_regular.typeface.json', resolve, undefined, reject);
-  });
+  // const fontLoader = new FontLoader();
+  // const font = await new Promise((resolve, reject) => {
+  //   fontLoader.load('./fonts/helvetiker_regular.typeface.json', resolve, undefined, reject);
+  // });
 
-  const directionVector = new THREE.Vector3();
+  const dashGeometry = new THREE.BufferGeometry();
+  const dashMaterial = new THREE.LineDashedMaterial({
+    color: 0xffffff,
+    dashSize: 0.1,
+    gapSize: 0.1,
+    linewidth: 1,
+    depthTest: false,
+  });
+  dashMaterial.renderOrder = 4;
+  const dashLine = new THREE.Line(dashGeometry, dashMaterial);
+  scene.add(dashLine);
+
+  const lightDirectionVector = new THREE.Vector3();
   lightSourcePointer.update = () => {
-    directionVector.subVectors(lightSource.position, lightSourcePointer.position).normalize();
+    lightDirectionVector.subVectors(lightSource.position, lightSourcePointer.position).normalize();
     lightSourcePointer.lookAt(lightSource.position);
 
-    const upDirection = new THREE.Vector3(0, 1, 0);
-    const worldUpDirection = ground.localToWorld(upDirection.clone()).sub(ground.position).normalize();
-    const groundUpwardLookPosition = position.clone().add(worldUpDirection);
+    const groundWorldUpWorldPosition = ground.localToWorld(new THREE.Vector3(0, 1, 0));
+    const groundUpDir = groundWorldUpWorldPosition.sub(ground.position).normalize();
+    const groundUpwardLookPosition = position.clone().add(groundUpDir);
     planeNormalPointer.lookAt(groundUpwardLookPosition);
     dotLengthPointer.lookAt(groundUpwardLookPosition);
 
-    let dotProduct = directionVector.dot(worldUpDirection);
-    // dotProduct = Math.max(0, dotProduct);
+    let dotProduct = lightDirectionVector.dot(groundUpDir);
+    if (dotProduct < 0) {
+      dotLengthPointerMaterial.color.setHex(negativeDotLengthPointerColor);
+    } else {
+      dotLengthPointerMaterial.color.setHex(positiveDotLengthPointerColor);
+    }
+
+    const dotTop = dotLengthPointer.position.clone().add(groundUpDir.clone().multiplyScalar(dotProduct).multiplyScalar(pointersLength));
+    const lightPointerTop = lightSourcePointer.position.clone().add(lightDirectionVector.clone().multiplyScalar(pointersLength));
+    dashGeometry.setFromPoints([lightPointerTop, dotTop]);
+    dashLine.computeLineDistances();
+
     onDotProductChange(dotProduct);
 
     dotLengthPointer.scale.set(dotLengthPointer.scale.x, dotLengthPointer.scale.y, scale * dotProduct);
   };
   lightSourcePointer.update();
 
+  const checkIfDashlineCanBeSeen = () => {
+    dashLine.visible = lightSourcePointer.visible && planeNormalPointer.visible && dotLengthPointer.visible && dashlineShouldBeVisible;
+  }
+
+  let dashlineShouldBeVisible = true;
   controls.updateShowPlaneNormal = (show) => {
-    if (show) {
-      planeNormalPointer.visible = show;
-    } else {
-      planeNormalPointer.visible = false;
-    }
+    planeNormalPointer.visible = show;
+    checkIfDashlineCanBeSeen();
   }
   controls.updateShowLightPointer = (show) => {
-    if (show) {
-      lightSourcePointer.visible = show;
-    } else {
-      lightSourcePointer.visible = false;
-    }
+    lightSourcePointer.visible = show;
+    checkIfDashlineCanBeSeen();
   }
   controls.updateShowDotLengthPointer = (show) => {
-    if (show) {
-      dotLengthPointer.visible = show;
-    } else {
-      dotLengthPointer.visible = false;
-    }
+    dotLengthPointer.visible = show;
+    checkIfDashlineCanBeSeen();
   }
+  controls.updateShowDotProductline = (show) => {
+    dashlineShouldBeVisible = show;
+    checkIfDashlineCanBeSeen();
+  }
+  
 
   return { groundNormalPointer: planeNormalPointer, lightSourcePointer };
 }

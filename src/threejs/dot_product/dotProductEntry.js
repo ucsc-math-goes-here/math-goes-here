@@ -51,7 +51,7 @@ export function createGameScene(container, options = {}) {
   container.appendChild(renderer.domElement);
 
   const geometry = new THREE.BoxGeometry();
-  const material = new THREE.MeshStandardMaterial({ color: 0xff3333 });
+  const material = new THREE.MeshStandardMaterial({ color: 0x3333ff });
   const ground = new THREE.Mesh(geometry, material);
   ground.position.set(0, -2, -5);
   ground.scale.set(4, 0.2, 4);
@@ -78,7 +78,6 @@ export function createGameScene(container, options = {}) {
   const movableSun = createMovableObjectSun(ground, 5, { controls });
   scene.add(movableSun.sun);
   scene.add(movableSun.directionalLight);
-
 
 
   let normalArrows = null;

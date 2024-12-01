@@ -14,6 +14,13 @@ function ThreeJsDotProductRenderWindow() {
   const [showPlaneNormal, setShowPlaneNormal] = useState(true);
   const [showDirectionToLight, setShowDirectionToLight] = useState(true);
   const [showDotProduct, setShowDotProduct] = useState(true);
+  const [showDotProductLine, setShowDotProductLine] = useState(true);
+
+  const groundNormalColor = "#0000ff";
+  const lightSourcePointerColor = "#ffff00";
+  const positiveDotLengthPointerColor = "#00ff00";
+  const negativeDotLengthPointerColor = "#ff0000";
+
   const [lightSourceRotation, setLightSourceRotation] = useState(0);
   const [lightSourceOrbit, setLightSourceOrbit] = useState(0);
 
@@ -58,6 +65,11 @@ function ThreeJsDotProductRenderWindow() {
     sceneControls.current.updateShowDotLengthPointer?.(event.target.checked);
   };
 
+  const handleShowDotProductLineChange = (event) => {
+    setShowDotProductLine(event.target.checked);
+    sceneControls.current.updateShowDotProductline?.(event.target.checked);
+  };
+
   const onDotProductChange = (value) => {
     // round value
     value = Math.round(value * 100) / 100;
@@ -92,6 +104,8 @@ function ThreeJsDotProductRenderWindow() {
     sceneControls.current.updateShowDotLengthPointer?.(true);
     setShowPlaneNormal(true);
     sceneControls.current.updateShowPlaneNormal?.(true);
+    setShowDotProductLine(true);
+    sceneControls.current.updateShowDotProductline?.(true);
 
     rendererRef.current.dispose();
     if (displayPortRef.current) {
@@ -110,7 +124,7 @@ function ThreeJsDotProductRenderWindow() {
     <div ref={displayPortRef}
       style={{
         position: 'relative',
-        width: 900,
+        width: 1000,
         height: 450,
         backgroundColor: '#e0e0e0',
         display: 'block',
@@ -132,13 +146,22 @@ function ThreeJsDotProductRenderWindow() {
           label="Show Dot Product"
           style={{ color: 'white' }}
         />
+        <FormControlLabel
+          control={<Switch checked={showDotProductLine} onChange={handleShowDotProductLineChange} name="showDotProduct" />}
+          label="Show Dot Product Line"
+          style={{ color: 'white' }}
+        />
         <Button variant="contained" color="primary" onClick={reset}>
           Reset
         </Button>
       </div>
       <div style={{ position: 'absolute', top: 100, right: 50 }}>
         <Typography variant="h4" style={{ color: 'white' }}>
-          <span style={{ color: 'blue' }}>Light</span> ⋅ <span style={{ color: 'red' }}>Normal</span> = <span style={{ color: 'yellow' }}>{dotProduct}</span>
+          <span style={{ color: lightSourcePointerColor }}>Light</span>
+          ⋅
+          <span style={{ color: groundNormalColor }}>Normal</span>
+          =
+          <span style={{ color: dotProduct >= 0 ? positiveDotLengthPointerColor : negativeDotLengthPointerColor }}>{dotProduct}</span>
         </Typography>
       </div>
       <div style={{ position: 'absolute', bottom: 10, left: 20, right: 200, textAlign: 'left', }}>
