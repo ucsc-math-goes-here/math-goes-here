@@ -57,7 +57,7 @@ export function createGameScene(container, options = {}) {
   ground.scale.set(4, 0.2, 4);
   scene.add(ground);
 
-  const orbitControls = new OrbitControls( camera, renderer.domElement );
+  const orbitControls = new OrbitControls(camera, renderer.domElement);
   camera.position.set(0, 0, 8.5);
   orbitControls.target.set(ground.position.x, ground.position.y + 2, ground.position.z);
   orbitControls.update();
@@ -75,20 +75,23 @@ export function createGameScene(container, options = {}) {
   scene.add(ambientLight);
   // =======================================================================================================
 
-  const movableSun = createMovableObjectSun(ground, 5, { controls });
-  scene.add(movableSun.sun);
-  scene.add(movableSun.directionalLight);
-
-
   let normalArrows = null;
-  createNormalArrows(scene, movableSun.sun, ground, {
-    scale: 0.001,
-    onDotProductChange,
-    controls,
-  }).then((results) => {
-    normalArrows = results;
+  let movableSun = null;
+  createMovableObjectSun(ground, 5, camera, { controls }).then((results) => {
+    movableSun = results;
+    scene.add(movableSun.sun);
+    scene.add(movableSun.directionalLight);
+    createNormalArrows(scene, movableSun.sun, ground, {
+      scale: 0.001,
+      onDotProductChange,
+      controls,
+    }).then((results) => {
+      normalArrows = results;
+    }).catch((error) => {
+      console.error('Error loading normal arrows:', error);
+    });
   }).catch((error) => {
-    console.error('Error loading normal arrows:', error);
+    console.error('Error loading movable sun:', error);
   });
   // =======================================================================================================
 
@@ -103,6 +106,9 @@ export function createGameScene(container, options = {}) {
       normalArrows.lightSourcePointer.update();
     }
     updateCameraPosition(time);
+    if (movableSun) {
+      movableSun.sun.lookAt(camera.position);
+    }
     renderer.render(scene, camera);
   }
   animate(0);

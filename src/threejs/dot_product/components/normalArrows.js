@@ -1,6 +1,4 @@
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader.js';
-import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js';
-import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js';
 import * as THREE from 'three';
 
 

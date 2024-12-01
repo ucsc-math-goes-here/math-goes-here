@@ -78,13 +78,11 @@ function ThreeJsDotProductRenderWindow() {
 
   const handleOrbitChange = (event) => {
     setLightSourceOrbit(event.target.value);
-    console.log(sceneControls.current);
     sceneControls.current.updateLightSourceOrbit?.(event.target.value);
   }
 
   const handleRotationChange = (event) => {
     setLightSourceRotation(event.target.value);
-    console.log(sceneControls.current);
     sceneControls.current.updateLightSourceRotation?.(event.target.value);
   }
 
