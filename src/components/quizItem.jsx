@@ -4,7 +4,7 @@ import { Button, Box, FormGroup, FormControlLabel, Checkbox } from '@mui/materia
 
 import "../css/quiz-section.css";
 
-const QuizItem = ({questionString, imageUrl, choices}) => {
+const QuizItem = ({questionString, imageUrl, choices, explaination}) => {
 
   let quizOptions = [];
   let quizImage;
@@ -35,20 +35,20 @@ const QuizItem = ({questionString, imageUrl, choices}) => {
       control={<Checkbox />}
       label={choice.label}
       onChange={handleFormChange}
-      checked={formData["q"+ind]} />)
+      checked={formData["q"+ind]}
+      key={"key_"+ind} />)
   })
 
   function checkAnswer (){
-    console.log(formData, choices)
     let result = 0
     choices.forEach((choice, ind) => {
       let isCorrect = choice.isTrue == formData["q"+ind];
       if (isCorrect){
         result++;
       }
-      console.log(`q${ind} is .... ${isCorrect ? 'correct' : 'wrong'}`)
+      //console.log(`q${ind} is .... ${isCorrect ? 'correct' : 'wrong'}`)
     })
-    console.log('combined result is... ', result == choices.length ? "all good" : "not quite");
+    //console.log('combined result is... ', result == choices.length ? "all good" : "not quite");
     setIsCorrect(result == choices.length);
     setDisplayResult(true);
   }
@@ -60,8 +60,8 @@ const QuizItem = ({questionString, imageUrl, choices}) => {
   }
 
   return (
-    <Box sx={{'text-align': 'left'}}>
-      <p style={{'text-align': 'left'}}>{questionString}</p>
+    <Box sx={{textAlign: 'left'}}>
+      <p style={{textAlign: 'left'}}>{questionString}</p>
       
       {quizImage}
       
@@ -77,7 +77,7 @@ const QuizItem = ({questionString, imageUrl, choices}) => {
       <Box className="result-section" style={getResultStyle()}>
         <Box className="result-box correct" style={{display: isCorrect ? "block" : "none"}}>
           <h3>That is Correct!</h3>
-          <p>It's correct because...</p>
+          <p>{explaination}</p>
         </Box>
         <Box className="result-box incorrect" style={{display: isCorrect ? "none" : "block"}}>
           <h3>Not Quite!</h3>
