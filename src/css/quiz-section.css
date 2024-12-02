@@ -1,3 +1,14 @@
-p{
+.result-section{
+  margin-top: 1.5rem;
+  background-color: #eee;
+  border-radius: 1rem;
+  padding: 0.25rem 1rem;
+}
+
+.result-box.correct h3{
   color: green
+}
+
+.result-box.incorrect h3{
+  color: red
 }
