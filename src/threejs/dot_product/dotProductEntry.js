@@ -4,6 +4,7 @@ import { createGroundAndSun } from './components/groundAndSun.js';
 import { createNormalArrows } from './components/normalArrows.js';
 
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { createGroundPanel } from './components/backgroundPanel.js';
 
 /*
 TODOs:
@@ -64,14 +65,16 @@ export function createGameScene(container, options = {}) {
   let normalArrows = null;
   let groundAndSunGroup = null;
   let ground = null;
-
+  let backgroundPanel = null;
   createGroundAndSun(5, camera, { controls }).then((results) => {
     groundAndSunGroup = results;
     ground = groundAndSunGroup.ground;
     scene.add(ground);
     scene.add(groundAndSunGroup.sun);
     scene.add(groundAndSunGroup.directionalLight);
-
+    
+    backgroundPanel = createGroundPanel(camera, groundAndSunGroup.sun);
+    scene.add(backgroundPanel);
     orbitControls.target.set(ground.position.x, ground.position.y + 2, ground.position.z);
     orbitControls.update();
     createNormalArrows(scene, groundAndSunGroup.sun, ground, {
@@ -106,6 +109,7 @@ export function createGameScene(container, options = {}) {
       normalArrows.lightSourcePointer.update();
     }
     updateCameraPosition(time);
+    backgroundPanel?.update();
     if (groundAndSunGroup) {
       groundAndSunGroup.sun.lookAt(camera.position);
     }
