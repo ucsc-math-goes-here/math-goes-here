@@ -11,7 +11,7 @@ export async function createNormalArrows(scene, lightSource, ground, options = {
   const pointersLength = 2;
   const loader = new FBXLoader();
   const { scale = 0.1, onDotProductChange, controls } = options;
-  let position = new THREE.Vector3(ground.position.x, ground.position.y + 0.2, ground.position.z);
+  let position = new THREE.Vector3(ground.position.x, ground.position.y, ground.position.z);
   const planeNormalPointer = await new Promise((resolve, reject) => {
     loader.load('./models/lightPointer.fbx', resolve, undefined, reject);
   });

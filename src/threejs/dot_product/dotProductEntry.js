@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { setupMouseDrag } from './utils/mouseDrag.js';
-import { createMovableObjectSun } from './components/movableObjectSun.js';
+import { createGroundAndSun } from './components/groundAndSun.js';
 import { createNormalArrows } from './components/normalArrows.js';
 
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
@@ -52,36 +52,29 @@ export function createGameScene(container, options = {}) {
 
   const geometry = new THREE.BoxGeometry();
   const material = new THREE.MeshStandardMaterial({ color: 0x3333ff });
-  const ground = new THREE.Mesh(geometry, material);
-  ground.position.set(0, -2, -5);
-  ground.scale.set(4, 0.2, 4);
-  scene.add(ground);
 
-  const orbitControls = new OrbitControls(camera, renderer.domElement);
   camera.position.set(0, 0, 8.5);
-  orbitControls.target.set(ground.position.x, ground.position.y + 2, ground.position.z);
-  orbitControls.update();
-
-  function updateCameraPosition(time) {
-    orbitControls.update();
-  }
-  controls.updateGroundRotation = (xRotation, zRotation) => {
-    ground.rotation.set(xRotation, 0, zRotation);
-  };
+  const orbitControls = new OrbitControls(camera, renderer.domElement);
 
   // ADDIING ALL LIGHTS
   // =======================================================================================================
   const ambientLight = new THREE.AmbientLight(0x777777, 1);
   scene.add(ambientLight);
-  // =======================================================================================================
 
   let normalArrows = null;
-  let movableSun = null;
-  createMovableObjectSun(ground, 5, camera, { controls }).then((results) => {
-    movableSun = results;
-    scene.add(movableSun.sun);
-    scene.add(movableSun.directionalLight);
-    createNormalArrows(scene, movableSun.sun, ground, {
+  let groundAndSunGroup = null;
+  let ground = null;
+
+  createGroundAndSun(5, camera, { controls }).then((results) => {
+    groundAndSunGroup = results;
+    ground = groundAndSunGroup.ground;
+    scene.add(ground);
+    scene.add(groundAndSunGroup.sun);
+    scene.add(groundAndSunGroup.directionalLight);
+
+    orbitControls.target.set(ground.position.x, ground.position.y + 2, ground.position.z);
+    orbitControls.update();
+    createNormalArrows(scene, groundAndSunGroup.sun, ground, {
       scale: 0.001,
       onDotProductChange,
       controls,
@@ -95,6 +88,13 @@ export function createGameScene(container, options = {}) {
   });
   // =======================================================================================================
 
+  function updateCameraPosition(time) {
+    orbitControls.update();
+  }
+  controls.updateGroundRotation = (xRotation, zRotation) => {
+    ground?.rotation.set(xRotation, 0, zRotation);
+  };
+
   // setupMouseDrag(document, (dragDistance) => {
   //   movableSun.sun.rotateAroundCenter(dragDistance);
   // });
@@ -106,8 +106,8 @@ export function createGameScene(container, options = {}) {
       normalArrows.lightSourcePointer.update();
     }
     updateCameraPosition(time);
-    if (movableSun) {
-      movableSun.sun.lookAt(camera.position);
+    if (groundAndSunGroup) {
+      groundAndSunGroup.sun.lookAt(camera.position);
     }
     renderer.render(scene, camera);
   }
