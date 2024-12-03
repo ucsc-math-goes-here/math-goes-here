@@ -4,7 +4,7 @@ import { Button, Box, FormGroup, FormControlLabel, Checkbox } from '@mui/materia
 
 import "../css/quiz-section.css";
 
-const QuizItem = ({questionString, imageUrl, choices, explaination}) => {
+const QuizItem = ({questionString, imageUrl, choices, explanation}) => {
 
   let quizOptions = [];
   let quizImage;
@@ -76,11 +76,12 @@ const QuizItem = ({questionString, imageUrl, choices, explaination}) => {
 
       <Box className="result-section" style={getResultStyle()}>
         <Box className="result-box correct" style={{display: isCorrect ? "block" : "none"}}>
-          <h3>That is Correct!</h3>
-          <p>{explaination}</p>
+          <h3>Correct!</h3>
+          <p>{explanation}</p>
         </Box>
         <Box className="result-box incorrect" style={{display: isCorrect ? "none" : "block"}}>
           <h3>Not Quite!</h3>
+          <p>{explanation}</p>
           <p>Try again!</p>
         </Box>
       </Box>

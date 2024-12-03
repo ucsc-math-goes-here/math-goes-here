@@ -4,7 +4,7 @@ import { Box, Typography} from '@mui/material';
 
 import QuizItem from '../../components/quizItem';
 
-import dot1 from'../../assets/dotprod3d/dot1.png';
+import dot1 from '../../assets/dotprod3d/dot1.png';
 
 function QuizDotProduct() {
   return (
@@ -12,15 +12,12 @@ function QuizDotProduct() {
       
       <Box>
         <h1>
-          <strong>Dot Product: </strong> Quiz
+          <strong>Dot Product: </strong> Reflect
         </h1>
         <p>Test your understanding of Dot Product through these quiz questions!</p>
       </Box>
 
       <Box component="section" sx={{ my: 4 }}>
-        <Typography variant="h4" gutterBottom align="left" sx={{ fontWeight: 'bold' }} >
-          Quiz Time!
-        </Typography>
         <QuizItem 
           questionString={"Q1: Vectors A and B are pointing in the same direction. Which of the following equations are true? Check all that apply."}
           imageUrl={dot1}
@@ -30,7 +27,7 @@ function QuizDotProduct() {
             { label: "A • B > 0", isTrue: true },
             { label: "A • B < 0", isTrue: false }
           ]}
-          explaination={"The cosine in the equation ends up becoming 1 from cos(0). This also means the resulting value has to be positive."}
+          explanation={"When two vectors have the same direction, the dot product is the product of their magnitudes, which is always positive."}
         />
         <QuizItem 
           questionString={"Q2: A and B are unit vectors.  Which of these are possible values for A • B?  Check all that apply."}
@@ -40,7 +37,7 @@ function QuizDotProduct() {
             { label: "1.5", isTrue: false },
             { label: "0", isTrue: true }
           ]}
-          explaination={"That makes |A||B| portion of the calculation become 1. Therefore any values between -1 and 1 are possible."}
+          explanation={"Since |A| = |B| = 1, the dot product is equal to the cosine of the angles between them,  which lies on the range from -1 to +1."}
         />
       </Box>
     </Box>

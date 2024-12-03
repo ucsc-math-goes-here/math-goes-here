@@ -20,25 +20,6 @@ function SideMenuContent({  }) {
       }}
     >
       <List component="div">
-        <CollapsableMenuItem text="Linear Interpolation">
-          <List component="div">
-            <ListItemButton 
-              sx={{ pl: 4 }}
-              to="./interpolationcurves_learn"
-            >
-              Learn
-            </ListItemButton>
-            <ListItemButton sx={{ pl: 4 }}>
-              Explore
-            </ListItemButton>
-            <ListItemButton sx={{ pl: 4 }}>
-              Quiz
-            </ListItemButton>
-            <ListItemButton sx={{ pl: 4 }}>
-              Mastery
-            </ListItemButton>
-          </List>
-        </CollapsableMenuItem>
         <CollapsableMenuItem text="Dot Product">
           <List component="div">
             <ListItemButton 
@@ -57,7 +38,7 @@ function SideMenuContent({  }) {
               sx={{ pl: 4 }}
               to="./quiz-dot-product"
             >
-              Quiz
+              Reflect
             </ListItemButton>
             <ListItemButton 
               sx={{ pl: 4 }}
@@ -67,6 +48,26 @@ function SideMenuContent({  }) {
             </ListItemButton>
           </List>
         </CollapsableMenuItem>
+        <CollapsableMenuItem text={<span>Interpolation<br/>(Under Construction)</span>} >
+          <List component="div">
+            <ListItemButton 
+              sx={{ pl: 4 }}
+              to="./interpolationcurves_learn"
+            >
+              Learn
+            </ListItemButton>
+            <ListItemButton sx={{ pl: 4 }}>
+              Explore
+            </ListItemButton>
+            <ListItemButton sx={{ pl: 4 }}>
+              Reflect
+            </ListItemButton>
+            <ListItemButton sx={{ pl: 4 }}>
+              Mastery
+            </ListItemButton>
+          </List>
+        </CollapsableMenuItem>
+
       </List>
     </Box>
   );
