@@ -38,7 +38,6 @@ const HeaderBar = ({ children }) => {
         gap: "1rem",
         borderBottomLeftRadius: "1rem",
         borderBottomRightRadius: "1rem",
-        zIndex: "1200",
       }}>
       <Toolbar sx={{
         height: '100%',
