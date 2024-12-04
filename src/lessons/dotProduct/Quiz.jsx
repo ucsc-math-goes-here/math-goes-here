@@ -39,6 +39,18 @@ function QuizDotProduct() {
           ]}
           explanation={"Since |A| = |B| = 1, the dot product is equal to the cosine of the angles between them,  which lies on the range from -1 to +1."}
         />
+
+        {/* <QuizItem 
+          questionString={"Q3: Which number is even."}
+          choices={[
+            { label: "3", isTrue: false },
+            { label: "1", isTrue: false },
+            { label: "7", isTrue: false },
+            { label: "0", isTrue: true }
+          ]}
+          explanation={"Zero is even."}
+        /> */}
+        
       </Box>
     </Box>
   )
