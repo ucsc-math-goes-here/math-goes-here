@@ -8,23 +8,19 @@ import Typography from '@mui/material/Typography';
 const HeaderBarContent = ({ children, leftChildren, rightChildren }) => {
 
   return (
-    <Toolbar sx={{
+    <div style={{
       height: '100%',
       width: '100%',
       padding: 0,
       alignItems: 'center',
-      justifyContent: 'center',
+      justifyContent: 'flex-start',
+      display: "flex",
+      maxWidth: "1900px",
+      margin: "auto",
+      gap: "1rem"
     }}>
-      <div style={{ height: '100%', width: "20%" }}>
-        {leftChildren}
-      </div>
-      <div style={{ width: "60%" }}>
-        {children}
-      </div>
-      <div style={{ height: '100%', width: "20%" }}>
-        {rightChildren}
-      </div>
-    </Toolbar>
+      {children}
+    </div>
   );
 };
 

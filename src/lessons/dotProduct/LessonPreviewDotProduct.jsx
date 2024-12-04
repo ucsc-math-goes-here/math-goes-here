@@ -3,7 +3,7 @@ import React, { useState, useContext } from 'react';
 import Typography from '@mui/material/Typography';
 
 
-function LessonPreviewDotProducts() {
+function LessonPreviewDotProduct() {
   return (
     <div>
       <Typography variant="h3" component="div">
@@ -17,4 +17,4 @@ function LessonPreviewDotProducts() {
   );
 }
 
-export default LessonPreviewDotProducts;
+export default LessonPreviewDotProduct;
