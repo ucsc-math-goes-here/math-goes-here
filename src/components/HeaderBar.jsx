@@ -25,7 +25,6 @@ const HeaderBar = ({ children }) => {
   const toggleDrawer = (isOpen) => () => {
     setSideDrawerOpen(isOpen);
   };
-
   return (
     <Box>
 
@@ -63,16 +62,16 @@ const HeaderBar = ({ children }) => {
         </div>
       </Toolbar>
 
-    </AppBar>
-    <Drawer
-      open={sideDrawerOpen}
-      onClose={toggleDrawer(false)}
-      sx={{
-      }}
-    >
-      <SideMenuContent />
-    </Drawer>
-  </Box>
+      </AppBar>
+      <Drawer
+        open={sideDrawerOpen}
+        onClose={toggleDrawer(false)}
+        sx={{
+        }}
+      >
+        <SideMenuContent />
+      </Drawer>
+    </Box>
   );
 };
 
