@@ -21,7 +21,7 @@ function ThreeJsDotProductRenderWindow() {
   const positiveDotLengthPointerColor = "#00ff00";
   const negativeDotLengthPointerColor = "#ff0000";
 
-  const [lightSourceRotation, setLightSourceRotation] = useState(0);
+  const [lightSourceRotation, setLightSourceRotation] = useState(30);
   const [lightSourceOrbit, setLightSourceOrbit] = useState(0);
 
 
@@ -123,7 +123,7 @@ function ThreeJsDotProductRenderWindow() {
       style={{
         position: 'relative',
         width: 1000,
-        height: 450,
+        height: 500,
         backgroundColor: '#e0e0e0',
         display: 'block',
         userSelect: 'none',
@@ -164,30 +164,34 @@ function ThreeJsDotProductRenderWindow() {
       </div>
       <div style={{ position: 'absolute', bottom: 10, left: 20, right: 200, textAlign: 'left', }}>
         <Typography variant="h7" style={{ color: 'white' }}>
-          Orbit
+          Sun Azimuth: {lightSourceOrbit}
         </Typography>
         <Slider
           value={lightSourceOrbit}
           onChange={handleOrbitChange}
           min={0} max={360}
-          aria-label="Orbit"
+          aria-label="Sun Azimuth"
           valueLabelDisplay="auto"
           style={{ marginTop: 0 }}
         />
         <Typography variant="h7" style={{ color: 'white' }}>
-          Rotation
+          Sun Elevation: {lightSourceRotation}
         </Typography>
         <Slider
           value={lightSourceRotation}
           onChange={handleRotationChange}
-          min={-90} max={90}
-          aria-label="Rotation"
+          min={-135} max={135}
+          aria-label="Sun Elevation"
           valueLabelDisplay="auto"
           style={{ marginTop: 0 }}
         />
       </div>
       <div style={{ position: 'absolute', bottom: 40, right: 40 }}>
-        <Joystick size={100} sticky={true} baseColor="#00000077" stickColor="#bbbbbbff" move={handleJoystickMove} ></Joystick>
+        <Joystick size={100} stickImage="./images/ground_joystick.png" sticky={true} baseColor="#00000077" stickColor="#bbbbbbff" move={handleJoystickMove} >
+          {/* <Typography variant="h7" style={{ color: 'white' }}>
+            Ground Angle
+          </Typography> */}
+        </Joystick>
       </div>
     </div>
   );

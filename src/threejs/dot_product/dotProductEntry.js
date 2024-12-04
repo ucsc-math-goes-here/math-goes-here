@@ -56,6 +56,7 @@ export function createGameScene(container, options = {}) {
 
   camera.position.set(0, 0, 8.5);
   const orbitControls = new OrbitControls(camera, renderer.domElement);
+  orbitControls.enableZoom = false;
 
   // ADDIING ALL LIGHTS
   // =======================================================================================================
@@ -66,7 +67,7 @@ export function createGameScene(container, options = {}) {
   let groundAndSunGroup = null;
   let ground = null;
   let backgroundPanel = null;
-  createGroundAndSun(5, camera, { controls }).then((results) => {
+  createGroundAndSun(3.5, camera, { controls }).then((results) => {
     groundAndSunGroup = results;
     ground = groundAndSunGroup.ground;
     scene.add(ground);
@@ -75,7 +76,7 @@ export function createGameScene(container, options = {}) {
     
     backgroundPanel = createGroundPanel(camera, groundAndSunGroup.sun);
     scene.add(backgroundPanel);
-    orbitControls.target.set(ground.position.x, ground.position.y + 2, ground.position.z);
+    orbitControls.target.set(ground.position.x, ground.position.y + 1.2, ground.position.z);
     orbitControls.update();
     createNormalArrows(scene, groundAndSunGroup.sun, ground, {
       scale: 0.001,

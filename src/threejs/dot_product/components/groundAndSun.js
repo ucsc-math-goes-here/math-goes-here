@@ -26,7 +26,7 @@ export async function createGroundAndSun(radius = 5, camera, options = {}) {
     }
   });
 
-  let angle = 0;
+  let angle = 30;
   let orbit = 0;
   const basePosition = ground.position;
 
