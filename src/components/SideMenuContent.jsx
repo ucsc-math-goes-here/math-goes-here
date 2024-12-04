@@ -44,7 +44,7 @@ function SideMenuContent({  }) {
               sx={{ pl: 4 }}
               to="./master-dot-product"
             >
-              Mastery
+              Master
             </ListItemButton>
           </List>
         </CollapsableMenuItem>
@@ -63,7 +63,7 @@ function SideMenuContent({  }) {
               Reflect
             </ListItemButton>
             <ListItemButton sx={{ pl: 4 }}>
-              Mastery
+              Master
             </ListItemButton>
           </List>
         </CollapsableMenuItem>

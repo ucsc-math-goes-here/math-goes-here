@@ -13,7 +13,7 @@ function QuizDotProduct() {
       
       <Box>
         <h1>
-          <strong>Dot Product: </strong> Mastery
+          <strong>Dot Product: </strong> Master
         </h1>
         <p>Try to make something cool!</p>
       </Box>
