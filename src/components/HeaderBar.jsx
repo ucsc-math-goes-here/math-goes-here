@@ -31,7 +31,7 @@ const HeaderBar = ({ children }) => {
     <AppBar
       position="fixed"
       sx={{ 
-        zIndex: (theme) => theme.zIndex.drawer + 1, 
+        zIndex: (theme) => theme.zIndex.drawer - 1, 
         backgroundColor: appTheme.primaryColor,
         paddingTop: "1rem",
         paddingBottom: "0.7rem",
