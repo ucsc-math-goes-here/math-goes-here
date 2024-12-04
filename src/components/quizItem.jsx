@@ -4,6 +4,8 @@ import { Button, Box, FormGroup, FormControlLabel, Checkbox, Radio, RadioGroup }
 
 import "../css/quiz-section.css";
 
+
+
 const QuizItem = ({questionString, imageUrl, choices, explanation}) => {
 
   let quizOptions = [];
@@ -40,7 +42,7 @@ const QuizItem = ({questionString, imageUrl, choices, explanation}) => {
 
   const handleFormChange = (event) => {
     setFormData({
-      ...formData,
+      ...(isRadio ? formTemplate : formData),   // for radio buttons, revert other states to false e
       [event.target.name]: event.target.checked
     })
   }
@@ -84,7 +86,7 @@ const QuizItem = ({questionString, imageUrl, choices, explanation}) => {
 
   return (
     <Box sx={{textAlign: 'left'}}>
-      <p style={{textAlign: 'left'}}>{questionString}</p>
+      <h2 style={{textAlign: 'left'}}>{questionString}</h2>
       
       {quizImage}
       
