@@ -14,7 +14,14 @@ function ThreeJsDotProductRenderWindow() {
   const [showPlaneNormal, setShowPlaneNormal] = useState(true);
   const [showDirectionToLight, setShowDirectionToLight] = useState(true);
   const [showDotProduct, setShowDotProduct] = useState(true);
-  const [lightSourceRotation, setLightSourceRotation] = useState(0);
+  const [showDotProductLine, setShowDotProductLine] = useState(true);
+
+  const groundNormalColor = "#0000ff";
+  const lightSourcePointerColor = "#ffff00";
+  const positiveDotLengthPointerColor = "#00ff00";
+  const negativeDotLengthPointerColor = "#ff0000";
+
+  const [lightSourceRotation, setLightSourceRotation] = useState(30);
   const [lightSourceOrbit, setLightSourceOrbit] = useState(0);
 
 
@@ -58,6 +65,11 @@ function ThreeJsDotProductRenderWindow() {
     sceneControls.current.updateShowDotLengthPointer?.(event.target.checked);
   };
 
+  const handleShowDotProductLineChange = (event) => {
+    setShowDotProductLine(event.target.checked);
+    sceneControls.current.updateShowDotProductline?.(event.target.checked);
+  };
+
   const onDotProductChange = (value) => {
     // round value
     value = Math.round(value * 100) / 100;
@@ -66,13 +78,11 @@ function ThreeJsDotProductRenderWindow() {
 
   const handleOrbitChange = (event) => {
     setLightSourceOrbit(event.target.value);
-    console.log(sceneControls.current);
     sceneControls.current.updateLightSourceOrbit?.(event.target.value);
   }
 
   const handleRotationChange = (event) => {
     setLightSourceRotation(event.target.value);
-    console.log(sceneControls.current);
     sceneControls.current.updateLightSourceRotation?.(event.target.value);
   }
 
@@ -92,6 +102,8 @@ function ThreeJsDotProductRenderWindow() {
     sceneControls.current.updateShowDotLengthPointer?.(true);
     setShowPlaneNormal(true);
     sceneControls.current.updateShowPlaneNormal?.(true);
+    setShowDotProductLine(true);
+    sceneControls.current.updateShowDotProductline?.(true);
 
     rendererRef.current.dispose();
     if (displayPortRef.current) {
@@ -110,8 +122,8 @@ function ThreeJsDotProductRenderWindow() {
     <div ref={displayPortRef}
       style={{
         position: 'relative',
-        width: 900,
-        height: 450,
+        width: 1000,
+        height: 500,
         backgroundColor: '#e0e0e0',
         display: 'block',
         userSelect: 'none',
@@ -132,41 +144,54 @@ function ThreeJsDotProductRenderWindow() {
           label="Show Dot Product"
           style={{ color: 'white' }}
         />
+        <FormControlLabel
+          control={<Switch checked={showDotProductLine} onChange={handleShowDotProductLineChange} name="showDotProduct" />}
+          label="Show Dot Product Line"
+          style={{ color: 'white' }}
+        />
         <Button variant="contained" color="primary" onClick={reset}>
           Reset
         </Button>
       </div>
       <div style={{ position: 'absolute', top: 100, right: 50 }}>
         <Typography variant="h4" style={{ color: 'white' }}>
-          <span style={{ color: 'blue' }}>Light</span> ⋅ <span style={{ color: 'red' }}>Normal</span> = <span style={{ color: 'yellow' }}>{dotProduct}</span>
+          <span style={{ color: lightSourcePointerColor }}>Light</span>
+          ⋅
+          <span style={{ color: groundNormalColor }}>Normal</span>
+          =
+          <span style={{ color: dotProduct >= 0 ? positiveDotLengthPointerColor : negativeDotLengthPointerColor }}>{dotProduct}</span>
         </Typography>
       </div>
       <div style={{ position: 'absolute', bottom: 10, left: 20, right: 200, textAlign: 'left', }}>
         <Typography variant="h7" style={{ color: 'white' }}>
-          Orbit
+          Sun Azimuth: {lightSourceOrbit}
         </Typography>
         <Slider
           value={lightSourceOrbit}
           onChange={handleOrbitChange}
           min={0} max={360}
-          aria-label="Orbit"
+          aria-label="Sun Azimuth"
           valueLabelDisplay="auto"
           style={{ marginTop: 0 }}
         />
         <Typography variant="h7" style={{ color: 'white' }}>
-          Rotation
+          Sun Elevation: {lightSourceRotation}
         </Typography>
         <Slider
           value={lightSourceRotation}
           onChange={handleRotationChange}
-          min={-90} max={90}
-          aria-label="Rotation"
+          min={-135} max={135}
+          aria-label="Sun Elevation"
           valueLabelDisplay="auto"
           style={{ marginTop: 0 }}
         />
       </div>
       <div style={{ position: 'absolute', bottom: 40, right: 40 }}>
-        <Joystick size={100} sticky={true} baseColor="#00000077" stickColor="#bbbbbbff" move={handleJoystickMove} ></Joystick>
+        <Joystick size={100} stickImage="./images/ground_joystick.png" sticky={true} baseColor="#00000077" stickColor="#bbbbbbff" move={handleJoystickMove} >
+          {/* <Typography variant="h7" style={{ color: 'white' }}>
+            Ground Angle
+          </Typography> */}
+        </Joystick>
       </div>
     </div>
   );
