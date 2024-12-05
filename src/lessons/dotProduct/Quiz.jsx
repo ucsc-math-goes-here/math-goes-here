@@ -48,14 +48,14 @@ function QuizDotProduct() {
         />
         </td><td width="10%" /> <td valign="top" >
         <QuizItem 
-          questionString={"A and B are unit vectors.  Which of these are possible values for A • B?  Check all that apply."}
+          questionString={"P and Q are unit vectors.  Which of these are possible values for P • Q?  Check all that apply."}
           choices={shuffleArray([
             { label: "0.5", isTrue: true },
             { label: "-1", isTrue: true },
             { label: "1.5", isTrue: false },
             { label: "0", isTrue: true }
           ])}
-          explanation={"Since |A| = |B| = 1, the dot product is equal to the cosine of the angles between them,  which lies on the range from -1 to +1."}
+          explanation={"Since |P| = |Q| = 1, the dot product is equal to the cosine of the angles between them,  which lies on the range from -1 to +1."}
         />
 
     </td></tr><tr><td valign="top" >
