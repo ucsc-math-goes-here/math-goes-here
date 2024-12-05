@@ -10,6 +10,7 @@ const QuizItem = ({questionString, imageUrl, choices, explanation}) => {
 
   let quizOptions = [];
   let quizImage;
+  let spacer; 
 
   function optionName(index) { 
     return "q"+index; 
@@ -17,6 +18,7 @@ const QuizItem = ({questionString, imageUrl, choices, explanation}) => {
 
   if(imageUrl){
     quizImage = <img src={imageUrl}/>;
+    spacer = <td width="25%" ></td>;
   }
 
   let formTemplate = {};
@@ -82,21 +84,22 @@ const QuizItem = ({questionString, imageUrl, choices, explanation}) => {
     return {
       display: displayResult ? 'block' : 'none',
     }
-  }
+  } 
 
   return (
     <Box sx={{textAlign: 'left'}}>
       <h2 style={{textAlign: 'left'}}>{questionString}</h2>
-      
-      {quizImage}
-      
-      {optionGroup}
-      
-      <br/>
-      <Box>
-        <Button variant="contained" onClick={checkAnswer}>Check Answer</Button>
-      </Box>
 
+     <table><tr>
+      <td>{quizImage}</td>
+      {spacer}
+      <td>
+        {optionGroup}
+        <br/>
+        <Box>
+          <Button variant="contained" onClick={checkAnswer}>Check Answer</Button>
+        </Box>
+      </td></tr></table>     
       <Box className="result-section" style={getResultStyle()}>
         <Box className="result-box correct" style={{display: isCorrect ? "block" : "none"}}>
           <h3>Correct!</h3>

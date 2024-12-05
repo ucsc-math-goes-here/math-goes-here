@@ -5,7 +5,6 @@ import './App.css'
 
 import MainPage from './pages/MainPage'
 import LessonLearnInterpolationCurve from './lessons/interpolationCurves/LessonLearnInterpolationCurve'
-import LessonLearnDotProduct from './lessons/dotProduct/LessonLearnDotProduct'
 
 import HeaderBar from './components/HeaderBar';
 
@@ -34,8 +33,6 @@ function App() {
           <Routes>
             <Route path="/" element={<MainPage />} />
             <Route path="/interpolationcurves_learn" element={<LessonLearnInterpolationCurve />} />
-            <Route path="/dotproduct_learn" element={<LessonLearnDotProduct />} />
-
             <Route path="/learn-dot-product" element={<LearnDotProduct/>}/>
             <Route path="/explore-dot-product" element={<ExploreDotProduct/>}/>
             <Route path="/quiz-dot-product" element={<QuizDotProduct/>}/>
