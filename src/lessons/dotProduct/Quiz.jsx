@@ -55,7 +55,7 @@ function QuizDotProduct() {
             { label: "1.5", isTrue: false },
             { label: "0", isTrue: true }
           ])}
-          explanation={"Since |P| = |Q| = 1, the dot product is equal to the cosine of the angles between them,  which lies on the range from -1 to +1."}
+          explanation={"Since |P| = |Q| = 1, the dot product is equal to the cosine of the angle between them,  which lies on the range from -1 to +1."}
         />
 
     </td></tr><tr><td valign="top" >
