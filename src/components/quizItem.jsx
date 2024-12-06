@@ -4,6 +4,13 @@ import { Button, Box, FormGroup, FormControlLabel, Checkbox, Radio, RadioGroup }
 
 import "../css/quiz-section.css";
 
+function shuffleArray(array) {
+  for (let i = 1; i < array.length; i++) {
+    let j = Math.floor(Math.random() * (i + 1)); 
+    [array[i], array[j]] = [array[j],array[i]]; 
+  }
+  return array; 
+}
 
 
 const QuizItem = ({questionString, imageUrl, choices, explanation}) => {
@@ -29,12 +36,16 @@ const QuizItem = ({questionString, imageUrl, choices, explanation}) => {
   const [formData, setFormData] = useState(formTemplate);
   const [displayResult, setDisplayResult] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
+  const [answers, setAnswers] = useState([]); // to be replaced by array 
+
+  if (answers.length != choices.length) {
+    setAnswers(shuffleArray(choices));
+  }
 
   let numCorrect = 0; 
 
-  for (let choice of choices) {
+  for (let choice of answers) {
     numCorrect += (choice.isTrue) ? 1 : 0; 
-    //console.log(choice);
   }
 
 
@@ -51,7 +62,7 @@ const QuizItem = ({questionString, imageUrl, choices, explanation}) => {
 
 
   
-  choices.forEach((choice, ind)=>{
+  answers.forEach((choice, ind)=>{
     quizOptions.push(<FormControlLabel 
       name={optionName(ind)}
       control={option}
@@ -64,10 +75,10 @@ const QuizItem = ({questionString, imageUrl, choices, explanation}) => {
   let optionGroup = (isRadio) ? <RadioGroup>{quizOptions}</RadioGroup> : <FormGroup>{quizOptions}</FormGroup>
 
   function isAnswerCorrect() { 
-    for (let index in choices) {
+    for (let index in answers) {
 
       let chosenAnswer = formData[optionName(index)]; 
-      let correctAnswer = choices[index].isTrue; 
+      let correctAnswer = answers[index].isTrue; 
 
       if (chosenAnswer != correctAnswer)
         return false; 
