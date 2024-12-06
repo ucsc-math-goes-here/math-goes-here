@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 
 import { Button, Box, FormGroup, FormControlLabel, Checkbox, Radio, RadioGroup } from '@mui/material';
 
+
 import "../css/quiz-section.css";
 
 function shuffleArray(array) {
@@ -98,7 +99,7 @@ const QuizItem = ({questionString, imageUrl, choices, explanation}) => {
   } 
 
   return (
-    <Box sx={{textAlign: 'left'}}>
+    <Box sx={{textAlign: 'left', mx: 8, minWidth:600 }}>
       <h2 style={{textAlign: 'left'}}>{questionString}</h2>
 
      <table><tr>
