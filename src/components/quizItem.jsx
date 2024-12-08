@@ -25,7 +25,7 @@ const QuizItem = ({questionString, imageUrl, choices, explanation}) => {
   }
 
   if(imageUrl){
-    quizImage = <img src={imageUrl}/>;
+    quizImage = <img src={imageUrl} style={{maxWidth: '100%', objectFit: 'cover', margin: 'auto'}}/>;
     spacer = <td width="25%" ></td>;
   }
 
@@ -99,32 +99,34 @@ const QuizItem = ({questionString, imageUrl, choices, explanation}) => {
   } 
 
   return (
-    <Box sx={{textAlign: 'left', mx: 8, minWidth:600 }}>
-      <h2 style={{textAlign: 'left'}}>{questionString}</h2>
+    <Box sx={{textAlign: 'left', mx: 1}}>
+      <h2 style={{textAlign: 'left', lineHeight: 1.1}}>{questionString}</h2>
 
-     <table><tr>
-      <td>{quizImage}</td>
-      {spacer}
-      <td>
-        {optionGroup}
-        <br/>
+      <Box sx={{
+          display: 'grid',
+          gridTemplateColumns: '50% 50%',
+          gap: '1rem'
+        }}
+      >
+        {quizImage}
         <Box>
-          <Button variant="contained" onClick={checkAnswer}>Check Answer</Button>
-        </Box>
-      </td></tr></table>     
-      <Box className="result-section" style={getResultStyle()}>
-        <Box className="result-box correct" style={{display: isCorrect ? "block" : "none"}}>
-          <h3>Correct!</h3>
-          <p>{explanation}</p>
-        </Box>
-        <Box className="result-box incorrect" style={{display: isCorrect ? "none" : "block"}}>
-          <h3>Not Quite!</h3>
-          <p>{explanation}</p>
-          <p>Try again!</p>
+          {optionGroup}
+          <Button variant="contained" onClick={checkAnswer} style={{marginTop: '1rem'}}>Check Answer</Button>
         </Box>
       </Box>
-      
-      <br/>
+    <Box className="result-section" style={getResultStyle()}>
+      <Box className="result-box correct" style={{display: isCorrect ? "block" : "none"}}>
+        <h3>Correct!</h3>
+        <p>{explanation}</p>
+      </Box>
+      <Box className="result-box incorrect" style={{display: isCorrect ? "none" : "block"}}>
+        <h3>Not Quite!</h3>
+        <p>{explanation}</p>
+        <p>Try again!</p>
+      </Box>
+    </Box>
+    
+    <br/>
     </Box>
 
     

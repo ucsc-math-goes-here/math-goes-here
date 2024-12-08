@@ -127,6 +127,7 @@ function ThreeJsDotProductRenderWindow() {
         backgroundColor: '#e0e0e0',
         display: 'block',
         userSelect: 'none',
+        margin: 'auto',
       }}>
       <div style={{ position: 'absolute', width: '100%', top: 10 }}>
         <FormControlLabel

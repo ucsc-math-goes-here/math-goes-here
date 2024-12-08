@@ -14,14 +14,7 @@ const MainLayout = ({ headbarElement, children }) => {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <HeaderBar>
-          {headbarElement}
-      </HeaderBar>
-      <Toolbar sx={{ height: appTheme.appBarHeight }} />
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <Toolbar sx={{ height: appTheme.appBarHeight }} />
         {children}
-      </Box>
     </Box>
   );
 };
