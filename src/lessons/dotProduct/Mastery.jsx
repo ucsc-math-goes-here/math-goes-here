@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Box, Typography} from '@mui/material';
+import { Box, Button} from '@mui/material';
 
 import fresnel from'../../assets/dotprod3d/fresnel.png';
 import fresnel2 from'../../assets/dotprod3d/fresnel2.png';
@@ -18,7 +18,17 @@ function QuizDotProduct() {
         <p>Try to make something cool!</p>
       </Box>
 
-      <Box component="section" sx={{ mt: 4 }}>
+      <Box>
+        <iframe width="500px" height="400" src="https://scratch.mit.edu/projects/1106303386/embed" title="Scratch Project Embed"></iframe>
+
+        <h2>Try Implementing Dot Proudct</h2>
+
+        <p>Fill out the function for "Dot Product" on Scratch</p>
+
+        <Button variant="contained" href="https://scratch.mit.edu/projects/1106303386/" target="_blank">Go Now!</Button>
+      </Box>
+
+      {/* <Box component="section" sx={{ mt: 4 }}>
         <Typography variant="h4" align="left" gutterBottom sx={{ fontWeight: 'bold' }}>
           Dot Product in 3D Graphics
         </Typography>
@@ -65,7 +75,7 @@ function QuizDotProduct() {
             style={{ width: '100%', height: 'auto' }}
           />
         </Box>
-      </Box>
+      </Box> */}
     </Box>
   )
 }
