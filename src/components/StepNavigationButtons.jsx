@@ -33,9 +33,12 @@ export const StepNavigationButtons = ({ canGoPrev, canGoNext, nextUrl, prevUrl }
     </a>;
 
   return (
-    <div style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
-      {firstButton}
-      {lastButton}
+    <div>
+      <div style={{height: "50px"}}/>
+      <div style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
+        {firstButton}
+        {lastButton}
+      </div>
     </div>
   );
 }
