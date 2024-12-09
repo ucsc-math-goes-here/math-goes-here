@@ -28,6 +28,8 @@ function LearnDotProduct() {
         "margin-top": "1rem"
       }}>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/_0wWcwX3ls8?si=XmEu2ckQoo6sk9bS" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+
+        <br/>Credit: <a href="https://www.youtube.com/@MahmoudElMansariEN-ze5fo">Mahmoud El Mansari EN</a>
       </Box>
 
       <Box sx={{ mt: 4 }}>
