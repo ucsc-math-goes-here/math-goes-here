@@ -11,7 +11,7 @@ import CollapsableMenuItem from './CollapsableMenuItem';
 
 
 function SideMenuContent({  }) {
-
+  
   return (
     
     <Box

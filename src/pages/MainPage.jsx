@@ -5,12 +5,9 @@ import {Box, Button} from '@mui/material';
 
 import { AppThemeContext } from '../contexts/AppThemeContext';
 import MainLayout from '../components/MainLayout';
-import SideDrawer from '../components/SideDrawer';
 import LandingPage from '../lessons/LandingPage';
 import LessonPreviewDotProduct from '../lessons/dotProduct/LessonPreviewDotProduct';
 import LessonPreviewInterpolationCurves from '../lessons/interpolationCurves/LessonPreviewInterpolationCurves';
-import HeaderBarContent from '../components/HeaderBarContent';
-
 
 
 function MainPage() {

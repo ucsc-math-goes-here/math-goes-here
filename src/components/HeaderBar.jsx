@@ -27,39 +27,38 @@ const HeaderBar = ({ children }) => {
   };
   return (
     <Box>
-
-    <AppBar
-      position="fixed"
-      sx={{ 
-        zIndex: (theme) => theme.zIndex.drawer - 1, 
-        backgroundColor: appTheme.primaryColor,
-        paddingTop: "1rem",
-        paddingBottom: "0.7rem",
-        gap: "1rem",
-        borderBottomLeftRadius: "1rem",
-        borderBottomRightRadius: "1rem",
-      }}>
-      <Toolbar sx={{
-        height: '100%',
-        width: '100%',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}>
-        <div style={{
+      <AppBar
+        position="fixed"
+        sx={{
+          zIndex: (theme) => theme.zIndex.drawer - 1,
+          backgroundColor: appTheme.primaryColor,
+          paddingTop: "1rem",
+          paddingBottom: "0.7rem",
+          gap: "1rem",
+          borderBottomLeftRadius: "1rem",
+          borderBottomRightRadius: "1rem",
+        }}>
+        <Toolbar sx={{
           height: '100%',
           width: '100%',
-          padding: 0,
           alignItems: 'center',
-          justifyContent: 'flex-start',
-          display: "flex",
-          maxWidth: "1280px",
-          margin: "auto",
-          gap: "1rem"
+          justifyContent: 'center',
         }}>
-          <a href="/math-goes-here/"><img src={logo} alt="Math Goes Here Logo" /></a>
-          <Button variant="outlined" onClick={sideDrawerOpen ? toggleDrawer(false) : toggleDrawer(true)}>Lessons</Button>
-        </div>
-      </Toolbar>
+          <div style={{
+            height: '100%',
+            width: '100%',
+            padding: 0,
+            alignItems: 'center',
+            justifyContent: 'flex-start',
+            display: "flex",
+            maxWidth: "1280px",
+            margin: "auto",
+            gap: "1rem"
+          }}>
+            <a href="/math-goes-here/"><img src={logo} alt="Math Goes Here Logo" /></a>
+            <Button variant="outlined" onClick={sideDrawerOpen ? toggleDrawer(false) : toggleDrawer(true)}>Lessons</Button>
+          </div>
+        </Toolbar>
 
       </AppBar>
       <Drawer
