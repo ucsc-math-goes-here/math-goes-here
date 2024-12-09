@@ -56,7 +56,17 @@ const HeaderBar = ({ children }) => {
             gap: "1rem"
           }}>
             <a href="/math-goes-here/"><img src={logo} alt="Math Goes Here Logo" /></a>
-            <Button variant="outlined" onClick={sideDrawerOpen ? toggleDrawer(false) : toggleDrawer(true)}>Lessons</Button>
+            <Button 
+              variant="outlined" 
+              onClick={sideDrawerOpen ? toggleDrawer(false) : toggleDrawer(true)}
+              sx={{
+                color: "white",
+                borderColor: "red",
+                // backgroundColor: 'darkred'
+              }}
+            >
+              Lessons
+            </Button>
           </div>
         </Toolbar>
 

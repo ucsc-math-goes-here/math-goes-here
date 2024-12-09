@@ -23,7 +23,11 @@ function QuizDotProduct() {
         prevText={"Reflect"}
       />
       
-      <Box>
+      <Box 
+        sx={{
+          marginBottom: "5rem"
+        }}
+      >
         <h1>
           <strong>Dot Product: </strong> Master
         </h1>
@@ -33,7 +37,8 @@ function QuizDotProduct() {
       <Box sx={{
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
-          gap: "2rem"
+          gap: "2rem",
+          
         }}
       >
         <Box>
@@ -58,7 +63,7 @@ function QuizDotProduct() {
             if the Dot Product greater than Threshold, the bat is seen.
           </p>
 
-          <Button variant="contained" href="https://scratch.mit.edu/projects/1107917471/editor/" target="_blank">Try it out on Scratch!&nbsp;<OpenInNew/></Button>
+          <Button variant="contained" href="https://scratch.mit.edu/projects/1107917471/" target="_blank">Try it out on Scratch!&nbsp;<OpenInNew/></Button>
         </Box>
       </Box>
 

@@ -48,9 +48,7 @@ function LearnDotProduct() {
           <Box sx={{
             backgroundColor: "#ccc",
             width: "400px",
-//            margin: 0,
-            "margin-bottom": "1rem",
-            margin: "auto",
+            margin: "1rem auto",
             padding: "1rem",
             fontSize: "1.5rem",
             borderRadius: "1rem",
@@ -61,8 +59,7 @@ function LearnDotProduct() {
           <Box sx={{
             backgroundColor: "#ccc",
             width: "400px",
- //           margin: 0,
-            margin: "auto",
+            margin: "1rem auto",
             padding: "1rem",
             fontSize: "1.5rem",
             borderRadius: "1rem",

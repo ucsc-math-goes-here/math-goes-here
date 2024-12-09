@@ -42,13 +42,16 @@ function LandingPage() {
           display: 'grid',
           gridTemplateColumns: "1fr 1fr",
           gap: "1rem",
-          maxWidth: "1000px",
-          margin: "auto"
+          maxWidth: "800px",
+          margin: "2rem auto 0"
         }}
       >
         <Card className="landing-page-card" variant="outlined">
           <CardActionArea 
             href="./learn-dot-product"
+            sx={{
+              color: "black"
+            }}
           >
             <CardContent>
               <h2>Dot Product</h2>
@@ -60,6 +63,10 @@ function LandingPage() {
         <Card className="landing-page-card" variant="outlined">
           <CardActionArea
             // href="./learn-interpolation-curves"
+            disabled
+            sx={{
+              color: "grey"
+            }}
           >
             <CardContent>
               <h2>Interpolation</h2>
@@ -72,7 +79,6 @@ function LandingPage() {
         </Card>
       </Box>
     </Box>
-    
   );
 }
 
