@@ -43,6 +43,7 @@ function QuizDotProduct() {
       >
         <Box>
           <iframe width="500px" height="400" src="https://scratch.mit.edu/projects/1106303386/embed" title="Scratch Project Embed"></iframe>
+          <p>Click on the green flag to try it out!</p>
         </Box>
         <Box
           sx={{
