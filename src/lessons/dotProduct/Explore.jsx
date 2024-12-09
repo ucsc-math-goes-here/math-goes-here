@@ -11,10 +11,19 @@ import PageNav from "../../components/PageNav";
 function ExploreDotProduct() {
   return (
     <Box component="section" sx={{ mb: 4, alignContent: "start", justifyContent: "start" }}>
+        <StepNavigationButtons
+        canGoPrev={true}
+        canGoNext={true}
+        prevUrl={"/learn-dot-product"}
+        nextUrl={"/reflect-dot-product"}
+        nextText="Reflect"
+        prevText="Learn"
+      />
       <Box>
         <h1>
           <strong>Dot Product: </strong> Explore
         </h1>
+ 
         <p>
           Explore Dot Product!
         </p>
@@ -24,14 +33,6 @@ function ExploreDotProduct() {
         <ThreeJsDotProductRenderWindow />
       </Box>
 
-      <StepNavigationButtons
-        canGoPrev={true}
-        canGoNext={true}
-        prevUrl={"/learn-dot-product"}
-        nextUrl={"/reflect-dot-product"}
-        nextText="Reflect"
-        prevText="Learn"
-      />
     </Box>
   )
 }

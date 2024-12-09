@@ -20,11 +20,21 @@ function QuizDotProduct() {
 
   return (
     <Box component="section" sx={{ mb: 4, alignContent: "start", justifyContent: "start" }}>
+        <StepNavigationButtons
+        canGoPrev={true}
+        canGoNext={true}
+        prevUrl={"/explore-dot-product"}
+        nextUrl={"/master-dot-product"}
+        nextText="Master"
+        prevText="Explore"
+      />
 
       <Box>
         <h1>
           <strong>Dot Product: </strong> Reflect
         </h1>
+
+
         <p>Test your understanding of Dot Product through these quiz questions!</p>
       </Box>
 
@@ -110,14 +120,6 @@ function QuizDotProduct() {
         />
 
       </Box>
-      <StepNavigationButtons
-        canGoPrev={true}
-        canGoNext={true}
-        prevUrl={"/explore-dot-product"}
-        nextUrl={"/master-dot-product"}
-        nextText="Master"
-        prevText="Explore"
-      />
     </Box>
   )
 }

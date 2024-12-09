@@ -15,12 +15,20 @@ function QuizDotProduct() {
         alignContent: "start",
         justifyContent: "start",
       }}>
+      <StepNavigationButtons
+        canGoPrev={true}
+        canGoNext={false}
+        prevUrl={"/reflect-dot-product"}
+        nextUrl={""}
+        prevText={"Reflect"}
+      />
       
       <Box>
         <h1>
           <strong>Dot Product: </strong> Master
         </h1>
       </Box>
+    
 
       <Box sx={{
           display: "grid",
@@ -54,13 +62,6 @@ function QuizDotProduct() {
         </Box>
       </Box>
 
-      <StepNavigationButtons
-        canGoPrev={true}
-        canGoNext={false}
-        prevUrl={"/reflect-dot-product"}
-        nextUrl={""}
-        prevText={"Reflect"}
-      />
     </Box>
   )
 }

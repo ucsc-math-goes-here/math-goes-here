@@ -15,6 +15,14 @@ import grayscale from'../../assets/dotprod3d/grayscale.png';
 function LearnDotProduct() {
   return (
     <Box component="section" sx={{ mb: 4, alignContent: "start", justifyContent: "start" }}>
+      <StepNavigationButtons
+        canGoPrev={false}
+        canGoNext={true}
+        prevUrl={""}
+        nextUrl={"/explore-dot-product"}
+        nextText={"Explore"}
+      />
+
       <h1>
         <strong>Dot Product:</strong> Learn
       </h1>
@@ -128,13 +136,6 @@ function LearnDotProduct() {
         </Box>
       </Box>
 
-      <StepNavigationButtons
-        canGoPrev={false}
-        canGoNext={true}
-        prevUrl={""}
-        nextUrl={"/explore-dot-product"}
-        nextText={"Explore"}
-      />
     </Box>
   )
 }
