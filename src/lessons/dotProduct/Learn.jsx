@@ -31,7 +31,7 @@ function LearnDotProduct() {
       </Box>
 
       <Box sx={{ mt: 4 }}>
-        <Typography variant="h5" align="left" gutterBottom sx={{ fontWeight: 'bold' }}>
+        <Typography variant="h5" align="center" gutterBottom sx={{ fontWeight: 'bold' }}>
           Calculating the Dot Product
         </Typography>
         <MathJaxContext>
