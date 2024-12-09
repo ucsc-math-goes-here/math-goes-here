@@ -86,27 +86,33 @@ function LearnDotProduct() {
         </Typography>
       </Box>
 
-      <Box component="section" sx={{ mt: 4, maxWidth: "800px", margin: "5rem auto 0"}}>
+      <Box component="section" sx={{ mt: 4, maxWidth: "800px", margin: "5rem auto 0", textAlign: "left"}}>
         <Typography variant="h4" align="left" gutterBottom sx={{ fontWeight: 'bold' }}>
           Dot Product in 3D Graphics
         </Typography>
         <Typography variant="body1" align="left">
-          There are a lot of fun shader code you can write using dot product!
+          Dot Product is commonly used in shaders to find the relations between a light or view vector against the surface normal.
+          <br/>
+          Here are some Unreal Engine Shader examples.
         </Typography>
 
         <Box sx={{ mt: 3 }}>
           <Typography variant="h5" align="left" gutterBottom sx={{ fontWeight: 'bold' }}>
             Fresnel Shader
           </Typography>
-          <Box sx={{ display: 'flex', gap: 2, "flex-flow": 'column' }}>
+          <Box sx={{ mt: 3 }}>
             <img
               src={fresnel}
               alt="Fresnel Shader"
+              style={{ width: '100%' }}
             />
+            <p>By calculating the dot product of the camera vector and the surface normal, you can use the scalar result to assign a different color value.</p>
             <img
               src={fresnel2}
               alt="Fresnel Shader Example"
+              style={{ width: '100%' }}
             />
+            <p>You can exaggerate the result with a power node to create an interesting effect!</p>
           </Box>
         </Box>
 
@@ -119,6 +125,7 @@ function LearnDotProduct() {
             alt="Channel Masking"
             style={{ width: '100%', height: 'auto' }}
           />
+          <p>You can also use the dot product to mask specific channels. It'll perform the dot product with the RGB value and will give back a scalar value on how far the value is from, say, Blue (0,0,1). See in this example, green and red have turned black.</p>
         </Box>
 
         <Box sx={{ mt: 3 }}>
