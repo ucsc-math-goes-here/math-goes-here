@@ -12,7 +12,7 @@ function LandingPage() {
   return (
     <Box>
       <Box   >
-        <h1>Math Goes Here:</h1>
+        <h1 style={{marginBottom:0}}>Math Goes Here:</h1>
         <h2>Math For Game Developers</h2>
 
         <Box className="intro"style={{maxWidth:'780px'}} justifySelf='center'>     
