@@ -109,6 +109,7 @@ export async function createNormalArrows(scene, lightSource, ground, options = {
     dashLine.computeLineDistances();
 
     onDotProductChange(dotProduct);
+    ground.updateMaterial(dotProduct);
 
     dotLengthPointer.scale.set(dotLengthPointer.scale.x, dotLengthPointer.scale.y, scale * dotProduct);
   };
@@ -135,7 +136,6 @@ export async function createNormalArrows(scene, lightSource, ground, options = {
     dashlineShouldBeVisible = show;
     checkIfDashlineCanBeSeen();
   }
-  
 
   return { groundNormalPointer: planeNormalPointer, lightSourcePointer };
 }
