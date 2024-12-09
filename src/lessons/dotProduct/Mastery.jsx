@@ -58,7 +58,7 @@ function QuizDotProduct() {
             if the Dot Product greater than Threshold, the bat is seen.
           </p>
 
-          <Button variant="contained" href="https://scratch.mit.edu/projects/1107880402/editor/" target="_blank">Try it out on Scratch!&nbsp;<OpenInNew/></Button>
+          <Button variant="contained" href="https://scratch.mit.edu/projects/1107917471/editor/" target="_blank">Try it out on Scratch!&nbsp;<OpenInNew/></Button>
         </Box>
       </Box>
 
