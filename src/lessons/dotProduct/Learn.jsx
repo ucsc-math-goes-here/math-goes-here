@@ -27,7 +27,9 @@ function LearnDotProduct() {
         "text-align": "center",
         "margin-top": "1rem"
       }}>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/_0wWcwX3ls8?si=XmEu2ckQoo6sk9bS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/_0wWcwX3ls8?si=XmEu2ckQoo6sk9bS" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+
+        <br/>Credit: <a href="https://www.youtube.com/@MahmoudElMansariEN-ze5fo">Mahmoud El Mansari EN</a>
       </Box>
 
       <Box sx={{ mt: 4 }}>
@@ -38,7 +40,7 @@ function LearnDotProduct() {
           <Box sx={{
             backgroundColor: "#ccc",
             width: "400px",
-            margin: 0,
+//            margin: 0,
             "margin-bottom": "1rem",
             margin: "auto",
             padding: "1rem",
@@ -51,7 +53,7 @@ function LearnDotProduct() {
           <Box sx={{
             backgroundColor: "#ccc",
             width: "400px",
-            margin: 0,
+ //           margin: 0,
             margin: "auto",
             padding: "1rem",
             fontSize: "1.5rem",
