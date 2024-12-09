@@ -27,14 +27,17 @@ function LearnDotProduct() {
         <strong>Dot Product:</strong> Learn
       </h1>
 
-      <Typography variant="body1" align="center" >
-        A dot product can be used to learn about the relationship between two vectors.
+      <Typography variant="body1" style={{maxWidth:'700px', textAlign:'start', justifySelf:'center'}} >
+      
+        <p>From the beautiful graphics to the realistic physics to the challenging enemy behaviors, the vector dot product is used all over video games. </p>
       </Typography>
 
       <Box sx={{
         "text-align": "center",
         "margin-top": "1rem"
       }}>
+        <p>Watch this video to learn more.</p>
+
         <iframe width="560" height="315" src="https://www.youtube.com/embed/_0wWcwX3ls8?si=XmEu2ckQoo6sk9bS" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
 
         <br/>Credit: <a href="https://www.youtube.com/@MahmoudElMansariEN-ze5fo">Mahmoud El Mansari EN</a>
@@ -72,10 +75,11 @@ function LearnDotProduct() {
 
       <Box sx={{ mt: 4, width: "800px", margin: "2rem auto"}}>
         <Typography variant="h5" align="left" gutterBottom sx={{ fontWeight: 'bold' }}>
-          Other learning resources
+          For Further Investigation
         </Typography>
 
         <Typography variant="body1" align="left" >
+          Here are some more ways to learn about the dot product. <br/>
           <a href="https://www.youtube.com/watch?v=a_8DIR6_hhI" target="_blank" >[Youtube] A Crash Course in Dot Produdcts - Math for Game Dev</a>
           <br />
           <a href="https://www.youtube.com/watch?v=_61tlp2kOow" target="_blank">[Youtube] The Basics of Dot Product in Unity URP. Vectors, Angles, and Lighting!</a>
