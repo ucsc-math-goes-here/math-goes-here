@@ -18,7 +18,7 @@ function LandingPage() {
         <Box className="intro"style={{maxWidth:'780px'}} justifySelf='center'>     
         <p>This website is a place to learn math concepts used in video games. </p>
         <p>It's designed to help game programmers, game designers, technical artists, 
-        or anyone else who thinks video games is a fun way to learn math.</p> 
+        or anyone else who thinks video games are a fun way to learn math.</p> 
 
         <p>Each of our lessons has four sections:</p>
         <h3>Learn</h3>
