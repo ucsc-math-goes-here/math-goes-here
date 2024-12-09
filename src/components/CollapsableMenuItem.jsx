@@ -1,4 +1,4 @@
-import React, {useState, useContext} from "react";
+import React, { useState, useContext } from "react";
 
 import {
   Box,
@@ -12,7 +12,7 @@ import {
   ExpandMore
 } from '@mui/icons-material';
 
-const CollapsableMenuItem = ({ children, text }) => {
+const CollapsableMenuItem = ({ children, text, backgroundColor }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   const onClickItem = (isOpen) => () => {
@@ -21,9 +21,10 @@ const CollapsableMenuItem = ({ children, text }) => {
 
   return (
     <Box>
-      <ListItemButton 
+      <ListItemButton
         sx={{
           fontWeight: "bold",
+          backgroundColor: backgroundColor,
         }}
         onClick={onClickItem(isCollapsed ? false : true)}
       >

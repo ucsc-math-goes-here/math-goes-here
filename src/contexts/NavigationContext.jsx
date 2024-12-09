@@ -3,6 +3,7 @@ import React, { createContext, useState } from 'react';
 
 export const NavigationContext = createContext();
 
+// Current not in use. Might add this later for better organization
 export const NavigationProvider = ({ children }) => {
   const [selectedTopic, setSelectedTopic] = useState(null);
   const [step, setStep] = useState("learn");

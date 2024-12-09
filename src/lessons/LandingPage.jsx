@@ -37,7 +37,7 @@ function LandingPage() {
         
         <Card className="landing-page-card" variant="outlined">
           <CardActionArea
-            href="./interpolationcurves_learn"
+            href="./learn-interpolation-curves"
           >
             <CardContent>
               <h2>Interpolation</h2>

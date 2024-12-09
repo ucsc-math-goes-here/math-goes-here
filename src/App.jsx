@@ -14,7 +14,6 @@ import QuizDotProduct from './lessons/dotProduct/Quiz'
 import MasterDotProduct from './lessons/dotProduct/Mastery'
 
 import { AppThemeProvider } from './contexts/AppThemeContext'
-import { NavigationProvider } from './contexts/NavigationContext';
 
 
 function App() {
@@ -28,20 +27,18 @@ function App() {
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
       <AppThemeProvider>
-        <NavigationProvider>
+        <Router basename="/math-goes-here">
           <HeaderBar />
           <Box sx={{ paddingTop: "75px" }} />
-          <Router basename="/math-goes-here">
-            <Routes>
-              <Route path="/" element={<MainPage />} />
-              <Route path="/interpolationcurves_learn" element={<LessonLearnInterpolationCurve />} />
-              <Route path="/learn-dot-product" element={<LearnDotProduct />} />
-              <Route path="/explore-dot-product" element={<ExploreDotProduct />} />
-              <Route path="/quiz-dot-product" element={<QuizDotProduct />} />
-              <Route path="/master-dot-product" element={<MasterDotProduct />} />
-            </Routes>
-          </Router>
-        </NavigationProvider>
+          <Routes>
+            <Route path="/" element={<MainPage />} />
+            <Route path="/learn-interpolation-curves" element={<LessonLearnInterpolationCurve />} />
+            <Route path="/learn-dot-product" element={<LearnDotProduct />} />
+            <Route path="/explore-dot-product" element={<ExploreDotProduct />} />
+            <Route path="/quiz-dot-product" element={<QuizDotProduct />} />
+            <Route path="/master-dot-product" element={<MasterDotProduct />} />
+          </Routes>
+        </Router>
       </AppThemeProvider>
     </ThemeProvider>
   )
