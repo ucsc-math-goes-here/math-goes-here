@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Box, Button} from '@mui/material';
+import { Box, Button, Typography} from '@mui/material';
 import { OpenInNew } from '@mui/icons-material';
 
 import PageNav from "../../components/PageNav";
@@ -25,7 +25,7 @@ function QuizDotProduct() {
       
       <Box 
         sx={{
-          marginBottom: "5rem"
+          marginBottom: "3rem"
         }}
       >
         <h1>
@@ -43,7 +43,12 @@ function QuizDotProduct() {
       >
         <Box>
           <iframe width="500px" height="400" src="https://scratch.mit.edu/projects/1106303386/embed" title="Scratch Project Embed"></iframe>
-          <p>Click on the green flag to try it out!</p>
+          <Box sx={{width:'480px', textAlign:'start', justifySelf:'center'}} >
+            <p>Click on the <strong>green flag</strong> to try it out!<br/>
+            Use the <strong>sliders</strong> to change the cat's field of vision.  <br/>
+            <strong>Click and Drag</strong> to move the bat around. 
+            </p>
+          </Box>
         </Box>
         <Box
           sx={{
@@ -56,12 +61,15 @@ function QuizDotProduct() {
               marginTop: 0
             }}
           >
-            Try Using Dot Proudct!
+            Put Your Dot Product Knowledge to Work!
           </h2>
 
           <p>
-            Calculate the dot product and the threshold so that <br/>
-            if the Dot Product greater than Threshold, the bat is seen.
+          In this project, you'll use a dot product to determine whether one character can see another, given its limited field of view. 
+          This page shows a working solution. 
+          </p>
+          <p>
+            Click the button when you are ready to make your own version! 
           </p>
 
           <Button variant="contained" href="https://scratch.mit.edu/projects/1107917471/" target="_blank">Try it out on Scratch!&nbsp;<OpenInNew/></Button>
