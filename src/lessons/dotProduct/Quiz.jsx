@@ -3,6 +3,7 @@ import { useMediaQuery } from "react-responsive";
 import { Box } from '@mui/material';
 
 import QuizItem from '../../components/quizItem';
+import PageNav from "../../components/PageNav";
 
 import acutevectors from '../../assets/dotprod3d/acutevectors.png';
 import obtusevectors from '../../assets/dotprod3d/obtusevectors.png';
@@ -27,14 +28,14 @@ function QuizDotProduct() {
         <p>Test your understanding of Dot Product through these quiz questions!</p>
       </Box>
 
-      <Box component="section"
-        sx={{
-          my: 4,
-          display: 'grid',
-          gridTemplateColumns: isMobile ? '100%' : '50% 50%',
-          gap: '1rem'
-        }}>
-        <QuizItem
+      <Box component="section" 
+      sx={{ 
+        my: 4,
+        display: 'grid',
+        gridTemplateColumns: isMobile ? '100%' : '1fr 1fr',
+        gap: '1rem 3rem'
+      }}>
+        <QuizItem  
           questionString={<span>Vectors A and B are pointing in the same direction. Which of the following statements are true? Check all that apply.</span>}
           imageUrl={parallelvectors}
           choices={[
@@ -114,6 +115,8 @@ function QuizDotProduct() {
         canGoNext={true}
         prevUrl={"/explore-dot-product"}
         nextUrl={"/master-dot-product"}
+        nextText="Master"
+        prevText="Explore"
       />
     </Box>
   )

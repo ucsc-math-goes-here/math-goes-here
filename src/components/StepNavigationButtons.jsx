@@ -7,7 +7,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import { useNavigate } from 'react-router-dom';
 
 
-export const StepNavigationButtons = ({ canGoPrev, canGoNext, nextUrl, prevUrl }) => {
+export const StepNavigationButtons = ({ canGoPrev, canGoNext, nextUrl, prevUrl, nextText, prevText }) => {
   const navigate = useNavigate();
 
   const goNext = () => {
@@ -26,8 +26,8 @@ export const StepNavigationButtons = ({ canGoPrev, canGoNext, nextUrl, prevUrl }
     navigate("/");
   }
 
-  const firstButton = canGoPrev ? <GoPrevButton onClick={goPrev} /> : <div />;
-  const lastButton = canGoNext ? <GoNextButton onClick={goNext} /> :
+  const firstButton = canGoPrev ? <GoPrevButton onClick={goPrev} prevText={prevText} /> : <div />;
+  const lastButton = canGoNext ? <GoNextButton onClick={goNext} nextText={nextText} /> :
     <a href="/math-goes-here/" style={{ textDecoration: 'none' }}>
       <HomeButton />
     </a>;
@@ -44,28 +44,28 @@ export const StepNavigationButtons = ({ canGoPrev, canGoNext, nextUrl, prevUrl }
 }
 
 
-export const GoPrevButton = ({ onClick }) => {
+export const GoPrevButton = ({ onClick, prevText }) => {
   return (
     <Button
       onClick={onClick}
       variant="contained"
       startIcon={<ArrowBackIcon />}
-      style={{ height: "3rem", width: "9rem" }}
+      style={{ height: "3rem", width: "9rem", textTransform: "none" }}
     >
-      Previous
+      {prevText}
     </Button>
   );
 };
 
-export const GoNextButton = ({ onClick }) => {
+export const GoNextButton = ({ onClick, nextText }) => {
   return (
     <Button
       onClick={onClick}
       variant="contained"
       endIcon={<ArrowForwardIcon />}
-      style={{ height: "3rem", width: "9rem" }}
+      style={{ height: "3rem", width: "9rem", textTransform: "none"  }}
     >
-      Next
+      {nextText}
     </Button>
   );
 };

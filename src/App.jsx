@@ -35,7 +35,7 @@ function App() {
             <Route path="/learn-interpolation-curves" element={<LessonLearnInterpolationCurve />} />
             <Route path="/learn-dot-product" element={<LearnDotProduct />} />
             <Route path="/explore-dot-product" element={<ExploreDotProduct />} />
-            <Route path="/quiz-dot-product" element={<QuizDotProduct />} />
+            <Route path="/reflect-dot-product" element={<QuizDotProduct />} />
             <Route path="/master-dot-product" element={<MasterDotProduct />} />
           </Routes>
         </Router>

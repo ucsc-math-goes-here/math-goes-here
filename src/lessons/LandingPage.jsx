@@ -18,7 +18,7 @@ function LandingPage() {
       <Box
         style={{
           display: 'grid',
-          gridTemplateColumns: "50% 50%",
+          gridTemplateColumns: "1fr 1fr",
           gap: "1rem",
           maxWidth: "1000px",
           margin: "auto"

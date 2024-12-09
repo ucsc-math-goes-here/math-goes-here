@@ -6,6 +6,7 @@ import { StepNavigationButtons } from "../../components/StepNavigationButtons";
 import { Box, Typography } from '@mui/material';
 
 import ThreeJsDotProductRenderWindow from './ThreeJsDotProductRenderWindow';
+import PageNav from "../../components/PageNav";
 
 function ExploreDotProduct() {
   return (
@@ -27,7 +28,9 @@ function ExploreDotProduct() {
         canGoPrev={true}
         canGoNext={true}
         prevUrl={"/learn-dot-product"}
-        nextUrl={"/quiz-dot-product"}
+        nextUrl={"/reflect-dot-product"}
+        nextText="Reflect"
+        prevText="Learn"
       />
     </Box>
   )

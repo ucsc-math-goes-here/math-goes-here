@@ -104,7 +104,7 @@ const QuizItem = ({questionString, imageUrl, choices, explanation}) => {
 
       <Box sx={{
           display: 'grid',
-          gridTemplateColumns: '50% 50%',
+          gridTemplateColumns: '1fr 1fr',
           gap: '1rem'
         }}
       >
