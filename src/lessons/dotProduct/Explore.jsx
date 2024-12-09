@@ -1,7 +1,9 @@
 import React from "react";
 import { MathJax, MathJaxContext } from 'better-react-mathjax';
+import { StepNavigationButtons } from "../../components/StepNavigationButtons";
 
-import { Box, Typography} from '@mui/material';
+
+import { Box, Typography } from '@mui/material';
 
 import ThreeJsDotProductRenderWindow from './ThreeJsDotProductRenderWindow';
 
@@ -18,8 +20,15 @@ function ExploreDotProduct() {
       </Box>
 
       <Box component="section" sx={{ my: 4 }}>
-        <ThreeJsDotProductRenderWindow/>
+        <ThreeJsDotProductRenderWindow />
       </Box>
+
+      <StepNavigationButtons
+        canGoPrev={true}
+        canGoNext={true}
+        prevUrl={"/learn-dot-product"}
+        nextUrl={"/quiz-dot-product"}
+      />
     </Box>
   )
 }

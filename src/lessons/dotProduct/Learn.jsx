@@ -1,7 +1,8 @@
 import React from "react";
 import { MathJax, MathJaxContext } from 'better-react-mathjax';
 
-import { Box, Typography} from '@mui/material';
+import { Box, Typography } from '@mui/material';
+import { StepNavigationButtons } from "../../components/StepNavigationButtons";
 
 
 function LearnDotProduct() {
@@ -39,7 +40,7 @@ function LearnDotProduct() {
           }}>
             <MathJax inline dynamic>{"\\( \\vec{A} \\cdot \\vec{B} = A_{x}B_{x} + A_{y}B_{y} + A_{z}B_{z}\\)"}</MathJax>
           </Box>
-          
+
           <Box sx={{
             backgroundColor: "#ccc",
             width: "400px",
@@ -52,25 +53,31 @@ function LearnDotProduct() {
             <MathJax inline dynamic>{"\\( \\vec{A} \\cdot \\vec{B} = |A||B|\\cos \\theta \\)"}</MathJax>
           </Box>
         </MathJaxContext>
-        
+
       </Box>
 
       <Box sx={{ mt: 4 }}>
         <Typography variant="h5" align="left" gutterBottom sx={{ fontWeight: 'bold' }}>
           Other learning resources
         </Typography>
-        
+
         <Typography variant="body1" align="left" >
           <a href="https://www.youtube.com/watch?v=a_8DIR6_hhI" target="_blank" >[Youtube] A Crash Course in Dot Produdcts - Math for Game Dev</a>
-          <br/>
+          <br />
           <a href="https://www.youtube.com/watch?v=_61tlp2kOow" target="_blank">[Youtube] The Basics of Dot Product in Unity URP. Vectors, Angles, and Lighting!</a>
-          <br/>
+          <br />
           <a href="https://amirazmi.net/dot-products-in-games-and-their-use-cases/" target="_blank">[Website] Dot Products in Games and Their Use Cases</a>
-          <br/>
+          <br />
           <a href="https://www.mathsisfun.com/algebra/vectors-dot-product.html" target="_blank">[Website] Mathisfun.com - Dot Product</a>
         </Typography>
-        
       </Box>
+
+      <StepNavigationButtons
+        canGoPrev={false}
+        canGoNext={true}
+        prevUrl={""}
+        nextUrl={"/explore-dot-product"}
+      />
     </Box>
   )
 }
