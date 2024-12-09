@@ -52,17 +52,20 @@ function SideMenuContent({  }) {
           <List component="div">
             <ListItemButton 
               sx={{ pl: 4 }}
-              to="./interpolationcurves_learn"
+              disabled
             >
               Learn
             </ListItemButton>
-            <ListItemButton sx={{ pl: 4 }}>
+            <ListItemButton 
+              sx={{ pl: 4 }}
+              to="./interpolationcurves_learn"
+            >
               Explore
             </ListItemButton>
-            <ListItemButton sx={{ pl: 4 }}>
+            <ListItemButton sx={{ pl: 4 }} disabled>
               Reflect
             </ListItemButton>
-            <ListItemButton sx={{ pl: 4 }}>
+            <ListItemButton sx={{ pl: 4 }} disabled>
               Master
             </ListItemButton>
           </List>

@@ -3,6 +3,7 @@
   background-color: #eee;
   border-radius: 1rem;
   padding: 0.25rem 1rem;
+  width: 100%
 }
 
 .result-box.correct h3{

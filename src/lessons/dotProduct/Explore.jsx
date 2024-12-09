@@ -18,10 +18,7 @@ function ExploreDotProduct() {
       </Box>
 
       <Box component="section" sx={{ my: 4 }}>
-        <ThreeJsDotProductRenderWindow />
-        <Typography variant="body1" align="left" sx={{ mt: 2 }}>
-          Try playing around with this app!
-        </Typography>
+        <ThreeJsDotProductRenderWindow/>
       </Box>
     </Box>
   )
