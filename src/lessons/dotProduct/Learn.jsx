@@ -80,7 +80,7 @@ function LearnDotProduct() {
                     To calculate the dot product <MathJax inline dynamic>{"\\( \\vec{A} \\cdot \\vec{B} \\)"}</MathJax>,<br/>
                     we can either calculate&nbsp;  
                     <MathJax inline dynamic>{"\\( A_{x}B_{x} + A_{y}B_{y} = 4 \\cdot 12 + 3 \\cdot 5 = 63 \\)"}<br/></MathJax>
-                    or we can calculate 
+                    or we can calculate &nbsp; 
 
                     <MathJax inline dynamic>{"\\( |A||B|\\cos \\theta \\ = 5 \\cdot 13 \\cdot 0.969[...] = 63 \\)"}</MathJax>.
                     </p>
