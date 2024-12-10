@@ -30,13 +30,15 @@ function LearnDotProduct() {
       <Typography variant="body1" style={{maxWidth:'700px', textAlign:'start', justifySelf:'center'}} >
       
         <p>From the beautiful graphics to the realistic physics to the challenging enemy behaviors, the vector dot product is used all over video games. </p>
+
+        <p>Watch this video to learn more. To try an interactive demo, click <a href="./explore-dot-product"><strong>Explore</strong></a>.</p>
+     
       </Typography>
 
       <Box sx={{
         "text-align": "center",
         "margin-top": "1rem"
       }}>
-        <p>Watch this video to learn more.</p>
 
         <iframe width="560" height="315" src="https://www.youtube.com/embed/_0wWcwX3ls8?si=XmEu2ckQoo6sk9bS" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
 

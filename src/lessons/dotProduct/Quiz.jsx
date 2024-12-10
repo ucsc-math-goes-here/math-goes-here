@@ -36,6 +36,8 @@ function QuizDotProduct() {
 
 
         <p>How well do you know dot products? Try these questions.</p>
+
+        <p>If you'd like to try out the dot product in a small project, click <a href="./master-dot-product"><strong>Master</strong></a>.</p>    
       </Box>
 
       <Box component="section" 

@@ -38,8 +38,8 @@ function ExploreDotProduct() {
           As the surface tilts away from the sun, it becomes darker.
         </p>
 
-        <p>If you want to learn more about the dot product, click <strong>Learn</strong>. <br/>
-        When you're ready to test your knowledge, click <strong>Reflect</strong>.</p>
+        <p>If you want to learn more about the dot product, click <a href="./learn-dot-product"><strong>Learn</strong></a>. <br/>
+        When you're ready to test your knowledge, click <a href="./reflect-dot-product"><strong>Reflect</strong></a>.</p>
 
 
  
