@@ -6,6 +6,7 @@ import { StepNavigationButtons } from "../../components/StepNavigationButtons";
 
 import PageNav from "../../components/PageNav";
 
+import calculate from '../../assets/dotprod3d/calculate_example.png';
 import fresnel from'../../assets/dotprod3d/fresnel.png';
 import fresnel2 from'../../assets/dotprod3d/fresnel2.png';
 import channelMasking from'../../assets/dotprod3d/channel-masking.png';
@@ -71,7 +72,22 @@ function LearnDotProduct() {
           }}>
             <MathJax inline dynamic>{"\\( \\vec{A} \\cdot \\vec{B} = |A||B|\\cos \\theta \\)"}</MathJax>
           </Box>
-        </MathJaxContext>
+
+          <Box sx={{textAlign:'start', justifySelf:'center', lineHeight:1.5}} >
+                  <p>
+                    Let's look at an example: <br/>
+                    <img width="780px" src={calculate} alt="Two vectors A=(4,3) and B=(12,5) are 14.25 degrees apart." /><br/>
+                    To calculate the dot product <MathJax inline dynamic>{"\\( \\vec{A} \\cdot \\vec{B} \\)"}</MathJax>,<br/>
+                    we can either calculate&nbsp;  
+                    <MathJax inline dynamic>{"\\( A_{x}B_{x} + A_{y}B_{y} = 4 \\cdot 12 + 3 \\cdot 5 = 63 \\)"}<br/></MathJax>
+                    or we can calculate 
+
+                    <MathJax inline dynamic>{"\\( |A||B|\\cos \\theta \\ = 5 \\cdot 13 \\cdot 0.969[...] = 63 \\)"}</MathJax>.
+                    </p>
+
+                    <p>If any one of these pieces of information are unknown, we can solve for it using these two equations.</p> 
+                    </Box>
+            </MathJaxContext>
 
       </Box>
 
