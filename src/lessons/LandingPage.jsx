@@ -19,23 +19,20 @@ function LandingPage() {
   return (
     <Box>
       <Box   >
-        <h1 style={{marginBottom:0}}>Math Goes Here:</h1>
+        <h1 style={{marginBottom:0, marginTop:0}}>Math Goes Here:</h1>
         <h2>Math For Game Developers</h2>
 
         <Box className="intro" style={{maxWidth:'780px'}} justifySelf='center'> 
-        <p style={{textAlign:'center'}}>Vidoe game creators use math to turn their ideas into reality.</p>
+        <p style={{textAlign:'center'}}>Video game creators use math to turn their ideas into reality.</p>
         <img width="780px" justifySelf='center'  src={figure} alt="In between design and gameplay there's a box that reads 'math goes here'" />
 
-
-
-        <p>This website is a place to learn math concepts used in video games. </p>
+        <p style={{marginTop:0}} >This website is a place to learn math concepts used in video games. </p>
         <p>It's designed to help game programmers, game designers, technical artists, 
         or anyone else who thinks video games are a fun way to learn math.</p> 
 
-        <p>Each of our lessons has four sections:</p>
-
-        <Box component="section" sx={{display:'grid',  gridTemplateColumns: isMobile? '100%' :'1fr 1fr'}} >
-        <Box>
+        <p style={{marginBottom:0}}>Each of our lessons has four sections:</p>
+        <Box component="section" sx={{display:'grid',  gridTemplateColumns: isMobile? '100%' :'70% 30%', marginTop:0, marginBottom:0}} >
+        <Box >
         <h3>Learn</h3>
         Read articles and watch videos about the topic. We've gathered materials from around the internet for you to peruse. 
         <h3>Explore</h3>
@@ -48,7 +45,7 @@ function LandingPage() {
         Demonstrate your knowledge through a small game developement project.  
         </Box>
         <Box>
-        <img width="400px" src={player} alt="A cartoon illustration of a person playing a game on a pc"/>
+        <img width="360px" src={player} alt="A cartoon illustration of a person playing a game on a pc"/>
 
         </Box>
         </Box>
