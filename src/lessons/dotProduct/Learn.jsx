@@ -143,6 +143,7 @@ function LearnDotProduct() {
             alt="Grayscale Example"
             style={{ width: '100%', height: 'auto' }}
           />
+          <p>You can use the RGB values as a vector to flatten to color to a scalar value using the dot product. You can adjust the vector used on the dot product (in the image above, a lime color RGB vector) to make sure the grayscale value isn't too dark or light.</p>
         </Box>
       </Box>
 
