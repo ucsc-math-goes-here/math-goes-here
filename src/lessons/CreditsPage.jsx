@@ -7,60 +7,27 @@ import {
 function CreditsPage() {
 
   return (
-    <Box>
+    <Box sx={{maxWidth:'800px', justifySelf:'center'}}>
       <h1>Credits</h1>
 
-      <h2 style={{marginTop: "3rem"}}>Producer</h2>
+      This page was created by students and staff in the Computational Media Department<br/> of the University of California, Santa Cruz, as part of an independent study.
+
+      <h2 style={{marginTop: "3rem"}}>Grad Students</h2>
       <p>
-        Marc LeBlanc
-        <br/>
-        <small>Riot Games</small>
-      </p>
-      
-      <h2 style={{marginTop: "3rem"}}>Developers</h2>
+      Noor Haider <br />
+      Daeun (Dany) Hwang <br />
+      Kai Jacobs <br />
+      Charles Park<br />
+      Tanya Shrivastava <br/>
+      Weiyan (JT) Tao <br />
+
+      </p>      
+      <h2 style={{marginTop: "3rem"}}>Visiting Game Developer</h2>
       <p>
-        Charles Park
-        <br/>
-        <small>UCSC GPM</small>
-      </p>
-      <p>
-        Kai Jacobs
-        <br/>
-        <small>
-          UCSC GPM
-        </small>
-      </p>
-      <p>
-        Weiyan (JT) Tao
-        <br/>
-        <small>
-          UCSC GPM
-        </small>
+      Marc LeBlanc
       </p>
 
-      <h2 style={{marginTop: "3rem"}}>UI Design & Researchers</h2>
-      
-      <p>
-        Daeun (Dany) Hwang
-        <br/>
-        <small>
-          UCSC HCI
-        </small>
-      </p>
-      <p>
-        Noor Haider
-        <br/>
-        <small>
-          UCSC HCI
-        </small>
-      </p>
-      <p>
-        Tanya Shrivastava
-        <br/>
-        <small>
-          UCSC HCI
-        </small>
-      </p>
+      <p>Special thanks to Riot Games for giving Marc the time to work on it.</p>
     </Box>
   );
 }
