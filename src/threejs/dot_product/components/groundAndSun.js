@@ -7,7 +7,7 @@ export async function createGroundAndSun(radius = 5, camera, options = {}) {
   const { controls } = options;
   const loader = new FBXLoader();
 
-  const groundColorAtMax = 0x0000ff;
+  const groundColorAtMax = 0xff9900;
   const groundColorAtMin = 0x000000;
   const groundEmission = 0x7777ff;
   const ground = await new Promise((resolve, reject) => {

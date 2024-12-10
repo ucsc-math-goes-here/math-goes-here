@@ -15,7 +15,7 @@ export function createGroundPanel(camera, sunObj) {
     uniforms: {
       sunPosition: { value: new THREE.Vector3(0, 0, 0) },
       litColor: { value: new THREE.Color(0.4, 0.4, 0.25) },
-      unlitColor: { value: new THREE.Color(0.1, 0.1, 0.25) },
+      unlitColor: { value: new THREE.Color(0.5, 0.5, 0.5) },
       fadeDistance: { value: 22.0 },
       planeNormal: { value: new THREE.Vector3(0, 0, 1) },
       planePoint: { value: new THREE.Vector3(0, 0, 0) },
@@ -42,16 +42,17 @@ export function createGroundPanel(camera, sunObj) {
       varying vec3 vWorldPosition;
 
       void main() {
-        vec3 sunToPlane = sunPosition - planePoint;
-        float distanceToPlane = dot(sunToPlane, planeNormal);
-        vec3 projectionPoint = sunPosition - distanceToPlane * planeNormal;
+        // vec3 sunToPlane = sunPosition - planePoint;
+        // float distanceToPlane = dot(sunToPlane, planeNormal);
+        // vec3 projectionPoint = sunPosition - distanceToPlane * planeNormal;
 
-        float distance = length(vWorldPosition - projectionPoint);
+        // float distance = length(vWorldPosition - projectionPoint);
 
-        float t = clamp(distance / fadeDistance, 0.0, 1.0); // Normalized fade value
-        vec3 color = mix(litColor, unlitColor, t);
+        // float t = clamp(distance / fadeDistance, 0.0, 1.0); // Normalized fade value
+        // vec3 color = mix(litColor, unlitColor, t);
 
-        gl_FragColor = vec4(color, 1.0);
+        // gl_FragColor = vec4(color,1.0);
+        gl_FragColor = vec4(unlitColor, 1.0);
       }
     `,
   });
