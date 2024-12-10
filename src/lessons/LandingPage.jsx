@@ -5,6 +5,7 @@ import {
   Card,
   CardActionArea,
   CardContent,
+  Link
 } from '@mui/material';
 
 import { useMediaQuery } from "react-responsive";
@@ -95,6 +96,15 @@ function LandingPage() {
             </CardContent>
           </CardActionArea>
         </Card>
+      </Box>
+
+      <Box
+        sx={{
+          marginTop: "2rem"
+        }}
+      >
+        {/* Footer */}
+        <Link href="/math-goes-here/credits">Credits</Link>
       </Box>
     </Box>
   );

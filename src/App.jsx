@@ -12,6 +12,7 @@ import LearnDotProduct from './lessons/dotProduct/Learn'
 import ExploreDotProduct from './lessons/dotProduct/Explore'
 import QuizDotProduct from './lessons/dotProduct/Quiz'
 import MasterDotProduct from './lessons/dotProduct/Mastery'
+import CreditsPage from './lessons/CreditsPage';
 
 import { AppThemeProvider } from './contexts/AppThemeContext'
 
@@ -37,6 +38,7 @@ function App() {
             <Route path="/explore-dot-product" element={<ExploreDotProduct />} />
             <Route path="/reflect-dot-product" element={<QuizDotProduct />} />
             <Route path="/master-dot-product" element={<MasterDotProduct />} />
+            <Route path="/credits" element={<CreditsPage />} />
           </Routes>
         </Router>
       </AppThemeProvider>
