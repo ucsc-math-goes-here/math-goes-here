@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { createTheme, ThemeProvider, CssBaseline, Typography, Box } from "@mui/material";
 import './App.css'
 
-import MainPage from './pages/MainPage'
+import MainPage from './components/MainPage'
 import LessonLearnInterpolationCurve from './lessons/interpolationCurves/LessonLearnInterpolationCurve'
 
 import HeaderBar from './components/HeaderBar';
@@ -12,7 +12,7 @@ import LearnDotProduct from './lessons/dotProduct/Learn'
 import ExploreDotProduct from './lessons/dotProduct/Explore'
 import QuizDotProduct from './lessons/dotProduct/Quiz'
 import MasterDotProduct from './lessons/dotProduct/Mastery'
-import CreditsPage from './lessons/CreditsPage';
+import CreditsPage from './components/CreditsPage';
 
 import { AppThemeProvider } from './contexts/AppThemeContext'
 

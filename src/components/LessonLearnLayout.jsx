@@ -3,9 +3,9 @@ import React, { useState, useContext } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
-import MainLayout from '../components/MainLayout';
-import HeaderBarContent from '../components/HeaderBarContent';
-import HomeButton from '../components/HomeButton';
+import MainLayout from './MainLayout';
+import HeaderBarContent from './HeaderBarContent';
+import HomeButton from './HomeButton';
 
 function LessonLearnLayout({ children, pageTitle }) {
   const homeButton = (

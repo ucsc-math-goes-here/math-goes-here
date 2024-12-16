@@ -5,11 +5,6 @@ import {
   AppBar,
   Drawer,
   Button,
-  List,
-  ListItem,
-  Collapse,
-  ListItemButton,
-  ListItemIcon,
 } from '@mui/material';
 
 import { AppThemeContext } from '../contexts/AppThemeContext';

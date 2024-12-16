@@ -4,8 +4,8 @@ import { styled, useTheme } from '@mui/material/styles';
 import {Box, Button} from '@mui/material';
 
 import { AppThemeContext } from '../contexts/AppThemeContext';
-import MainLayout from '../components/MainLayout';
-import LandingPage from '../lessons/LandingPage';
+import MainLayout from './MainLayout';
+import LandingPage from './LandingPage';
 import LessonPreviewDotProduct from '../lessons/dotProduct/LessonPreviewDotProduct';
 import LessonPreviewInterpolationCurves from '../lessons/interpolationCurves/LessonPreviewInterpolationCurves';
 

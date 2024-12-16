@@ -6,7 +6,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
 
 import { AppThemeContext } from '../contexts/AppThemeContext';
-import HeaderBar from './HeaderBar';
 
 const MainLayout = ({ headbarElement, children }) => {
   const appTheme = useContext(AppThemeContext);

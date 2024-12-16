@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import Typography from '@mui/material/Typography';
 
-import LessonLearnLayout from '../../lessons/LessonLearnLayout';
+import LessonLearnLayout from '../../components/LessonLearnLayout';
 import { FormulaProvider } from './contexts/FormulaContext';
 import { GlobalInterpolationTimeProvider } from './contexts/GlobalInterpolationTimeContext';
 import MainPageLayout from './components/MainPageLayout';
