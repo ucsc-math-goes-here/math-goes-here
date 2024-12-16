@@ -51,7 +51,7 @@ export async function createNormalArrows(scene, lightSource, ground, options = {
 
 
   const dotLengthPointer = await new Promise((resolve, reject) => {
-    loader.load('./models/lightPointer.fbx', resolve, undefined, reject);
+    loader.load('./models/dotIndicator.fbx', resolve, undefined, reject);
   });
 
   dotLengthPointer.scale.set(scale, scale, scale);
