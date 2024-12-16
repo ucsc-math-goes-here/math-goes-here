@@ -1,16 +1,6 @@
 import * as THREE from 'three';
 
 export function createGroundPanel(camera, sunObj) {
-  // Note for future:
-  /*
-  The most important thing here is finding the "projection distance".
-  planePoint is just ANY point on the plane. Can be the center point of the obj, it's fine.
-  distanceToPlane can be calcualted using dot product of the (sunPosition - planePoint) and planeNormal.
-  Becuase the planeNormal is a unit vector, so the (sunPosition - planePoint)'s projection length on the planeNormal is the distance to the plane.
-  (If confused, check this threejs demo haha)
-  Now we have the distanceToPlane. We can calculate the projectionPoint by subtracting the distanceToPlane * planeNormal from sunPosition.
-  Becuase the direction of the projection will be the same as the planeNormal, so the projectionPoint will be on the plane.
-  */
   const customShaderMaterial = new THREE.ShaderMaterial({
     uniforms: {
       sunPosition: { value: new THREE.Vector3(0, 0, 0) },
@@ -64,7 +54,7 @@ export function createGroundPanel(camera, sunObj) {
   backgroundPanel.scale.set(100, 100, 100);
   backgroundPanel.receiveShadow = false;
 
-  backgroundPanel.update = function () {
+  backgroundPanel.update = () => {
     const backgroundPanelLocalPositionToSun = new THREE.Vector3(0, 0, -20);
     const backgroundPanelWorldPositionToSun = camera.localToWorld(backgroundPanelLocalPositionToSun);
     backgroundPanel.position.set(backgroundPanelWorldPositionToSun.x, backgroundPanelWorldPositionToSun.y, backgroundPanelWorldPositionToSun.z);
@@ -79,7 +69,6 @@ export function createGroundPanel(camera, sunObj) {
     backgroundPanel.getWorldDirection(planeNormal);
     customShaderMaterial.uniforms.planeNormal.value.copy(planeNormal);
 
-    // as said, just pick a point that's for sure on the plane.
     const planePoint = backgroundPanel.position.clone();
     customShaderMaterial.uniforms.planePoint.value.copy(planePoint);
 

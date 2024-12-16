@@ -47,28 +47,23 @@ export async function createGroundAndSun(radius = 5, camera, options = {}) {
 
   ground.updateMaterial = (dot) => {
     const color = new THREE.Color();
-    // if (dot < 0) {
-    //   dot = -Math.pow(-dot, 0.5);
-    // }
-    // color.lerpColors(new THREE.Color(groundColorAtMin), new THREE.Color(groundColorAtMax), (dot + 1) / 2);
     dot = Math.max(0, Math.min(1, dot));
     color.lerpColors(new THREE.Color(groundColorAtMin), new THREE.Color(groundColorAtMax), dot);
     groundMaterial.color = color;
     groundMaterial.emissiveIntensity = dot * 0.1;
   }
 
-  controls.updateLightSourceRotation = function (new_angle) {
+  controls.updateLightSourceRotation = (new_angle) => {
     new_angle = -new_angle;
     sun.position.set(radius, 0, 0);
 
-    // sun.translateY(radius);
     angle = new_angle;
     sun.position.set(basePosition.x, basePosition.y, basePosition.z);
     sun.rotation.set(0, THREE.MathUtils.degToRad(orbit), THREE.MathUtils.degToRad(angle));
     sun.translateOnAxis(new THREE.Vector3(0, 1, 0), radius);
   };
 
-  controls.updateLightSourceOrbit = function (new_orbit) {
+  controls.updateLightSourceOrbit = (new_orbit) => {
     sun.position.set(radius, 0, 0);
 
     sun.translateY(radius);

@@ -67,12 +67,6 @@ export async function createNormalArrows(scene, lightSource, ground, options = {
   dotLengthPointer.renderOrder = 3;
   scene.add(dotLengthPointer);
 
-
-  // const fontLoader = new FontLoader();
-  // const font = await new Promise((resolve, reject) => {
-  //   fontLoader.load('./fonts/helvetiker_regular.typeface.json', resolve, undefined, reject);
-  // });
-
   const dashGeometry = new THREE.BufferGeometry();
   const dashMaterial = new THREE.LineDashedMaterial({
     color: 0xffffff,

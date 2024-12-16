@@ -6,18 +6,6 @@ import { createNormalArrows } from './components/normalArrows.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { createGroundPanel } from './components/backgroundPanel.js';
 
-/*
-TODOs:
-1: Orbit Camera.
-2: Orbit Rotation of light source
-3: ground plane Roation and normal display.
-4: beautify
-
-Juicy stuff:
-1: Add a post processing effect for light.
-2: Make normal arrows prettier.
-*/
-
 /**
  * Initializes and renders a Three.js game scene within a specified container.
  *
@@ -31,13 +19,6 @@ Juicy stuff:
  */
 export function createGameScene(container, options = {}) {
   const {
-    planeEuler,
-    planePosition,
-    lightSourceAngle = 0,
-    lightSourceOrbit = 0,
-    planeColor = 0xff3333,
-    lightPointerColor = 0x3333ff,
-    dotProductPointerColor = 0xffff33,
     controls = {},
     onDotProductChange = (value) => { },
   } = options;
@@ -51,15 +32,10 @@ export function createGameScene(container, options = {}) {
   renderer.setSize(container.clientWidth, container.clientHeight);
   container.appendChild(renderer.domElement);
 
-  const geometry = new THREE.BoxGeometry();
-  const material = new THREE.MeshStandardMaterial({ color: 0x3333ff });
-
   camera.position.set(0, 0, 8.5);
   const orbitControls = new OrbitControls(camera, renderer.domElement);
   orbitControls.enableZoom = false;
 
-  // ADDIING ALL LIGHTS
-  // =======================================================================================================
   const ambientLight = new THREE.AmbientLight(0x777777, 1);
   scene.add(ambientLight);
 
@@ -90,7 +66,6 @@ export function createGameScene(container, options = {}) {
   }).catch((error) => {
     console.error('Error loading movable sun:', error);
   });
-  // =======================================================================================================
 
   function updateCameraPosition(time) {
     orbitControls.update();
@@ -99,14 +74,9 @@ export function createGameScene(container, options = {}) {
     ground?.rotation.set(xRotation, 0, zRotation);
   };
 
-  // setupMouseDrag(document, (dragDistance) => {
-  //   movableSun.sun.rotateAroundCenter(dragDistance);
-  // });
-
   function animate(time) {
     requestAnimationFrame(animate);
     if (normalArrows) {
-      // this might not be ready immediately
       normalArrows.lightSourcePointer.update();
     }
     updateCameraPosition(time);
