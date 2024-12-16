@@ -1,0 +1,32 @@
+.hover-container {
+  position: relative;
+  width: 100%;
+}
+
+.hover-area {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  text-align: center;
+  padding: 1px;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  width: 100%;
+  top: 0; /* Adjusted to stick on top */
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px;
+}
+
+.hover-container:hover .dropdown-content {
+  display: block;
+}
+
+.hover-container:hover .hover-area {
+  display: none;
+}

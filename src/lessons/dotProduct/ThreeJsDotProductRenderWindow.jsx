@@ -8,6 +8,8 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import { createGameScene } from '../../threejs/dot_product/dotProductEntry';
 import { Joystick } from 'react-joystick-component';
 
+import './styles/ThreeJsDotProductRenderWindow.css';
+
 
 function ThreeJsDotProductRenderWindow() {
   const [dotProduct, setDotProduct] = useState(1.0);
@@ -129,30 +131,33 @@ function ThreeJsDotProductRenderWindow() {
         userSelect: 'none',
         margin: 'auto',
       }}>
-      <div style={{ position: 'absolute', width: '100%', top: 10 }}>
-        <FormControlLabel
-          control={<Switch checked={showPlaneNormal} onChange={handleShowPlaneNormalChange} name="showPlaneNormal" />}
-          label="Show Plane Normal"
-          style={{ color: 'white' }}
-        />
-        <FormControlLabel
-          control={<Switch checked={showDirectionToLight} onChange={handleShowDirectionToLightChange} name="showDirectionToLight" />}
-          label="Show Direction To Light"
-          style={{ color: 'white' }}
-        />
-        <FormControlLabel
-          control={<Switch checked={showDotProduct} onChange={handleShowDotProductChange} name="showDotProduct" />}
-          label="Show Dot Product"
-          style={{ color: 'white' }}
-        />
-        <FormControlLabel
-          control={<Switch checked={showDotProductLine} onChange={handleShowDotProductLineChange} name="showDotProduct" />}
-          label="Show Dot Product Line"
-          style={{ color: 'white' }}
-        />
-        <Button variant="contained" color="primary" onClick={reset}>
-          Reset
-        </Button>
+      <div className="hover-container">
+        <div className="hover-area">More Setting Options</div>
+        <div className="dropdown-content">
+          <FormControlLabel
+            control={<Switch checked={showPlaneNormal} onChange={handleShowPlaneNormalChange} name="showPlaneNormal" />}
+            label="Show Plane Normal"
+            style={{ color: 'white' }}
+          />
+          <FormControlLabel
+            control={<Switch checked={showDirectionToLight} onChange={handleShowDirectionToLightChange} name="showDirectionToLight" />}
+            label="Show Direction To Light"
+            style={{ color: 'white' }}
+          />
+          <FormControlLabel
+            control={<Switch checked={showDotProduct} onChange={handleShowDotProductChange} name="showDotProduct" />}
+            label="Show Dot Product"
+            style={{ color: 'white' }}
+          />
+          <FormControlLabel
+            control={<Switch checked={showDotProductLine} onChange={handleShowDotProductLineChange} name="showDotProductLine" />}
+            label="Show Dot Product Line"
+            style={{ color: 'white' }}
+          />
+          <Button variant="contained" color="primary" onClick={reset}>
+            Reset
+          </Button>
+        </div>
       </div>
       <div style={{ position: 'absolute', top: 100, right: 50 }}>
         <Typography variant="h4" style={{ color: 'white' }}>
