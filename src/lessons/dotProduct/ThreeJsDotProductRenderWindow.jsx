@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 import Switch from '@mui/material/Switch';
 import FormControlLabel from '@mui/material/FormControlLabel';
 
-import { createGameScene } from '../../threejs/dot_product/dotProductEntry';
+import { createGameScene } from './dot_product_explore_scene/dotProductEntry';
 import { Joystick } from 'react-joystick-component';
 
 import './styles/ThreeJsDotProductRenderWindow.css';
