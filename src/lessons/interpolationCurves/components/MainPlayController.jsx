@@ -3,7 +3,7 @@ import React, { useEffect, useContext } from 'react';
 import PlayController from './interacts/PlayController';
 import { GlobalInterpolationTimeContext } from '../contexts/GlobalInterpolationTimeContext';
 
-function MainPlayController({ }) {
+const MainPlayController = ({ }) => {
   const { globalTime, setGlobalTime, play, pause, replay, } = useContext(GlobalInterpolationTimeContext);
 
   return (

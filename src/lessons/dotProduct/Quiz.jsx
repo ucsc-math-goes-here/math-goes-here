@@ -13,14 +13,14 @@ import vectorcomponents from '../../assets/dotprod3d/vectorcomponents.png';
 import { StepNavigationButtons } from "../../components/StepNavigationButtons";
 
 
-function QuizDotProduct() {
+const QuizDotProduct = () => {
 
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
 
 
   return (
     <Box component="section" sx={{ mb: 4, alignContent: "start", justifyContent: "start" }}>
-        <StepNavigationButtons
+      <StepNavigationButtons
         canGoPrev={true}
         canGoNext={true}
         prevUrl={"/explore-dot-product"}
@@ -37,16 +37,16 @@ function QuizDotProduct() {
 
         <p>How well do you know dot products? Try these questions.</p>
 
-        <p>If you'd like to try out the dot product in a small project, click <a href="./master-dot-product"><strong>Master</strong></a>.</p>    
+        <p>If you'd like to try out the dot product in a small project, click <a href="./master-dot-product"><strong>Master</strong></a>.</p>
       </Box>
 
-      <Box component="section" 
-      sx={{ 
-        my: 4,
-        display: 'grid',
-        gridTemplateColumns: isMobile ? '100%' : '1fr 1fr',
-        gap: '1rem 3rem'
-      }}>
+      <Box component="section"
+        sx={{
+          my: 4,
+          display: 'grid',
+          gridTemplateColumns: isMobile ? '100%' : '1fr 1fr',
+          gap: '1rem 3rem'
+        }}>
         <QuizItem
           questionString={"P and Q are unit vectors.  Which of these are possible values for P • Q?  Check all that apply."}
           choices={[
@@ -98,7 +98,7 @@ function QuizDotProduct() {
           explanation={"When two vectors are perpendicular, their dot product is zero."}
         />
 
-        <QuizItem  
+        <QuizItem
           questionString={<span>Vectors A and B are pointing in the same direction. Which of the following statements are true? Check all that apply.</span>}
           imageUrl={parallelvectors}
           choices={[

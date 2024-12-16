@@ -11,7 +11,7 @@ import { Joystick } from 'react-joystick-component';
 import './styles/ThreeJsDotProductRenderWindow.css';
 
 
-function ThreeJsDotProductRenderWindow() {
+const ThreeJsDotProductRenderWindow = () => {
   const [dotProduct, setDotProduct] = useState(1.0);
   const [showPlaneNormal, setShowPlaneNormal] = useState(true);
   const [showDirectionToLight, setShowDirectionToLight] = useState(true);

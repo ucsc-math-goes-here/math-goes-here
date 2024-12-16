@@ -17,7 +17,7 @@ import CreditsPage from './components/CreditsPage';
 import { AppThemeProvider } from './contexts/AppThemeContext'
 
 
-function App() {
+const App = () => {
   const darkTheme = createTheme({
     palette: {
       mode: "light",

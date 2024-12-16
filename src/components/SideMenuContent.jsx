@@ -10,7 +10,7 @@ import {
 import CollapsableMenuItem from './CollapsableMenuItem';
 
 
-function SideMenuContent({ }) {
+const SideMenuContent = ({ }) => {
   const [topic, setTopic] = useState("");
   const [step, setStep] = useState("");
   const selectedTopicBackgroundColor = useRef("#00000020");
@@ -52,7 +52,7 @@ function SideMenuContent({ }) {
             >
               Explore
             </ListItemButton>
-            <ListItemButton 
+            <ListItemButton
               sx={{ pl: 4 }}
               to="./reflect-dot-product"
             >

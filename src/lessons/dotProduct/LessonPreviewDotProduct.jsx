@@ -3,7 +3,7 @@ import React, { useState, useContext } from 'react';
 import Typography from '@mui/material/Typography';
 
 
-function LessonPreviewDotProduct() {
+const LessonPreviewDotProduct = () => {
   return (
     <div>
       <Typography variant="h3" component="div">

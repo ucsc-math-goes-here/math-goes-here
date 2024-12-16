@@ -4,7 +4,7 @@ import PauseIcon from '@mui/icons-material/Pause';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import ReplayIcon from '@mui/icons-material/Replay';
 
-function ButtonRow({ pause = () => { }, play = () => { }, replay = () => { }, buttonColor = '#999999' }) {
+const ButtonRow = ({ pause = () => { }, play = () => { }, replay = () => { }, buttonColor = '#999999' }) => {
   return (
     <Box
       sx={{

@@ -13,7 +13,7 @@ import { useMediaQuery } from "react-responsive";
 import figure from '../assets/math_goes_here.png';
 import player from '../assets/player.png'
 
-function LandingPage() {
+const LandingPage = () => {
 
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
 

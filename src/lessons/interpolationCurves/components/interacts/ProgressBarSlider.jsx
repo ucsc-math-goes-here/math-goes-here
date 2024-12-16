@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Slider, Box } from '@mui/material';
 
-function ProgressBarSlider({ value = 0, setValue = () => { } }) {
+const ProgressBarSlider = ({ value = 0, setValue = () => { } }) => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };

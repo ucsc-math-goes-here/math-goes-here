@@ -10,7 +10,7 @@ import LessonPreviewDotProduct from '../lessons/dotProduct/LessonPreviewDotProdu
 import LessonPreviewInterpolationCurves from '../lessons/interpolationCurves/LessonPreviewInterpolationCurves';
 
 
-function MainPage() {
+const MainPage = () => {
   const [sidedrawerOpen, setSideDrawerOpen] = useState(true);
   const [selectedLessonIndex, setSelectedLessonIndex] = useState(0);
   const appTheme = useContext(AppThemeContext);

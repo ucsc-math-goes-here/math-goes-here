@@ -3,9 +3,9 @@ import React, { useContext, useState } from 'react';
 import { Button, Box, FormGroup, FormControlLabel, Checkbox, Radio, RadioGroup } from '@mui/material';
 
 
-function displayButton(text, path){
-  if (text && path){
-    return <Button variant="contained" href={path} sx={{textTransform: "none"}}>
+const displayButton = (text, path) => {
+  if (text && path) {
+    return <Button variant="contained" href={path} sx={{ textTransform: "none" }}>
       {text}
     </Button>
   } else {
@@ -13,7 +13,7 @@ function displayButton(text, path){
   }
 }
 
-const PageNav = ({prevText, prevPath, nextText, nextPath}) => {
+const PageNav = ({ prevText, prevPath, nextText, nextPath }) => {
 
   return (
     <Box

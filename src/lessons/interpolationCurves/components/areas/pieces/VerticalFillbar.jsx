@@ -9,9 +9,6 @@ export const VerticalFillbar = ({ backgroundColor, fillColor, heightInNumber, wi
   const innerFillAreaHeight = heightInNumber - padding * 2;
   const coverHeight = innerFillAreaHeight - (fillRatio * innerFillAreaHeight);
 
-  // console.log(`heightInNumber: ${heightInNumber}, coverHeight: ${coverHeight}`);
-  // console.log(`color: ${backgroundColor}, fill: ${fillColor}`);
-
   return (
     <div style={{
       position: 'relative',

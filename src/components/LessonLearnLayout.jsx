@@ -7,7 +7,7 @@ import MainLayout from './MainLayout';
 import HeaderBarContent from './HeaderBarContent';
 import HomeButton from './HomeButton';
 
-function LessonLearnLayout({ children, pageTitle }) {
+const LessonLearnLayout = ({ children, pageTitle }) => {
   const homeButton = (
     <div style={{ position: "absolute", left: 0, bottom: 20 }}>
       <HomeButton />

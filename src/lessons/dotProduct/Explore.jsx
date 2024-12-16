@@ -8,7 +8,7 @@ import { Box, Typography } from '@mui/material';
 import ThreeJsDotProductRenderWindow from './ThreeJsDotProductRenderWindow';
 import PageNav from "../../components/PageNav";
 
-function ExploreDotProduct() {
+const ExploreDotProduct = () => {
   return (
     <Box component="section" sx={{ mb: 4, alignContent: "start", justifyContent: "start" }}>
         <StepNavigationButtons

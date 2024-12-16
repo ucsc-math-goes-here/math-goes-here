@@ -6,7 +6,7 @@ import { FormulaProvider } from './contexts/FormulaContext';
 import { GlobalInterpolationTimeProvider } from './contexts/GlobalInterpolationTimeContext';
 import MainPageLayout from './components/MainPageLayout';
 
-function LessonLearnInterpolationCurve() {
+const LessonLearnInterpolationCurve = () => {
 
   return (
     <LessonLearnLayout pageTitle="Interpolation Curves">

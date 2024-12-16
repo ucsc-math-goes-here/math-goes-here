@@ -10,7 +10,7 @@ import RocketDemo from './medias/RocketDemo/RocketDemo';
 import MainPlayController from './MainPlayController';
 import CharacterJumpDemo from './medias/CharacterJumpDemo/CharacterJumpDemo';
 
-function MainPageLayout() {
+const MainPageLayout = () => {
   const listComponents = [
     <RocketDemo />,
     <CharacterJumpDemo />,

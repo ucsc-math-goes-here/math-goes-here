@@ -7,13 +7,13 @@ import { StepNavigationButtons } from "../../components/StepNavigationButtons";
 import PageNav from "../../components/PageNav";
 
 import calculate from '../../assets/dotprod3d/calculate_example.png';
-import fresnel from'../../assets/dotprod3d/fresnel.png';
-import fresnel2 from'../../assets/dotprod3d/fresnel2.png';
-import channelMasking from'../../assets/dotprod3d/channel-masking.png';
-import grayscale from'../../assets/dotprod3d/grayscale.png';
+import fresnel from '../../assets/dotprod3d/fresnel.png';
+import fresnel2 from '../../assets/dotprod3d/fresnel2.png';
+import channelMasking from '../../assets/dotprod3d/channel-masking.png';
+import grayscale from '../../assets/dotprod3d/grayscale.png';
 
 
-function LearnDotProduct() {
+const LearnDotProduct = () => {
   return (
     <Box component="section" sx={{ mb: 4, alignContent: "start", justifyContent: "start" }}>
       <StepNavigationButtons
@@ -28,12 +28,12 @@ function LearnDotProduct() {
         <strong>Dot Product:</strong> Learn
       </h1>
 
-      <Typography variant="body1" style={{maxWidth:'700px', textAlign:'start', justifySelf:'center'}} >
-      
+      <Typography variant="body1" style={{ maxWidth: '700px', textAlign: 'start', justifySelf: 'center' }} >
+
         <p>From the beautiful graphics to the realistic physics to the challenging enemy behaviors, the vector dot product is used all over video games. </p>
 
         <p>Watch this video to learn more. To try an interactive demo, click <a href="./explore-dot-product"><strong>Explore</strong></a>.</p>
-     
+
       </Typography>
 
       <Box sx={{
@@ -43,7 +43,7 @@ function LearnDotProduct() {
 
         <iframe width="560" height="315" src="https://www.youtube.com/embed/_0wWcwX3ls8?si=XmEu2ckQoo6sk9bS" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
 
-        <br/>Credit: <a href="https://www.youtube.com/@MahmoudElMansariEN-ze5fo">Mahmoud El Mansari EN</a>
+        <br />Credit: <a href="https://www.youtube.com/@MahmoudElMansariEN-ze5fo">Mahmoud El Mansari EN</a>
       </Box>
 
       <Box sx={{ mt: 4 }}>
@@ -73,31 +73,31 @@ function LearnDotProduct() {
             <MathJax inline dynamic>{"\\( \\vec{A} \\cdot \\vec{B} = |A||B|\\cos \\theta \\)"}</MathJax>
           </Box>
 
-          <Box sx={{textAlign:'start', justifySelf:'center', lineHeight:1.5}} >
-                  <p>
-                    Let's look at an example: <br/>
-                    <img width="780px" src={calculate} alt="Two vectors A=(4,3) and B=(12,5) are 14.25 degrees apart." /><br/>
-                    To calculate the dot product <MathJax inline dynamic>{"\\( \\vec{A} \\cdot \\vec{B} \\)"}</MathJax>,<br/>
-                    we can either calculate&nbsp;  
-                    <MathJax inline dynamic>{"\\( A_{x}B_{x} + A_{y}B_{y} = 4 \\cdot 12 + 3 \\cdot 5 = 63 \\)"}<br/></MathJax>
-                    or we can calculate &nbsp; 
+          <Box sx={{ textAlign: 'start', justifySelf: 'center', lineHeight: 1.5 }} >
+            <p>
+              Let's look at an example: <br />
+              <img width="780px" src={calculate} alt="Two vectors A=(4,3) and B=(12,5) are 14.25 degrees apart." /><br />
+              To calculate the dot product <MathJax inline dynamic>{"\\( \\vec{A} \\cdot \\vec{B} \\)"}</MathJax>,<br />
+              we can either calculate&nbsp;
+              <MathJax inline dynamic>{"\\( A_{x}B_{x} + A_{y}B_{y} = 4 \\cdot 12 + 3 \\cdot 5 = 63 \\)"}<br /></MathJax>
+              or we can calculate &nbsp;
 
-                    <MathJax inline dynamic>{"\\( |A||B|\\cos \\theta \\ = 5 \\cdot 13 \\cdot 0.969[...] = 63 \\)"}</MathJax>.
-                    </p>
+              <MathJax inline dynamic>{"\\( |A||B|\\cos \\theta \\ = 5 \\cdot 13 \\cdot 0.969[...] = 63 \\)"}</MathJax>.
+            </p>
 
-                    <p>If any one of these pieces of information are unknown, we can solve for it using these two equations.</p> 
-                    </Box>
-            </MathJaxContext>
+            <p>If any one of these pieces of information are unknown, we can solve for it using these two equations.</p>
+          </Box>
+        </MathJaxContext>
 
       </Box>
 
-      <Box sx={{ mt: 4, width: "800px", margin: "2rem auto"}}>
+      <Box sx={{ mt: 4, width: "800px", margin: "2rem auto" }}>
         <Typography variant="h5" align="left" gutterBottom sx={{ fontWeight: 'bold' }}>
           For Further Investigation
         </Typography>
 
         <Typography variant="body1" align="left" >
-          Here are some more ways to learn about the dot product. <br/>
+          Here are some more ways to learn about the dot product. <br />
           <a href="https://www.youtube.com/watch?v=a_8DIR6_hhI" target="_blank" >[Youtube] A Crash Course in Dot Produdcts - Math for Game Dev</a>
           <br />
           <a href="https://www.youtube.com/watch?v=_61tlp2kOow" target="_blank">[Youtube] The Basics of Dot Product in Unity URP. Vectors, Angles, and Lighting!</a>
@@ -108,13 +108,13 @@ function LearnDotProduct() {
         </Typography>
       </Box>
 
-      <Box component="section" sx={{ mt: 4, maxWidth: "800px", margin: "5rem auto 0", textAlign: "left"}}>
+      <Box component="section" sx={{ mt: 4, maxWidth: "800px", margin: "5rem auto 0", textAlign: "left" }}>
         <Typography variant="h4" align="left" gutterBottom sx={{ fontWeight: 'bold' }}>
           Dot Product in 3D Graphics
         </Typography>
         <Typography variant="body1" align="left">
           Dot Product is commonly used in shaders to find the relations between a light or view vector against the surface normal.
-          <br/>
+          <br />
           Here are some Unreal Engine Shader examples.
         </Typography>
 
