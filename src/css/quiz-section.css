@@ -13,3 +13,7 @@
 .result-box.incorrect h3{
   color: red
 }
+/* 
+section *{
+  box-sizing:border-box;
+} */

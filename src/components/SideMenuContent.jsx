@@ -52,9 +52,9 @@ function SideMenuContent({ }) {
             >
               Explore
             </ListItemButton>
-            <ListItemButton
-              sx={{ pl: 4, backgroundColor: getColor(step == "quiz" && topic == "dot-product") }}
-              to="./quiz-dot-product"
+            <ListItemButton 
+              sx={{ pl: 4 }}
+              to="./reflect-dot-product"
             >
               Reflect
             </ListItemButton>

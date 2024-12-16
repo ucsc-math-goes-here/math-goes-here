@@ -3,6 +3,7 @@ import { useMediaQuery } from "react-responsive";
 import { Box } from '@mui/material';
 
 import QuizItem from '../../components/quizItem';
+import PageNav from "../../components/PageNav";
 
 import acutevectors from '../../assets/dotprod3d/acutevectors.png';
 import obtusevectors from '../../assets/dotprod3d/obtusevectors.png';
@@ -19,32 +20,33 @@ function QuizDotProduct() {
 
   return (
     <Box component="section" sx={{ mb: 4, alignContent: "start", justifyContent: "start" }}>
+        <StepNavigationButtons
+        canGoPrev={true}
+        canGoNext={true}
+        prevUrl={"/explore-dot-product"}
+        nextUrl={"/master-dot-product"}
+        nextText="Master"
+        prevText="Explore"
+      />
 
       <Box>
         <h1>
           <strong>Dot Product: </strong> Reflect
         </h1>
-        <p>Test your understanding of Dot Product through these quiz questions!</p>
+
+
+        <p>How well do you know dot products? Try these questions.</p>
+
+        <p>If you'd like to try out the dot product in a small project, click <a href="./master-dot-product"><strong>Master</strong></a>.</p>    
       </Box>
 
-      <Box component="section"
-        sx={{
-          my: 4,
-          display: 'grid',
-          gridTemplateColumns: isMobile ? '100%' : '50% 50%',
-          gap: '1rem'
-        }}>
-        <QuizItem
-          questionString={<span>Vectors A and B are pointing in the same direction. Which of the following statements are true? Check all that apply.</span>}
-          imageUrl={parallelvectors}
-          choices={[
-            { label: "A • B = |A||B|", isTrue: true },
-            { label: "A • B = 0", isTrue: false },
-            { label: "A • B > 0", isTrue: true },
-            { label: "A • B < 0", isTrue: false }
-          ]}
-          explanation={"When two vectors have the same direction, the dot product is the product of their magnitudes, which is always positive."}
-        />
+      <Box component="section" 
+      sx={{ 
+        my: 4,
+        display: 'grid',
+        gridTemplateColumns: isMobile ? '100%' : '1fr 1fr',
+        gap: '1rem 3rem'
+      }}>
         <QuizItem
           questionString={"P and Q are unit vectors.  Which of these are possible values for P • Q?  Check all that apply."}
           choices={[
@@ -96,6 +98,19 @@ function QuizDotProduct() {
           explanation={"When two vectors are perpendicular, their dot product is zero."}
         />
 
+        <QuizItem  
+          questionString={<span>Vectors A and B are pointing in the same direction. Which of the following statements are true? Check all that apply.</span>}
+          imageUrl={parallelvectors}
+          choices={[
+            { label: "A • B = |A||B|", isTrue: true },
+            { label: "A • B = 0", isTrue: false },
+            { label: "A • B > 0", isTrue: true },
+            { label: "A • B < 0", isTrue: false }
+          ]}
+          explanation={"When two vectors have the same direction, the dot product is the product of their magnitudes, which is always positive."}
+        />
+
+
         <QuizItem
           questionString={<span>Based on this diagram,<br />which of these is the value of A • B?</span>}
           imageUrl={vectorcomponents}
@@ -109,12 +124,6 @@ function QuizDotProduct() {
         />
 
       </Box>
-      <StepNavigationButtons
-        canGoPrev={true}
-        canGoNext={true}
-        prevUrl={"/explore-dot-product"}
-        nextUrl={"/master-dot-product"}
-      />
     </Box>
   )
 }
