@@ -11,14 +11,14 @@ export async function createNormalArrows(scene, lightSource, ground, options = {
   const pointersLength = 2;
   const loader = new FBXLoader();
   const { scale = 0.1, onDotProductChange, controls } = options;
-  let position = new THREE.Vector3(ground.position.x, ground.position.y, ground.position.z);
+  let position = new THREE.Vector3(ground.position.x, ground.position.y - 0.05, ground.position.z);
   const planeNormalPointer = await new Promise((resolve, reject) => {
     loader.load('./models/lightPointer.fbx', resolve, undefined, reject);
   });
 
   planeNormalPointer.scale.set(scale, scale, scale);
   planeNormalPointer.position.set(position.x, position.y, position.z);
-  const groundNormalMaterial = new THREE.MeshBasicMaterial({ color: groundNormalColor, depthTest: false });
+  const groundNormalMaterial = new THREE.MeshBasicMaterial({ color: groundNormalColor });
   planeNormalPointer.traverse((child) => {
     if (child.isMesh) {
       child.material = groundNormalMaterial;
@@ -40,7 +40,7 @@ export async function createNormalArrows(scene, lightSource, ground, options = {
 
   lightSourcePointer.scale.set(scale, scale, scale);
   lightSourcePointer.position.set(position.x, position.y, position.z);
-  const lightSourceMaterial = new THREE.MeshBasicMaterial({ color: lightSourcePointerColor, depthTest: false });
+  const lightSourceMaterial = new THREE.MeshBasicMaterial({ color: lightSourcePointerColor });
   lightSourcePointer.traverse((child) => {
     if (child.isMesh) {
       child.material = lightSourceMaterial;
@@ -73,7 +73,7 @@ export async function createNormalArrows(scene, lightSource, ground, options = {
     dashSize: 0.1,
     gapSize: 0.1,
     linewidth: 1,
-    depthTest: false,
+    // depthTest: false,
   });
   dashMaterial.renderOrder = 4;
   const dashLine = new THREE.Line(dashGeometry, dashMaterial);
