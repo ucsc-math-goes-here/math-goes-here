@@ -17,6 +17,7 @@ const ThreeJsDotProductRenderWindow = () => {
   const [showDirectionToLight, setShowDirectionToLight] = useState(true);
   const [showDotProduct, setShowDotProduct] = useState(true);
   const [showDotProductLine, setShowDotProductLine] = useState(true);
+  const [joystickKey, setJoystickKey] = useState(0);
 
   const groundNormalColor = "#0000ff";
   const lightSourcePointerColor = "#ffff00";
@@ -117,6 +118,8 @@ const ThreeJsDotProductRenderWindow = () => {
     };
     const { scene, camera, renderer } = createGameScene(displayPortRef.current, options);
     rendererRef.current = renderer;
+
+    setJoystickKey(prevKey => prevKey + 1);
   }
 
 
@@ -193,7 +196,7 @@ const ThreeJsDotProductRenderWindow = () => {
         />
       </div>
       <div style={{ position: 'absolute', bottom: 40, right: 40 }}>
-        <Joystick size={100} stickImage="./images/ground_joystick.png" sticky={true} baseColor="#00000077" stickColor="#bbbbbbff" move={handleJoystickMove} >
+        <Joystick key={joystickKey} size={100} stickImage="./images/ground_joystick.png" sticky={true} baseColor="#00000077" stickColor="#bbbbbbff" move={handleJoystickMove} >
           {/* <Typography variant="h7" style={{ color: 'white' }}>
             Ground Angle
           </Typography> */}

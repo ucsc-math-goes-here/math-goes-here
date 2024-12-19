@@ -32,7 +32,7 @@ export function createGameScene(container, options = {}) {
   renderer.setSize(container.clientWidth, container.clientHeight);
   container.appendChild(renderer.domElement);
 
-  camera.position.set(0, 0, 8.5);
+  camera.position.set(0, 2, 8);
   const orbitControls = new OrbitControls(camera, renderer.domElement);
   orbitControls.enableZoom = false;
 
