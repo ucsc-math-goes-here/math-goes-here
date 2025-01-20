@@ -31,8 +31,8 @@ const LearnDotProduct = () => {
       <Typography variant="body1" style={{ maxWidth: '700px', textAlign: 'start', justifySelf: 'center' }} >
 
         <p>From the beautiful graphics to the realistic physics to the challenging enemy behaviors, the vector dot product is used all over video games. </p>
+        <p>To try an interactive demo, click <a href="./explore-dot-product"><strong>Explore</strong></a>.</p>
 
-        <p>Watch this video to learn more. To try an interactive demo, click <a href="./explore-dot-product"><strong>Explore</strong></a>.</p>
 
       </Typography>
 
@@ -40,6 +40,7 @@ const LearnDotProduct = () => {
         "text-align": "center",
         "margin-top": "1rem"
       }}>
+        <p>Here's a YouTube creator explaining dot products in video games:</p>
 
         <iframe width="560" height="315" src="https://www.youtube.com/embed/_0wWcwX3ls8?si=XmEu2ckQoo6sk9bS" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
 
@@ -77,10 +78,10 @@ const LearnDotProduct = () => {
             <p>
               Let's look at an example: <br />
               <img width="780px" src={calculate} alt="Two vectors A=(4,3) and B=(12,5) are 14.25 degrees apart." /><br />
-              To calculate the dot product <MathJax inline dynamic>{"\\( \\vec{A} \\cdot \\vec{B} \\)"}</MathJax>,<br />
-              we can either calculate&nbsp;
+              To calculate the dot product <MathJax inline dynamic>{"\\( \\vec{A} \\cdot \\vec{B} \\)"}</MathJax>:<br />
+              We can calculate:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <MathJax inline dynamic>{"\\( A_{x}B_{x} + A_{y}B_{y} = 4 \\cdot 12 + 3 \\cdot 5 = 63 \\)"}<br /></MathJax>
-              or we can calculate &nbsp;
+              Or we can calculate: &nbsp;&nbsp;&nbsp;
 
               <MathJax inline dynamic>{"\\( |A||B|\\cos \\theta \\ = 5 \\cdot 13 \\cdot 0.969[...] = 63 \\)"}</MathJax>.
             </p>
@@ -140,18 +141,6 @@ const LearnDotProduct = () => {
 
         <Box sx={{ mt: 3 }}>
           <Typography variant="h5" align="left" gutterBottom sx={{ fontWeight: 'bold' }}>
-            Channel Masking
-          </Typography>
-          <img
-            src={channelMasking}
-            alt="Channel Masking"
-            style={{ width: '100%', height: 'auto' }}
-          />
-          <p>You can also use the dot product to mask specific channels. It'll perform the dot product with the RGB value and will give back a scalar value on how far the value is from, say, Blue (0,0,1). See in this example, green and red have turned black.</p>
-        </Box>
-
-        <Box sx={{ mt: 3 }}>
-          <Typography variant="h5" align="left" gutterBottom sx={{ fontWeight: 'bold' }}>
             Grayscale
           </Typography>
           <img
@@ -159,8 +148,13 @@ const LearnDotProduct = () => {
             alt="Grayscale Example"
             style={{ width: '100%', height: 'auto' }}
           />
-          <p>You can use the RGB values as a vector to flatten to color to a scalar value using the dot product. You can adjust the vector used on the dot product (in the image above, a lime color RGB vector) to make sure the grayscale value isn't too dark or light.</p>
+          <p>
+            We can treat the RGB values of a pixel like a vector, and use a dot product with a constant vector to get a greyscale value that is a linear combination of those chanels. In this example, we're using a lime color to give the green channel more weight. 
+        </p>
         </Box>
+
+
+
       </Box>
 
     </Box>
