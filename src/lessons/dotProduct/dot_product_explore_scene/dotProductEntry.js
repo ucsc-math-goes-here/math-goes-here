@@ -43,7 +43,7 @@ export function createGameScene(container, options = {}) {
   let groundAndSunGroup = null;
   let ground = null;
   let backgroundPanel = null;
-  createGroundAndSun(3.5, camera, { controls }).then((results) => {
+  createGroundAndSun(5, camera, { controls }).then((results) => {
     groundAndSunGroup = results;
     ground = groundAndSunGroup.ground;
     scene.add(ground);

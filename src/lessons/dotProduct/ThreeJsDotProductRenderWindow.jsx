@@ -13,10 +13,9 @@ import './styles/ThreeJsDotProductRenderWindow.css';
 
 const ThreeJsDotProductRenderWindow = () => {
   const [dotProduct, setDotProduct] = useState(1.0);
-  const [showPlaneNormal, setShowPlaneNormal] = useState(true);
-  const [showDirectionToLight, setShowDirectionToLight] = useState(true);
-  const [showDotProduct, setShowDotProduct] = useState(true);
-  const [showDotProductLine, setShowDotProductLine] = useState(true);
+  const [showPlaneNormal, setShowPlaneNormal] = useState(false);
+  const [showDirectionToLight, setShowDirectionToLight] = useState(false);
+  const [showDotProduct, setShowDotProduct] = useState(false);
   const [joystickKey, setJoystickKey] = useState(0);
 
   const groundNormalColor = "#0000ff";
@@ -68,11 +67,7 @@ const ThreeJsDotProductRenderWindow = () => {
     sceneControls.current.updateShowDotLengthPointer?.(event.target.checked);
   };
 
-  const handleShowDotProductLineChange = (event) => {
-    setShowDotProductLine(event.target.checked);
-    sceneControls.current.updateShowDotProductline?.(event.target.checked);
-  };
-
+ 
   const onDotProductChange = (value) => {
     // round value
     value = Math.round(value * 100) / 100;
@@ -99,15 +94,14 @@ const ThreeJsDotProductRenderWindow = () => {
     setLightSourceRotation(0);
     sceneControls.current.updateLightSourceRotation?.(0);
     setDotProduct(1.0);
-    setShowDirectionToLight(true);
-    sceneControls.current.updateShowLightPointer?.(true);
-    setShowDotProduct(true);
-    sceneControls.current.updateShowDotLengthPointer?.(true);
-    setShowPlaneNormal(true);
-    sceneControls.current.updateShowPlaneNormal?.(true);
-    setShowDotProductLine(true);
-    sceneControls.current.updateShowDotProductline?.(true);
-
+    setShowDirectionToLight(false);
+    sceneControls.current.updateShowLightPointer?.(false);
+    setShowDotProduct(false);
+    sceneControls.current.updateShowDotLengthPointer?.(false);
+    setShowPlaneNormal(false);
+    sceneControls.current.updateShowPlaneNormal?.(false);
+    sceneControls.current.updateGroundRotation?.(0,0);
+    
     rendererRef.current.dispose();
     if (displayPortRef.current) {
       displayPortRef.current.removeChild(rendererRef.current.domElement);
@@ -127,16 +121,14 @@ const ThreeJsDotProductRenderWindow = () => {
     <div ref={displayPortRef}
       style={{
         position: 'relative',
-        width: 1000,
+        width: 800,
         height: 500,
         backgroundColor: '#e0e0e0',
         display: 'block',
         userSelect: 'none',
         margin: 'auto',
       }}>
-      <div className="hover-container">
-        <div className="hover-area">More Setting Options</div>
-        <div className="dropdown-content">
+        <div style={{backgroundColor: '#404040'}}>
           <FormControlLabel
             control={<Switch checked={showPlaneNormal} onChange={handleShowPlaneNormalChange} name="showPlaneNormal" />}
             label="Show Plane Normal"
@@ -152,18 +144,12 @@ const ThreeJsDotProductRenderWindow = () => {
             label="Show Dot Product"
             style={{ color: 'white' }}
           />
-          <FormControlLabel
-            control={<Switch checked={showDotProductLine} onChange={handleShowDotProductLineChange} name="showDotProductLine" />}
-            label="Show Dot Product Line"
-            style={{ color: 'white' }}
-          />
           <Button variant="contained" color="primary" onClick={reset}>
             Reset
           </Button>
         </div>
-      </div>
       <div style={{ position: 'absolute', top: 100, right: 50 }}>
-        <Typography variant="h4" style={{ color: 'white' }}>
+        <Typography variant="h4" style={{ color: 'white', visibility: showDotProduct ? 'visible' : 'hidden' }}>
           <span style={{ color: lightSourcePointerColor }}>Light</span>
           ⋅
           <span style={{ color: groundNormalColor }}>Normal</span>
@@ -173,7 +159,7 @@ const ThreeJsDotProductRenderWindow = () => {
       </div>
       <div style={{ position: 'absolute', bottom: 10, left: 20, right: 200, textAlign: 'left', }}>
         <Typography variant="h7" style={{ color: 'white' }}>
-          Sun Azimuth: {lightSourceOrbit}
+          Sun Direction: {lightSourceOrbit}
         </Typography>
         <Slider
           value={lightSourceOrbit}

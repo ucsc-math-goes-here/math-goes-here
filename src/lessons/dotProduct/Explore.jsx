@@ -28,7 +28,8 @@ const ExploreDotProduct = () => {
         
           This demo shows how the dot product is used to determine the brightness of the light hitting a surface.    
       
-        <br />Use the <strong>Azimuth</strong> and <strong>Elevation</strong> sliders to set the position of the light source.
+        <br />
+        <br />Use the <strong>Sun Direction</strong> and <strong>Elevation</strong> sliders to set the position of the light source.
         <br/>Use the <strong>Ground Angle</strong> joystick tilt the ground. 
         <br/><strong>Click and Drag</strong> to move the camera. 
 
@@ -38,10 +39,15 @@ const ExploreDotProduct = () => {
           Notice how the <em>brightness</em> of the surface is affected by the dot product between the <em>light vector</em> and the <em>surface normal</em>. 
           As the surface tilts away from the sun, it becomes darker.
 
+         <br /> 
+        <br />
+        Then turn on the <strong>Plane Normal</strong>, <strong>Direction to Light</strong>, and <strong>Dot Product</strong> options to see how the math works.
+         
+
         </Typography>
       </Box>
 
-      <Box component="section" sx={{ my: 4 }}>
+      <Box component="section" sx={{ mt: 2, mb: 6  }}>
         <ThreeJsDotProductRenderWindow />
       </Box>
 

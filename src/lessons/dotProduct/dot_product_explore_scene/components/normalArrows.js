@@ -1,5 +1,6 @@
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader.js';
 import * as THREE from 'three';
+import { light } from '@mui/material/styles/createPalette';
 
 
 export async function createNormalArrows(scene, lightSource, ground, options = {},) {
@@ -130,6 +131,13 @@ export async function createNormalArrows(scene, lightSource, ground, options = {
     dashlineShouldBeVisible = show;
     checkIfDashlineCanBeSeen();
   }
+
+  // Start hidden
+  planeNormalPointer.visible = false;
+  lightSourcePointer.visible = false; 
+  dotLengthPointer.visible = false;
+  dashLine.visible = false;
+ 
 
   return { groundNormalPointer: planeNormalPointer, lightSourcePointer };
 }
