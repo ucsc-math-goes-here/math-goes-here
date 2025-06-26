@@ -20,9 +20,9 @@ const ExploreDotProduct = () => {
         ]} 
       />
       <Box>
-        <h1>
+        <Typography variant="h3" component="h1" gutterBottom>
           <strong>Dot Product: </strong> Explore
-        </h1>
+        </Typography>
  
         <Typography  style={{maxWidth:'780px', textAlign:'start', justifySelf:'center'}} >
         
@@ -38,9 +38,6 @@ const ExploreDotProduct = () => {
           Notice how the <em>brightness</em> of the surface is affected by the dot product between the <em>light vector</em> and the <em>surface normal</em>. 
           As the surface tilts away from the sun, it becomes darker.
 
-
-
- 
         </Typography>
       </Box>
 

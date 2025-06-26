@@ -28,26 +28,27 @@ const LearnDotProduct = () => {
         ]} 
       />
 
-      <h1>
+      <Typography variant="h3" component="h1" gutterBottom >
         <strong>Dot Product:</strong> Learn
-      </h1>
+      </Typography>
 
       <Typography variant="body1" style={{ maxWidth: '700px', textAlign: 'start', justifySelf: 'center' }} >
-
         From the beautiful graphics to the realistic physics to the challenging enemy behaviors, the vector dot product is used all over video games. 
-
-
       </Typography>
 
       <Box sx={{
         "textAlign": "center",
         "marginTop": "1rem"
       }}>
-        <p>Here's a YouTube creator explaining dot products in video games:</p>
+        <Typography variant="body1" component="p">
+          Here's a YouTube creator explaining dot products in video games:
+        </Typography>
 
         <iframe width="560" height="315" src="https://www.youtube.com/embed/_0wWcwX3ls8?si=XmEu2ckQoo6sk9bS" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
 
-        <br />Credit: <a href="https://www.youtube.com/@MahmoudElMansariEN-ze5fo">Mahmoud El Mansari EN</a>
+        <Typography variant="caption" component="div">
+          Credit: <a href="https://www.youtube.com/@MahmoudElMansariEN-ze5fo">Mahmoud El Mansari EN</a>
+        </Typography>
       </Box>
 
       <Box sx={{ mt: 4 }}>
@@ -78,18 +79,19 @@ const LearnDotProduct = () => {
           </Box>
 
           <Box sx={{ textAlign: 'start', justifySelf: 'center', lineHeight: 1.5 }} >
-            <p>
+            <Typography variant="body1" component="div">
               Let's look at an example: <br />
               <img width="780px" src={calculate} alt="Two vectors A=(4,3) and B=(12,5) are 14.25 degrees apart." /><br />
               To calculate the dot product <MathJax inline dynamic>{"\\( \\vec{A} \\cdot \\vec{B} \\)"}</MathJax>:<br />
               We can calculate:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <MathJax inline dynamic>{"\\( A_{x}B_{x} + A_{y}B_{y} = 4 \\cdot 12 + 3 \\cdot 5 = 63 \\)"}<br /></MathJax>
               Or we can calculate: &nbsp;&nbsp;&nbsp;
-
               <MathJax inline dynamic>{"\\( |A||B|\\cos \\theta \\ = 5 \\cdot 13 \\cdot 0.969... = 63 \\)"}</MathJax>.
-            </p>
+            </Typography>
 
-            <p>If any one of these pieces of information are unknown, we can solve for it using these two equations.</p>
+            <Typography variant="body1" component="p">
+              If any one of these pieces of information are unknown, we can solve for it using these two equations.
+            </Typography>
           </Box>
         </MathJaxContext>
 
@@ -100,7 +102,7 @@ const LearnDotProduct = () => {
           For Further Investigation
         </Typography>
 
-        <Typography variant="body1" align="left" >
+        <Typography variant="body1" align="left" component="div">
           Here are some more ways to learn about the dot product. <br />
           <a href="https://www.youtube.com/watch?v=a_8DIR6_hhI" target="_blank" >[Youtube] A Crash Course in Dot Produdcts - Math for Game Dev</a>
           <br />
@@ -112,7 +114,6 @@ const LearnDotProduct = () => {
           <br />
           <br />
           To try an interactive demo of the dot product, click <a href="./explore-dot-product"><strong>Explore</strong></a>.
-
         </Typography>
 
         <StepNavigationButtons
@@ -124,8 +125,6 @@ const LearnDotProduct = () => {
         />
 
       </Box>
-
-  
 
       <Box
         id="Graphics"
@@ -155,9 +154,8 @@ const LearnDotProduct = () => {
         {!graphicsOpen && 
           <Typography variant="body1" align="left">
             Expand this to see some examples of how the dot product is used in Unreal Engine shaders
-            </Typography>
-            
-            }
+          </Typography>
+        }
         {graphicsOpen && (
           <>
             <Typography variant="body1" align="left">
@@ -175,13 +173,17 @@ const LearnDotProduct = () => {
                   alt="Fresnel Shader"
                   style={{ width: '100%' }}
                 />
-                <p>By calculating the dot product of the camera vector and the surface normal, you can use the scalar result to assign a different color value.</p>
+                <Typography variant="body2" component="p">
+                  By calculating the dot product of the camera vector and the surface normal, you can use the scalar result to assign a different color value.
+                </Typography>
                 <img
                   src={fresnel2}
                   alt="Fresnel Shader Example"
                   style={{ width: '100%' }}
                 />
-                <p>You can exaggerate the result with a power node to create an interesting effect!</p>
+                <Typography variant="body2" component="p">
+                  You can exaggerate the result with a power node to create an interesting effect!
+                </Typography>
               </Box>
             </Box>
 
@@ -194,19 +196,17 @@ const LearnDotProduct = () => {
                 alt="Grayscale Example"
                 style={{ width: '100%', height: 'auto' }}
               />
-              <p>
+              <Typography variant="body2" component="p">
                 We can treat the RGB values of a pixel like a vector, and use a dot product with a constant vector to get a greyscale value that is a linear combination of those chanels. In this example, we're using a lime color to give the green channel more weight. 
-              </p>
+              </Typography>
             </Box>
-          <StepNavigationButtons
-            canGoPrev={false}
-            canGoNext={true}
-            prevUrl={""}
-            nextUrl={"/explore-dot-product"}
-            nextText={"Explore"}
-          />
-
-
+            <StepNavigationButtons
+              canGoPrev={false}
+              canGoNext={true}
+              prevUrl={""}
+              nextUrl={"/explore-dot-product"}
+              nextText={"Explore"}
+            />
           </>
         )}
       </Box>

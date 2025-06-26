@@ -29,9 +29,9 @@ const QuizDotProduct = () => {
           marginBottom: "3rem"
         }}
       >
-        <h1>
+      <Typography variant="h3" component="h1" gutterBottom >
           <strong>Dot Product: </strong> Master
-        </h1>
+        </Typography>
       </Box>
 
 
