@@ -4,7 +4,7 @@ import { Box, Button, Typography } from '@mui/material';
 import { OpenInNew } from '@mui/icons-material';
 
 import PageNav from "../../components/PageNav";
-import { StepNavigationButtons } from "../../components/StepNavigationButtons";
+import { StepNavigationBar, StepNavigationButtons } from "../../components/StepNavigationButtons";
 
 const QuizDotProduct = () => {
   return (
@@ -15,12 +15,13 @@ const QuizDotProduct = () => {
         alignContent: "start",
         justifyContent: "start",
       }}>
-      <StepNavigationButtons
-        canGoPrev={true}
-        canGoNext={false}
-        prevUrl={"/reflect-dot-product"}
-        nextUrl={""}
-        prevText={"Reflect"}
+      <StepNavigationBar 
+        stepPaths={[
+          "/learn-dot-product", 
+          "/explore-dot-product", 
+          "/reflect-dot-product", 
+          "/master-dot-product"
+        ]} 
       />
 
       <Box
@@ -75,6 +76,15 @@ const QuizDotProduct = () => {
           <Button variant="contained" href="https://scratch.mit.edu/projects/1107917471/" target="_blank">Try it out on Scratch!&nbsp;<OpenInNew /></Button>
         </Box>
       </Box>
+
+   <StepNavigationButtons
+        canGoPrev={true}
+        canGoNext={false}
+        prevUrl={"/reflect-dot-product"}
+        nextUrl={""}
+        prevText={"Reflect"}
+      />
+
 
     </Box>
   )

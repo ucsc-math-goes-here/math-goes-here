@@ -5,6 +5,46 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import HomeIcon from '@mui/icons-material/Home';
 import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import Stepper from '@mui/material/Stepper';
+import Step from '@mui/material/Step';
+import StepButton from '@mui/material/StepButton';
+
+const stepsData = [
+  { label: "Learn" },
+  { label: "Explore" },
+  { label: "Reflect" },
+  { label: "Master" },
+];
+
+export const StepNavigationBar = ({ stepPaths = [] }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Find the active step based on the current path
+  const activeStep = stepPaths.findIndex(path => location.pathname === path);
+
+  const handleStep = (index) => {
+    if (index !== activeStep && stepPaths[index]) {
+      navigate(stepPaths[index]);
+      window.scrollTo(0,0);
+    }
+  };
+
+  return (
+    <div style={{ width: "100%", margin: "24px 0" }}>
+      <Stepper activeStep={activeStep} nonLinear alternativeLabel>
+        {stepsData.map((step, index) => (
+          <Step key={step.label} >
+            <StepButton onClick={() => handleStep(index)} >
+              {step.label}
+            </StepButton>
+          </Step>
+        ))}
+      </Stepper>
+    </div>
+  );
+};
 
 
 export const StepNavigationButtons = ({ canGoPrev, canGoNext, nextUrl, prevUrl, nextText, prevText }) => {
@@ -13,17 +53,20 @@ export const StepNavigationButtons = ({ canGoPrev, canGoNext, nextUrl, prevUrl, 
   const goNext = () => {
     if (canGoNext && nextUrl) {
       navigate(nextUrl);
+      window.scrollTo(0,0);
     }
   }
 
   const goPrev = () => {
     if (canGoPrev && prevUrl) {
       navigate(prevUrl);
+      window.scrollTo(0,0);
     }
   }
 
   const goHome = () => {
     navigate("/");
+    window.scrollTo(0,0);
   }
 
   const firstButton = canGoPrev ? <GoPrevButton onClick={goPrev} prevText={prevText} /> : <div />;
@@ -34,8 +77,7 @@ export const StepNavigationButtons = ({ canGoPrev, canGoNext, nextUrl, prevUrl, 
 
   return (
     <div>
-      <div style={{height: "50px"}}/>
-      <div style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", width: "80%", alignSelf: "center", margin: "0 auto" }}>
         {firstButton}
         {lastButton}
       </div>

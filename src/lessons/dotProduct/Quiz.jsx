@@ -10,7 +10,7 @@ import obtusevectors from '../../assets/dotprod3d/obtusevectors.png';
 import orthovectors from '../../assets/dotprod3d/orthovectors.png';
 import parallelvectors from '../../assets/dotprod3d/parallelvectors.png';
 import vectorcomponents from '../../assets/dotprod3d/vectorcomponents.png';
-import { StepNavigationButtons } from "../../components/StepNavigationButtons";
+import { StepNavigationBar, StepNavigationButtons } from "../../components/StepNavigationButtons";
 
 
 const QuizDotProduct = () => {
@@ -20,13 +20,13 @@ const QuizDotProduct = () => {
 
   return (
     <Box component="section" sx={{ mb: 4, alignContent: "start", justifyContent: "start" }}>
-      <StepNavigationButtons
-        canGoPrev={true}
-        canGoNext={true}
-        prevUrl={"/explore-dot-product"}
-        nextUrl={"/master-dot-product"}
-        nextText="Master"
-        prevText="Explore"
+      <StepNavigationBar 
+        stepPaths={[
+          "/learn-dot-product", 
+          "/explore-dot-product", 
+          "/reflect-dot-product", 
+          "/master-dot-product"
+        ]} 
       />
 
       <Box>
@@ -124,6 +124,16 @@ const QuizDotProduct = () => {
         />
 
       </Box>
+
+  <StepNavigationButtons
+        canGoPrev={true}
+        canGoNext={true}
+        prevUrl={"/explore-dot-product"}
+        nextUrl={"/master-dot-product"}
+        nextText="Master"
+        prevText="Explore"
+      />
+
     </Box>
   )
 }
