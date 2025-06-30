@@ -19,12 +19,23 @@ const ExploreDotProduct = () => {
           "/master-dot-product"
         ]} 
       />
-      <Box>
+
         <Typography variant="h3" component="h1" gutterBottom>
           <strong>Dot Product: </strong> Explore
         </Typography>
+
+      <Box style={{maxWidth:'780px', textAlign:'start', justifySelf:'center'}}>
+
+        <Typography variant="h3" component="h2" gutterBottom sx={{ textAlign: 'left' }}>
+          Lighting and Shading Demo
+        </Typography>
+
+        <Box component="section" sx={{ mt: 2, mb: 6  }}>
+          <ThreeJsDotProductRenderWindow />
+        </Box>
  
-        <Typography  style={{maxWidth:'780px', textAlign:'start', justifySelf:'center'}} >
+
+        <Typography>
         
           This demo shows how the dot product is used to determine the brightness of the light hitting a surface.    
       
@@ -41,17 +52,47 @@ const ExploreDotProduct = () => {
 
          <br /> 
         <br />
-        Then turn on the <strong>Plane Normal</strong>, <strong>Direction to Light</strong>, and <strong>Dot Product</strong> options to see how the math works.
-         
+        Then turn on the <strong>Ground Normal</strong>, <strong>Direction to Light</strong>, and <strong>Dot Product</strong> options to see how the math works.
+        </Typography>
+
+
+      </Box>
+
+      <Box sx={{ height: 48 }} />
+
+      <Box style={{maxWidth:'780px', textAlign:'start', justifySelf:'center'}}>
+
+        <Typography variant="h3" component="h2" gutterBottom sx={{ textAlign: 'left' }}>
+          Vision Cone Demo
+        </Typography>
+
+        <Box component="section" sx={{ mt: 2  }}>
+          <iframe width="780px" height="600px" src="https://scratch.mit.edu/projects/1193541279/embed" title="Scratch Project Embed"></iframe>
+        </Box>
+
+
+        <Typography>
+        
+          This demo shows how the dot product is used to determine whether an NPC can see the player.
+      
+        <br />
+        <br />Click and drag the <strong>bat</strong> to move it around the screen.
+        <br />Then use the <strong>sliders</strong> to change the cat's field of vision.
+        <br />The display shows the dot product between the <em>direction to the bat</em> and the <em>cat's look direction</em>.
+        <br />
+        <br />Notice that when the dot product is greater than the cosine of the cat's field of view, the cat can see the bat.
 
         </Typography>
+
+
       </Box>
 
-      <Box component="section" sx={{ mt: 2, mb: 6  }}>
-        <ThreeJsDotProductRenderWindow />
-      </Box>
+
 
         <Typography  style={{maxWidth:'780px', textAlign:'left', justifySelf:'center'}} >
+
+      <Box sx={{ mt: 4 }} />
+
 
         To go back, click <a href="./learn-dot-product"><strong>Learn</strong></a>. <br/>
         When you're ready to test your knowledge, click <a href="./reflect-dot-product"><strong>Reflect</strong></a>.

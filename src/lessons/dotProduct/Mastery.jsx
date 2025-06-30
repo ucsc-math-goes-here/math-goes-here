@@ -43,8 +43,11 @@ const QuizDotProduct = () => {
       }}
       >
         <Box>
-          <iframe width="500px" height="400" src="https://scratch.mit.edu/projects/1106303386/embed" title="Scratch Project Embed"></iframe>
+          
+          <iframe width="500px" height="400" src="https://scratch.mit.edu/projects/1193547730/embed" title="Scratch Project Embed"></iframe>
           <Box sx={{ width: '480px', textAlign: 'start', justifySelf: 'center' }} >
+
+            To see the working version of the demo, go back to <a href="./explore-dot-product"><strong>Explore</strong></a>.
             <p>Click on the <strong>green flag</strong> to try it out!<br />
               Use the <strong>sliders</strong> to change the cat's field of vision.  <br />
               <strong>Click and Drag</strong> to move the bat around.
@@ -57,23 +60,19 @@ const QuizDotProduct = () => {
           }}
         >
 
-          <h2
-            style={{
-              marginTop: 0
-            }}
-          >
-            Put Your Dot Product Knowledge to Work!
-          </h2>
+      <Typography variant="h3" component="h2" gutterBottom >
+          Oh No!
+        </Typography>
+            Our vision cone demo is broken!
 
           <p>
-            In this project, you'll use a dot product to determine whether one character can see another, given its limited field of view.
-            This page shows a working solution.
+            Use your dot product knowledge to fix it!
           </p>
           <p>
-            Click the button when you are ready to make your own version!
+            Click the button when you are ready.
           </p>
 
-          <Button variant="contained" href="https://scratch.mit.edu/projects/1107917471/" target="_blank">Try it out on Scratch!&nbsp;<OpenInNew /></Button>
+          <Button variant="contained" href="https://scratch.mit.edu/projects/1193547730/editor/" target="_blank">Try it out on Scratch!&nbsp;<OpenInNew /></Button>
         </Box>
       </Box>
 

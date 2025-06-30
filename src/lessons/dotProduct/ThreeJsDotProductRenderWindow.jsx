@@ -131,7 +131,7 @@ const ThreeJsDotProductRenderWindow = () => {
         <div style={{backgroundColor: '#404040'}}>
           <FormControlLabel
             control={<Switch checked={showPlaneNormal} onChange={handleShowPlaneNormalChange} name="showPlaneNormal" />}
-            label="Show Plane Normal"
+            label="Show Ground Normal"
             style={{ color: 'white' }}
           />
           <FormControlLabel
