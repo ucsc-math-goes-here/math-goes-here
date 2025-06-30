@@ -69,7 +69,7 @@ const QuizDotProduct = () => {
             Use your dot product knowledge to fix it!
           </p>
           <p>
-            Click the button when you are ready.
+            Click the button to give it a try! 
           </p>
 
           <Button variant="contained" href="https://scratch.mit.edu/projects/1193547730/editor/" target="_blank">Try it out on Scratch!&nbsp;<OpenInNew /></Button>
